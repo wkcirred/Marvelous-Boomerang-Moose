@@ -31,7 +31,7 @@ public class Person5 {
 	 */
 	private String calc(String input) {
 	  //Person 5 put your implementation here
-    String rotatedString;
+    String rotatedString = new String();
     for (int i = 2; i < input.length(); i++) {
       rotatedString += input.charAt(i);
     }
