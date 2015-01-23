@@ -31,12 +31,12 @@ public class Person5 {
 	 */
 	private String calc(String input) {
 	  //Person 5 put your implementation here
-    String rString = new String();
+    String rotatedString = new String();
     for (int i = 2; i < input.length(); i++) {
-      rString += input.charAt(i);
+      rotatedString += input.charAt(i);
     }
-    rString = rString + input.charAt(0) + input.charAt(1);
-    return rString;
+    rotatedString = rotatedString + input.charAt(0) + input.charAt(1);
+    return rotatedString;
 	}
 
 	/**
