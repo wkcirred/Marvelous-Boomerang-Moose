@@ -32,15 +32,20 @@ public class Person2 {
 	private String calc(String input) {
 	  //Person 2 put your implementation here
 	  String s = input;
+	  int n = input.length();
 	  String out = "";
 	  int pointer = 0;
-	  for (int i = 0; i < input.length(); i++) {
-	  	pointer = (int) Math.floor(Math.random() * s.length());
+	  for (int i = 0; i < n; i++) {
+	  	System.out.println(s);
+	  	pointer = (int) Math.abs(Math.random() * s.length());
+	  	System.out.println(pointer);
 	  	out += s.charAt(pointer);
-	  	if (pointer == 0) {
+	  	if (pointer == 0 && s.length()==1) {
+	  
+	  	} else if (pointer == 0) {
 	  		s = s.substring(1, s.length());
 	  	} else {
-	  		s = s.substring(0, pointer - 1) + s.substring(pointer + 1, s.length()); 
+	  		s = s.substring(0, pointer) + s.substring(pointer+1, s.length()); 
 	  	}
 	  }
 	  return out;
@@ -55,8 +60,5 @@ public class Person2 {
 	 */
 	public String toString(String input) {
 	  return name + calc(input);
-	}
-	public static void main(String[] args) {
-		System.out.println("kk");
 	}
 }
