@@ -36,7 +36,7 @@ public class Person2 {
 	  int pointer = 0;
 	  for (int i = 0; i < input.length(); i++) {
 	  	pointer = (int) Math.random() * s.length();
-	  	out += s.charAt(pointer);
+	  	out += s.charAt(pointer + 1);
 	  	s = s.substring(0, pointer - 1) + s.substring(pointer + 1, s.length()); 
 	  }
 	  return out;
