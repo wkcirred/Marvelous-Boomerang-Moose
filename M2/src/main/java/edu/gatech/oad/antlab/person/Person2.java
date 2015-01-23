@@ -39,7 +39,7 @@ public class Person2 {
 	  	out += s.charAt(pointer);
 	  	if (pointer == 0) {
 	  		s = s.substring(1, s.length());
-	  	} else{
+	  	} else {
 	  		s = s.substring(0, pointer - 1) + s.substring(pointer + 1, s.length()); 
 	  	}
 	  }
