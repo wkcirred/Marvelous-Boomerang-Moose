@@ -4,6 +4,9 @@
     <string name="app_name">Shopping With Friends</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+
     <color name="teal">#33CCFF</color>
+
+    <string name="title_activity_home">HomeActivity</string>
 
 </resources>
