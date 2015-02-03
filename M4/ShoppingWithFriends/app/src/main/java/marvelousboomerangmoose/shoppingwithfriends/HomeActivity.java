@@ -13,7 +13,7 @@ import android.os.Build;
 
 
 public class HomeActivity extends ActionBarActivity {
-
+    /*This is a test comment*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
