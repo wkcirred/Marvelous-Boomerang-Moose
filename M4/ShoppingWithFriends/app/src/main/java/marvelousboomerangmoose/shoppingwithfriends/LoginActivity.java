@@ -93,6 +93,9 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         getLoaderManager().initLoader(0, null, this);
     }
 
+    /**
+     * Sends the user to the Home screen.
+     */
     protected void goToHome() {
         startActivity(new Intent(this, HomeActivity.class));
     }
@@ -150,10 +153,20 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         }
     }
 
+    /**
+     * Checks the validity of the user ID.
+     * @param user the user ID being checked
+     * @return true or false depending on if it is valid
+     */
     private boolean isUserIDValid(String user) {
         return user.length() > 3;
     }
 
+    /**
+     * Checks the validity of the password.
+     * @param password the password being checked
+     * @return true or false depending on if it is valid
+     */
     private boolean isPasswordValid(String password) {
         return password.length() > 3;
     }
