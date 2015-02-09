@@ -35,7 +35,7 @@ import java.util.List;
 /**
  * A login screen that offers login via userID/password.
  */
-public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
+public class LoginActivity extends ActionBarActivity implements LoaderCallbacks<Cursor> {
     //protected static int loggedIn = 0;
 
     /**
@@ -323,6 +323,14 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
             mAuthTask = null;
             showProgress(false);
         }
+    }
+
+    /**
+     * Cancels login
+     * @param v the button being clicked
+     */
+    public void buttonCancelOnClick(View v) {
+        startActivity(new Intent(this, MainActivity.class));
     }
 }
 
