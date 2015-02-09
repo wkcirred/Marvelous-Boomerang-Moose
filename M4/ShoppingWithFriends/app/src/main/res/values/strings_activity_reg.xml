@@ -1,10 +1,14 @@
 <resources>
     <string name="title_activity_reg">Registration</string>
 
-    <!-- Strings related to login -->
-    <string name="prompt_email">Email</string>
-    <!--<string name="prompt_password">Password (optional)</string>-->
-    <!--<string name="action_sign_in">Sign in or register</string>-->
+    <!-- Strings related to registration -->
+    <string name="prompt_register_firstName">First Name</string>
+    <string name="prompt_register_lastName">Last Name</string>
+    <string name="prompt_register_email">Email</string>
+    <string name="prompt_register_userName">Preferred User Name</string>
+    <string name="prompt_register_password">Preferred Password</string>
+    <string name="action_register">Register</string>-->
+    <string name="action_cancel_register">Cancel Registration</string>-->
     <!--<string name="action_sign_in_short">Sign in</string>-->
 
     <string name="error_invalid_email">This email address is invalid</string>
