@@ -13,12 +13,16 @@ import android.view.ViewGroup;
 import android.os.Build;
 import android.widget.Button;
 
+import java.util.HashMap;
+
 
 public class MainActivity extends ActionBarActivity {
 
         /*if (LoginActivity.loggedIn == 1) {
             startActivity(new Intent(this, HomeActivity.class));
         }*/
+    public static HashMap<String, String> credentials = new HashMap<String, String>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +33,7 @@ public class MainActivity extends ActionBarActivity {
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
         }
+        credentials.put("user", "pass");
     }
 
     /**

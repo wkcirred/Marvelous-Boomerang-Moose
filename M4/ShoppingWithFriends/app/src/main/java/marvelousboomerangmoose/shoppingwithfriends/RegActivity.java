@@ -43,9 +43,11 @@ public class RegActivity extends ActionBarActivity implements LoaderCallbacks<Cu
      * A dummy authentication store containing known user names and passwords.
      * TODO: remove after connecting to a real authentication system.
      */
+    /*
     private static final String[] DUMMY_CREDENTIALS = new String[]{
             "foo@example.com:hello", "bar@example.com:world"
     };
+    */
     /**
      * Keep track of the registration task to ensure we can cancel it if requested.
      */
@@ -109,11 +111,11 @@ public class RegActivity extends ActionBarActivity implements LoaderCallbacks<Cu
         }
 
         // Reset errors.
-        mEmailView.setError(null);
+        mUserNameView.setError(null);
         mPasswordView.setError(null);
 
         // Store values at the time of the registration attempt.
-        String email = mEmailView.getText().toString();
+        String userName = mUserNameView.getText().toString();
         String password = mPasswordView.getText().toString();
 
         boolean cancel = false;
@@ -128,13 +130,13 @@ public class RegActivity extends ActionBarActivity implements LoaderCallbacks<Cu
         }
 
         // Check for a valid email address.
-        if (TextUtils.isEmpty(email)) {
-            mEmailView.setError(getString(R.string.error_field_required));
-            focusView = mEmailView;
+        if (TextUtils.isEmpty(userName)) {
+            mUserNameView.setError(getString(R.string.error_field_required));
+            focusView = mUserNameView;
             cancel = true;
-        } else if (!isEmailValid(email)) {
-            mEmailView.setError(getString(R.string.error_invalid_email));
-            focusView = mEmailView;
+        } else if (!isUserNameValid(userName)) {
+            mUserNameView.setError(getString(R.string.error_invalid_userID));
+            focusView = mUserNameView;
             cancel = true;
         }
 
@@ -146,19 +148,19 @@ public class RegActivity extends ActionBarActivity implements LoaderCallbacks<Cu
             // Show a progress spinner, and kick off a background task to
             // perform the user registration attempt.
             showProgress(true);
-            mAuthTask = new UserRegisterTask(email, password);
+            mAuthTask = new UserRegisterTask(userName, password);
             mAuthTask.execute((Void) null);
         }
     }
 
-    private boolean isEmailValid(String email) {
+    private boolean isUserNameValid(String userName) {
         //TODO: Replace this with your own logic
-        return email.contains("@");
+        return userName.length() > 3;
     }
 
     private boolean isPasswordValid(String password) {
         //TODO: Replace this with your own logic
-        return password.length() > 4;
+        return password.length() > 3;
     }
 
     /**
@@ -268,7 +270,7 @@ public class RegActivity extends ActionBarActivity implements LoaderCallbacks<Cu
         @Override
         protected Boolean doInBackground(Void... params) {
             // TODO: attempt authentication against a network service.
-
+            /*
             try {
                 // Simulate network access.
                 Thread.sleep(2000);
@@ -283,9 +285,16 @@ public class RegActivity extends ActionBarActivity implements LoaderCallbacks<Cu
                     return pieces[1].equals(mPassword);
                 }
             }
-
+            */
             // TODO: register the new account here.
-            return true;
+
+            if (MainActivity.credentials.containsKey(mEmail)) {
+                mUserNameView.setError("User Name Unavailable");
+            } else {
+                MainActivity.credentials.put(mEmail, mPassword);
+                return true;
+            }
+            return false;
         }
 
         @Override
