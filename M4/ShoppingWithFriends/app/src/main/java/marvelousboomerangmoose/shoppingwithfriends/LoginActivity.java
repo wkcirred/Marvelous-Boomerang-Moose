@@ -37,6 +37,7 @@ import java.util.List;
  */
 public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
     //protected static int loggedIn = 0;
+    //
 
     /**
      * A dummy authentication store containing known user names and passwords.
