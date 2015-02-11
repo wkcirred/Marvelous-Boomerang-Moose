@@ -7,7 +7,7 @@
 
     <color name="teal">#33CCFF</color>
 
-
-
+    <string name="title_friend_list">Friends</string>
+    <string name="title_friend_detail">Friend Detail</string>
 
 </resources>
