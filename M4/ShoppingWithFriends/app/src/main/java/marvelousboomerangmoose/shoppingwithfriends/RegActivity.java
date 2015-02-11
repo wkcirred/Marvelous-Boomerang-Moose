@@ -56,8 +56,8 @@ public class RegActivity extends ActionBarActivity implements LoaderCallbacks<Cu
     // UI references.
     private EditText mFirstNameView;
     private EditText mLastNameView;
-    private AutoCompleteTextView mEmailView;
-    private EditText mUserNameView;
+    private EditText mEmailView;
+    private AutoCompleteTextView mUserNameView;
     private EditText mPasswordView;
     private View mProgressView;
     private View mRegisterFormView;
@@ -68,9 +68,9 @@ public class RegActivity extends ActionBarActivity implements LoaderCallbacks<Cu
         setContentView(R.layout.activity_reg);
 
         // Set up the registration form.
-        mEmailView = (AutoCompleteTextView) findViewById(R.id.register_email);
+        mEmailView = (EditText) findViewById(R.id.register_email);
         populateAutoComplete();
-
+        mUserNameView = (AutoCompleteTextView) findViewById(R.id.register_userName);
         mPasswordView = (EditText) findViewById(R.id.register_password);
         mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -250,7 +250,7 @@ public class RegActivity extends ActionBarActivity implements LoaderCallbacks<Cu
                 new ArrayAdapter<String>(RegActivity.this,
                         android.R.layout.simple_dropdown_item_1line, emailAddressCollection);
 
-        mEmailView.setAdapter(adapter);
+        mUserNameView.setAdapter(adapter);
     }
 
     /**
@@ -259,11 +259,11 @@ public class RegActivity extends ActionBarActivity implements LoaderCallbacks<Cu
      */
     public class UserRegisterTask extends AsyncTask<Void, Void, Boolean> {
 
-        private final String mEmail;
+        private final String mUserName;
         private final String mPassword;
 
-        UserRegisterTask(String email, String password) {
-            mEmail = email;
+        UserRegisterTask(String userName, String password) {
+            mUserName = userName;
             mPassword = password;
         }
 
@@ -288,10 +288,10 @@ public class RegActivity extends ActionBarActivity implements LoaderCallbacks<Cu
             */
             // TODO: register the new account here.
 
-            if (MainActivity.credentials.containsKey(mEmail)) {
+            if (MainActivity.credentials.containsKey(mUserName)) {
                 mUserNameView.setError("User Name Unavailable");
             } else {
-                MainActivity.credentials.put(mEmail, mPassword);
+                MainActivity.credentials.put(mUserName, mPassword);
                 return true;
             }
             return false;
@@ -303,7 +303,7 @@ public class RegActivity extends ActionBarActivity implements LoaderCallbacks<Cu
             showProgress(false);
 
             if (success) {
-                finish();
+                goToLogin();
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));
                 mPasswordView.requestFocus();
@@ -315,6 +315,13 @@ public class RegActivity extends ActionBarActivity implements LoaderCallbacks<Cu
             mAuthTask = null;
             showProgress(false);
         }
+    }
+
+    /**
+     * Sends the user to the Home screen.
+     */
+    protected void goToLogin() {
+        startActivity(new Intent(this, LoginActivity.class));
     }
 
     /**

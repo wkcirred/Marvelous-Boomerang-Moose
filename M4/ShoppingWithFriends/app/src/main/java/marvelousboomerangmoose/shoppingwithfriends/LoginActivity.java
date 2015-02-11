@@ -18,6 +18,7 @@ import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.v7.app.ActionBarActivity;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -299,6 +300,7 @@ public class LoginActivity extends ActionBarActivity implements LoaderCallbacks<
             */
 
             if (MainActivity.credentials.containsKey(mUser)) {
+                Log.d(mUser,MainActivity.credentials.get(mUser));
                 return (MainActivity.credentials.get(mUser) == mPassword);
             }
 
