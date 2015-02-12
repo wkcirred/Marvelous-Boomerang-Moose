@@ -289,6 +289,7 @@ public class LoginActivity extends ActionBarActivity implements LoaderCallbacks<
             } catch (InterruptedException e) {
                 return false;
             }
+
             for (String credential : DUMMY_CREDENTIALS) {
                 String[] pieces = credential.split(":");
                 if (pieces[0].equals(mUser)) {
