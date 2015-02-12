@@ -44,6 +44,15 @@ public class HomeActivity extends ActionBarActivity {
         startActivity(new Intent(this, MainActivity.class));
     }
 
+    /**
+     * Changes the screen to the friends list
+     * @param v the button being clicked
+     */
+    public void friendsListOnClick(View v) {
+        Button button=(Button) v;
+        startActivity(new Intent(this, FriendListActivity.class));
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
