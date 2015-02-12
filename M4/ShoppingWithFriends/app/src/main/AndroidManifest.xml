@@ -41,22 +41,11 @@
             android:label="@string/title_activity_reg"
             android:windowSoftInputMode="adjustResize|stateVisible" >
         </activity>
-        <activity
-            android:name=".FriendListActivity"
-            android:label="@string/title_friend_list"
-            android:parentActivityName=".HomeActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="marvelousboomerangmoose.shoppingwithfriends.HomeActivity" />
-        </activity>
-        <activity
-            android:name=".FriendDetailActivity"
-            android:label="@string/title_friend_detail"
-            android:parentActivityName=".FriendListActivity" >
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="marvelousboomerangmoose.shoppingwithfriends.FriendListActivity" />
-        </activity>
+
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
     </application>
 
 </manifest>

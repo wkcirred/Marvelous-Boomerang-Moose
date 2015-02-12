@@ -18,6 +18,7 @@ import android.os.Bundle;
 import android.provider.ContactsContract;
 import android.support.v7.app.ActionBarActivity;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -42,9 +43,11 @@ public class LoginActivity extends ActionBarActivity implements LoaderCallbacks<
      * A dummy authentication store containing known user names and passwords.
      * TODO: remove after connecting to a real authentication system.
      */
+    /*
     private static final String[] DUMMY_CREDENTIALS = new String[]{
             "user:pass"
     };
+    */
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
      */
@@ -279,14 +282,13 @@ public class LoginActivity extends ActionBarActivity implements LoaderCallbacks<
         protected Boolean doInBackground(Void... params) {
             // Not in this version
             // TODO: attempt authentication against a network service.
-
+            /*
             try {
                 // Simulate network access.
                 Thread.sleep(2000);
             } catch (InterruptedException e) {
                 return false;
             }
-
             for (String credential : DUMMY_CREDENTIALS) {
                 String[] pieces = credential.split(":");
                 if (pieces[0].equals(mUser)) {
@@ -294,6 +296,13 @@ public class LoginActivity extends ActionBarActivity implements LoaderCallbacks<
                     return pieces[1].equals(mPassword);
                 }
             }
+            */
+
+            if (MainActivity.credentials.containsKey(mUser)) {
+                Log.d(mUser,MainActivity.credentials.get(mUser));
+                return (MainActivity.credentials.get(mUser) == mPassword);
+            }
+
             return false;
 
             // This isn't used in this version

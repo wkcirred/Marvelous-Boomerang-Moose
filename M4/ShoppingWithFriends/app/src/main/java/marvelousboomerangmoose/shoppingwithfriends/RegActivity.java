@@ -43,9 +43,11 @@ public class RegActivity extends ActionBarActivity implements LoaderCallbacks<Cu
      * A dummy authentication store containing known user names and passwords.
      * TODO: remove after connecting to a real authentication system.
      */
+    /*
     private static final String[] DUMMY_CREDENTIALS = new String[]{
             "foo@example.com:hello", "bar@example.com:world"
     };
+    */
     /**
      * Keep track of the registration task to ensure we can cancel it if requested.
      */
@@ -54,8 +56,8 @@ public class RegActivity extends ActionBarActivity implements LoaderCallbacks<Cu
     // UI references.
     private EditText mFirstNameView;
     private EditText mLastNameView;
-    private AutoCompleteTextView mEmailView;
-    private EditText mUserNameView;
+    private EditText mEmailView;
+    private AutoCompleteTextView mUserNameView;
     private EditText mPasswordView;
     private View mProgressView;
     private View mRegisterFormView;
@@ -66,9 +68,9 @@ public class RegActivity extends ActionBarActivity implements LoaderCallbacks<Cu
         setContentView(R.layout.activity_reg);
 
         // Set up the registration form.
-        mEmailView = (AutoCompleteTextView) findViewById(R.id.register_email);
+        mEmailView = (EditText) findViewById(R.id.register_email);
         populateAutoComplete();
-
+        mUserNameView = (AutoCompleteTextView) findViewById(R.id.register_userName);
         mPasswordView = (EditText) findViewById(R.id.register_password);
         mPasswordView.setOnEditorActionListener(new TextView.OnEditorActionListener() {
             @Override
@@ -109,11 +111,11 @@ public class RegActivity extends ActionBarActivity implements LoaderCallbacks<Cu
         }
 
         // Reset errors.
-        mEmailView.setError(null);
+        mUserNameView.setError(null);
         mPasswordView.setError(null);
 
         // Store values at the time of the registration attempt.
-        String email = mEmailView.getText().toString();
+        String userName = mUserNameView.getText().toString();
         String password = mPasswordView.getText().toString();
 
         boolean cancel = false;
@@ -128,13 +130,13 @@ public class RegActivity extends ActionBarActivity implements LoaderCallbacks<Cu
         }
 
         // Check for a valid email address.
-        if (TextUtils.isEmpty(email)) {
-            mEmailView.setError(getString(R.string.error_field_required));
-            focusView = mEmailView;
+        if (TextUtils.isEmpty(userName)) {
+            mUserNameView.setError(getString(R.string.error_field_required));
+            focusView = mUserNameView;
             cancel = true;
-        } else if (!isEmailValid(email)) {
-            mEmailView.setError(getString(R.string.error_invalid_email));
-            focusView = mEmailView;
+        } else if (!isUserNameValid(userName)) {
+            mUserNameView.setError(getString(R.string.error_invalid_userID));
+            focusView = mUserNameView;
             cancel = true;
         }
 
@@ -146,19 +148,19 @@ public class RegActivity extends ActionBarActivity implements LoaderCallbacks<Cu
             // Show a progress spinner, and kick off a background task to
             // perform the user registration attempt.
             showProgress(true);
-            mAuthTask = new UserRegisterTask(email, password);
+            mAuthTask = new UserRegisterTask(userName, password);
             mAuthTask.execute((Void) null);
         }
     }
 
-    private boolean isEmailValid(String email) {
+    private boolean isUserNameValid(String userName) {
         //TODO: Replace this with your own logic
-        return email.contains("@");
+        return userName.length() > 3;
     }
 
     private boolean isPasswordValid(String password) {
         //TODO: Replace this with your own logic
-        return password.length() > 4;
+        return password.length() > 3;
     }
 
     /**
@@ -248,7 +250,7 @@ public class RegActivity extends ActionBarActivity implements LoaderCallbacks<Cu
                 new ArrayAdapter<String>(RegActivity.this,
                         android.R.layout.simple_dropdown_item_1line, emailAddressCollection);
 
-        mEmailView.setAdapter(adapter);
+        mUserNameView.setAdapter(adapter);
     }
 
     /**
@@ -257,25 +259,24 @@ public class RegActivity extends ActionBarActivity implements LoaderCallbacks<Cu
      */
     public class UserRegisterTask extends AsyncTask<Void, Void, Boolean> {
 
-        private final String mEmail;
+        private final String mUserName;
         private final String mPassword;
 
-        UserRegisterTask(String email, String password) {
-            mEmail = email;
+        UserRegisterTask(String userName, String password) {
+            mUserName = userName;
             mPassword = password;
         }
 
         @Override
         protected Boolean doInBackground(Void... params) {
             // TODO: attempt authentication against a network service.
-
+            /*
             try {
                 // Simulate network access.
                 Thread.sleep(2000);
             } catch (InterruptedException e) {
                 return false;
             }
-
             for (String credential : DUMMY_CREDENTIALS) {
                 String[] pieces = credential.split(":");
                 if (pieces[0].equals(mEmail)) {
@@ -283,9 +284,16 @@ public class RegActivity extends ActionBarActivity implements LoaderCallbacks<Cu
                     return pieces[1].equals(mPassword);
                 }
             }
-
+            */
             // TODO: register the new account here.
-            return true;
+
+            if (MainActivity.credentials.containsKey(mUserName)) {
+                mUserNameView.setError("User Name Unavailable");
+            } else {
+                MainActivity.credentials.put(mUserName, mPassword);
+                return true;
+            }
+            return false;
         }
 
         @Override
@@ -294,7 +302,7 @@ public class RegActivity extends ActionBarActivity implements LoaderCallbacks<Cu
             showProgress(false);
 
             if (success) {
-                finish();
+                goToLogin();
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));
                 mPasswordView.requestFocus();
@@ -309,6 +317,13 @@ public class RegActivity extends ActionBarActivity implements LoaderCallbacks<Cu
     }
 
     /**
+     * Sends the user to the Home screen.
+     */
+    protected void goToLogin() {
+        startActivity(new Intent(this, LoginActivity.class));
+    }
+
+    /**
      * Cancels registration
      * @param v the button being clicked
      */
@@ -316,6 +331,4 @@ public class RegActivity extends ActionBarActivity implements LoaderCallbacks<Cu
         startActivity(new Intent(this, MainActivity.class));
     }
 }
-
-
 
