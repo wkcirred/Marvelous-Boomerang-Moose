@@ -36,9 +36,19 @@ public class MainActivity extends ActionBarActivity {
      *
      * @param v the button being clicked
      */
-    public void buttonOnClick(View v) {
-        Button button=(Button) v;
+    public void buttonLoginOnClick(View v) {
+//        Button button=(Button) v;
         startActivity(new Intent(this, LoginActivity.class));
+    }
+
+    /**
+     * When the registration button is clicked, this transitions to the registration screen.
+     *
+     * @param v the button being clicked
+     */
+    public void buttonRegOnClick(View v) {
+
+        startActivity(new Intent(this, RegActivity.class));
     }
 
     @Override
