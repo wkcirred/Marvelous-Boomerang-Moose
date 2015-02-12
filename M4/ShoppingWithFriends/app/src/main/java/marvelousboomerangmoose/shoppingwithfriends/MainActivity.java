@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
 import android.widget.Button;
+import android.util.Log;
 
 import java.util.HashMap;
 
@@ -22,7 +23,6 @@ public class MainActivity extends ActionBarActivity {
             startActivity(new Intent(this, HomeActivity.class));
         }*/
     public static HashMap<String, String> credentials = new HashMap<String, String>();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
