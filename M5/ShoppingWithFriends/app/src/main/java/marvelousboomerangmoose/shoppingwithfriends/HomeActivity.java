@@ -53,6 +53,10 @@ public class HomeActivity extends ActionBarActivity {
         startActivity(new Intent(this, FriendListActivity.class));
     }
 
+    public void addFriendOnClick(View v) {
+        Button button=(Button) v;
+        startActivity(new Intent(this, AddFriendActivity.class));
+    }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will

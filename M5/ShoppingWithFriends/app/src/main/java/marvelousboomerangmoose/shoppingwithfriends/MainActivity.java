@@ -22,7 +22,7 @@ public class MainActivity extends ActionBarActivity {
     /*if (LoginActivity.loggedIn == 1) {
         startActivity(new Intent(this, HomeActivity.class));
     }*/
-    public static HashMap<String, String> credentials = new HashMap<String, String>();
+    public static HashMap<String, User> credentials = new HashMap<String, User>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +33,7 @@ public class MainActivity extends ActionBarActivity {
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
         }
-        credentials.put("user", "pass");
+        credentials.put("user", new User("First", "Last", "admin@shopwithfriends.moose", "user", "pass"));
     }
 
     /**

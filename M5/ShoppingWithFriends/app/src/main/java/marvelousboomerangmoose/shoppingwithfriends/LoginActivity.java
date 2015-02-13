@@ -299,7 +299,7 @@ public class LoginActivity extends ActionBarActivity implements LoaderCallbacks<
             */
 
             if (MainActivity.credentials.containsKey(mUser)) {
-                return (MainActivity.credentials.get(mUser).equals(mPassword));
+                return (MainActivity.credentials.get(mUser).checkPassword(mPassword));
             }
 
             return false;
