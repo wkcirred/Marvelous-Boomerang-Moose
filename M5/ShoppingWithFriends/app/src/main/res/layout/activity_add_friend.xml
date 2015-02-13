@@ -63,38 +63,30 @@
         android:layout_toEndOf="@+id/editText"
         android:editable="true" />
 
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText7"
-        android:text="User ID"
-        android:layout_below="@+id/editText3"
-        android:layout_alignParentStart="true" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText8"
-        android:layout_alignBottom="@+id/editText7"
-        android:layout_alignEnd="@+id/editText4"
-        android:layout_alignStart="@+id/editText4"
-        android:editable="true" />
-
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Add"
         android:id="@+id/addFriendAdd"
-        android:layout_marginTop="98dp"
-        android:layout_below="@+id/editText7"
-        android:layout_alignStart="@+id/editText3" />
+        android:layout_below="@+id/editText4"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="132dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Cancel"
         android:id="@+id/addFriendCancel"
-        android:layout_alignTop="@+id/addFriendAdd"
-        android:layout_alignEnd="@+id/editText8"
-        android:onClick="addFriendCancelOnClick" />
+        android:onClick="addFriendCancelOnClick"
+        android:layout_below="@+id/addFriendAdd"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Add Friend"
+        android:id="@+id/textView3"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 </RelativeLayout>
