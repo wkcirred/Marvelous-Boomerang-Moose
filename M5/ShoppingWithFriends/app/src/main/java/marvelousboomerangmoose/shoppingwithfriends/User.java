@@ -9,8 +9,9 @@ public class User {
     private String email;
     private String userName;
     private String password;
+
     //TODO: Add friend list and shopping attributes
-    public void User(String first, String last, String email, String userName, String password) {
+    public User(String first, String last, String email, String userName, String password) {
         this.first = first;
         this.last = last;
         this.email = email;
@@ -18,23 +19,39 @@ public class User {
         this.password = password;
     }
 
+    /**
+     * Returns the first name of the user
+     * @return First name
+     */
     public String getFirst() {
         return first;
     }
+    /**
+     * Returns the last name of the user
+     * @return Last name
+     */
     public String getLast() {
         return last;
     }
+    /**
+     * Returns the email of the user
+     * @return email
+     */
     public String getEmail() {
         return email;
     }
+    /**
+     * Returns the user name of the user
+     * @return user name
+     */
     public String getUserName() {
         return userName;
     }
+    /**
+     * Returns whether or not passwords match
+     * @return whether or not passwords match
+     */
     public Boolean checkPassword(String input) {
-        return (input == password);
+        return (input.equals(password));
     }
-    public void setPassword(String input) {
-        this.password = password;
-    }
-
 }

@@ -15,6 +15,7 @@ import android.net.Uri;
 import android.os.AsyncTask;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
+import android.text.Editable;
 import android.util.Log;
 
 import android.os.Build;
@@ -70,6 +71,8 @@ public class RegActivity extends ActionBarActivity implements LoaderCallbacks<Cu
 
         // Set up the registration form.
         mEmailView = (EditText) findViewById(R.id.register_email);
+        mFirstNameView = (EditText) findViewById(R.id.register_firstName);
+        mLastNameView = (EditText) findViewById(R.id.register_lastName);
         populateAutoComplete();
         mUserNameView = (AutoCompleteTextView) findViewById(R.id.register_userName);
         mPasswordView = (EditText) findViewById(R.id.register_password);
@@ -118,6 +121,9 @@ public class RegActivity extends ActionBarActivity implements LoaderCallbacks<Cu
         // Store values at the time of the registration attempt.
         String userName = mUserNameView.getText().toString();
         String password = mPasswordView.getText().toString();
+        String email = mEmailView.getText().toString();
+        String firstName = mFirstNameView.getText().toString();
+        String lastName = mLastNameView.getText().toString();
 
         boolean cancel = false;
         View focusView = null;
@@ -139,6 +145,26 @@ public class RegActivity extends ActionBarActivity implements LoaderCallbacks<Cu
             mUserNameView.setError(getString(R.string.error_invalid_userID));
             focusView = mUserNameView;
             cancel = true;
+        } else if (MainActivity.credentials.containsKey(userName)) {
+            mUserNameView.setError("User Name Unavailable");
+            focusView = mUserNameView;
+            cancel = true;
+        }
+
+        if (TextUtils.isEmpty(firstName)) {
+            mFirstNameView.setError(getString(R.string.error_field_required));
+            focusView = mFirstNameView;
+            cancel = true;
+        }
+        if (TextUtils.isEmpty(lastName)) {
+            mLastNameView.setError(getString(R.string.error_field_required));
+            focusView = mLastNameView;
+            cancel = true;
+        }
+        if (TextUtils.isEmpty(email)) {
+            mEmailView.setError(getString(R.string.error_field_required));
+            focusView = mEmailView;
+            cancel = true;
         }
 
         if (cancel) {
@@ -149,7 +175,7 @@ public class RegActivity extends ActionBarActivity implements LoaderCallbacks<Cu
             // Show a progress spinner, and kick off a background task to
             // perform the user registration attempt.
             showProgress(true);
-            mAuthTask = new UserRegisterTask(userName, password);
+            mAuthTask = new UserRegisterTask(firstName, lastName, email, userName, password);
             mAuthTask.execute((Void) null);
         }
     }
@@ -262,8 +288,14 @@ public class RegActivity extends ActionBarActivity implements LoaderCallbacks<Cu
 
         private final String mUserName;
         private final String mPassword;
+        private final String mFirst;
+        private final String mLast;
+        private final String mEmail;
 
-        UserRegisterTask(String userName, String password) {
+        UserRegisterTask(String first, String last, String email, String userName, String password) {
+            mFirst = first;
+            mLast = last;
+            mEmail = email;
             mUserName = userName;
             mPassword = password;
         }
@@ -288,13 +320,10 @@ public class RegActivity extends ActionBarActivity implements LoaderCallbacks<Cu
             */
             // TODO: register the new account here.
 
-            if (MainActivity.credentials.containsKey(mUserName)) {
-                mUserNameView.setError("User Name Unavailable");
-            } else {
-                MainActivity.credentials.put(mUserName, mPassword);
-                return true;
-            }
-            return false;
+
+
+            MainActivity.credentials.put(mUserName, new User(mFirst, mLast, mEmail, mUserName, mPassword));
+            return true;
         }
 
         @Override
