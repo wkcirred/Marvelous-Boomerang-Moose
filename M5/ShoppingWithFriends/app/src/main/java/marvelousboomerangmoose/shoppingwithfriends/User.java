@@ -1,4 +1,4 @@
-package marvelousboomerangmoose.shoppingwithfriends;
+    package marvelousboomerangmoose.shoppingwithfriends;
 
 /**
  * Created by Robbie on 2/10/2015.

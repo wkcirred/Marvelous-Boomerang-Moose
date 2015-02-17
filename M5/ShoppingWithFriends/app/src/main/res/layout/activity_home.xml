@@ -10,7 +10,7 @@
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add Friend"
+        android:text="Friend List"
         android:id="@+id/addFriend"
         android:layout_gravity="center"
         android:onClick="addFriendOnClick" />
