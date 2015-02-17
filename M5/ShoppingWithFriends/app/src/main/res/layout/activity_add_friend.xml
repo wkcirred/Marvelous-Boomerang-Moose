@@ -38,7 +38,7 @@
         android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
         android:ems="10"
-        android:id="@+id/editText4"
+        android:id="@+id/friendEmail"
         android:layout_below="@+id/editText2"
         android:layout_toEndOf="@+id/editText2"
         android:editable="true" />
@@ -48,7 +48,7 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/editText5"
+        android:id="@+id/friendFirst"
         android:layout_alignTop="@+id/editText"
         android:layout_toEndOf="@+id/editText"
         android:editable="true" />
@@ -58,8 +58,8 @@
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/editText6"
-        android:layout_below="@+id/editText5"
+        android:id="@+id/friendLast"
+        android:layout_below="@+id/friendFirst"
         android:layout_toEndOf="@+id/editText"
         android:editable="true" />
 
@@ -68,9 +68,10 @@
         android:layout_height="wrap_content"
         android:text="Add"
         android:id="@+id/addFriendAdd"
-        android:layout_below="@+id/editText4"
+        android:layout_below="@+id/friendEmail"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="132dp" />
+        android:layout_marginTop="132dp"
+        android:onClick="addFriendButtonOnClick" />
 
     <Button
         android:layout_width="wrap_content"
@@ -89,4 +90,5 @@
         android:id="@+id/textView3"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
+
 </RelativeLayout>
