@@ -10,67 +10,43 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/editText"
-        android:text="First Name"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="100dp"
-        android:textIsSelectable="false" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText2"
-        android:text="Last Name"
-        android:layout_below="@+id/editText"
-        android:layout_alignEnd="@+id/editText" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/editText3"
-        android:text="Email"
-        android:layout_below="@+id/editText2"
-        android:layout_alignStart="@+id/editText2" />
-
-    <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
         android:inputType="textEmailAddress"
         android:ems="10"
-        android:id="@+id/editText4"
-        android:layout_below="@+id/editText2"
-        android:layout_toEndOf="@+id/editText2"
-        android:editable="true" />
+        android:id="@+id/friendEmail"
+        android:editable="true"
+        android:layout_below="@+id/friendLast"
+        android:layout_alignStart="@+id/friendLast" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/editText5"
-        android:layout_alignTop="@+id/editText"
-        android:layout_toEndOf="@+id/editText"
-        android:editable="true" />
+        android:id="@+id/friendFirst"
+        android:editable="true"
+        android:layout_marginTop="56dp"
+        android:layout_below="@+id/textView3"
+        android:layout_alignStart="@+id/textView3" />
 
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:inputType="textPersonName"
         android:ems="10"
-        android:id="@+id/editText6"
-        android:layout_below="@+id/editText5"
-        android:layout_toEndOf="@+id/editText"
-        android:editable="true" />
+        android:id="@+id/friendLast"
+        android:editable="true"
+        android:layout_below="@+id/friendFirst"
+        android:layout_alignStart="@+id/friendFirst" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Add"
         android:id="@+id/addFriendAdd"
-        android:layout_below="@+id/editText4"
+        android:layout_below="@+id/friendEmail"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="132dp" />
+        android:layout_marginTop="132dp"
+        android:onClick="addFriendButtonOnClick" />
 
     <Button
         android:layout_width="wrap_content"
@@ -89,4 +65,32 @@
         android:id="@+id/textView3"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="First Name"
+        android:id="@+id/textView4"
+        android:layout_above="@+id/friendLast"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Last Name"
+        android:id="@+id/textView5"
+        android:layout_above="@+id/friendEmail"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Email"
+        android:id="@+id/textView6"
+        android:layout_alignBottom="@+id/friendEmail"
+        android:layout_alignEnd="@+id/textView5" />
+
 </RelativeLayout>
