@@ -20,6 +20,16 @@
         android:layout_alignParentEnd="true"
         android:clickable="true"
         android:onClick="logoutOnClick" />
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Friend List"
+        android:id="@+id/addFriend"
+        android:layout_gravity="center"
+        android:onClick="addFriendOnClick"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -31,6 +41,8 @@
         android:layout_centerHorizontal="true"
         android:clickable="true"
         android:onClick="friendsListOnClick" />
+
+
 
     <TextView
         android:layout_width="wrap_content"

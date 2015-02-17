@@ -79,23 +79,36 @@ public class AddFriendActivity extends ActionBarActivity {
         } else {
             alertDialogBuilder.setTitle("");
 
-            // set dialog message
-            alertDialogBuilder
-                    .setMessage("Successfully added a friend")
-                    .setCancelable(false)
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {
-                        // if this button is clicked, close
-                        // current activity
-                        Intent intent = new Intent(context, NewFriendListActivity.class);
-                        intent.putExtra(MESSAGE,first+" "+last+"\n"+email);
-                        startActivity(intent);
+            Boolean status = MainActivity.loggedInUser.addFriend(first, last, email);
 
-                    }
+            if (status) {
+                // set dialog message
+                alertDialogBuilder
+                        .setMessage("Successfully added a friend")
+                        .setCancelable(false)
+                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                            public void onClick(DialogInterface dialog, int id) {
+                                // if this button is clicked, close
+                                // current activity
+
+                                Intent intent = new Intent(context, NewFriendListActivity.class);
+                                intent.putExtra(MESSAGE, first + " " + last + "\n" + email);
+                                startActivity(intent);
+
+                            }
+                        });
+                AlertDialog alertDialog = alertDialogBuilder.create();
+                alertDialog.show();
+            } else {
+                // set dialog message
+                alertDialogBuilder
+                        .setMessage("Failed to add a friend")
+                        .setCancelable(false).setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {}
                 });
-            AlertDialog alertDialog = alertDialogBuilder.create();
-            alertDialog.show();
-
+                AlertDialog alertDialog = alertDialogBuilder.create();
+                alertDialog.show();
+            }
         }
 
     }

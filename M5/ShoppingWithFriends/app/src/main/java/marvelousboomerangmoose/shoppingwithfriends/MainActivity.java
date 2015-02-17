@@ -23,6 +23,8 @@ public class MainActivity extends ActionBarActivity {
         startActivity(new Intent(this, HomeActivity.class));
     }*/
     public static HashMap<String, User> credentials = new HashMap<String, User>();
+    public static User loggedInUser = null;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +35,9 @@ public class MainActivity extends ActionBarActivity {
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
         }
-        credentials.put("user", new User("First", "Last", "admin@shopwithfriends.moose", "user", "pass"));
+        credentials.put("admin", new User("First", "Last", "admin@shop.moose", "admin", "pass"));
+        credentials.put("user", new User("First", "Last", "user@shop.moose", "user", "pass"));
+        credentials.put("new", new User("First", "Last", "new@shop.moose", "new", "pass"));
     }
 
     /**

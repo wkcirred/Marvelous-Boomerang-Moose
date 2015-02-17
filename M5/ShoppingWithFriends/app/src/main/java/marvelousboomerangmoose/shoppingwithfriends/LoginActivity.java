@@ -316,6 +316,7 @@ public class LoginActivity extends ActionBarActivity implements LoaderCallbacks<
 
             if (success) {
                 //loggedIn = 1;
+                MainActivity.loggedInUser = MainActivity.credentials.get(mUser);
                 goToHome();
                 //finish();
             } else {

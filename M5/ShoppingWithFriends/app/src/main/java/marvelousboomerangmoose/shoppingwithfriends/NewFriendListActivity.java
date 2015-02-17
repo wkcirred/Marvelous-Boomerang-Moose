@@ -11,6 +11,7 @@ import android.widget.ListView;
 import android.widget.ArrayAdapter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 
 public class NewFriendListActivity extends ActionBarActivity {
     private Intent intent;
@@ -22,14 +23,15 @@ public class NewFriendListActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
             intent = getIntent();
             setContentView(R.layout.activity_new_friend_list);
-            if (intent.hasExtra(AddFriendActivity.MESSAGE)){
-                message = intent.getStringExtra(AddFriendActivity.MESSAGE);
-                arrayList = new ArrayList<>();
-                ListView myListView = (ListView) this.findViewById(R.id.listView);
-                ArrayAdapter listAdapter = new ArrayAdapter<>(this,R.layout.simplerow, arrayList);
-                listAdapter.add(message);
-                myListView.setAdapter(listAdapter);
+            arrayList = new ArrayList<>();
+            ListView myListView = (ListView) this.findViewById(R.id.listView);
+            ArrayAdapter listAdapter = new ArrayAdapter<>(this,R.layout.simplerow, arrayList);
+            HashMap<String, User> friends = MainActivity.loggedInUser.getFriendList();
+            for (String key : friends.keySet()) {
+                User friend = friends.get(key);
+                listAdapter.add(friend.getFirst() + " " + friend.getLast() + " " + friend.getEmail());
             }
+            myListView.setAdapter(listAdapter);
     }
 
 

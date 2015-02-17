@@ -1,5 +1,7 @@
     package marvelousboomerangmoose.shoppingwithfriends;
 
+import android.util.Log;
+
 import java.util.HashMap;
 import java.util.Set;
 
@@ -12,7 +14,7 @@ public class User {
     private String email;
     private String userName;
     private String password;
-    private HashMap<String, User> friendList;
+    private HashMap<String, User> friendList = new HashMap<String, User>();
 
     //TODO: Add friend list and shopping attributes
     public User(String first, String last, String email, String userName, String password) {
@@ -61,25 +63,40 @@ public class User {
 
     /**
      * Adds a friend to the friendlist
-     * @param name
+     * @param firstName
+     * @param lastName
      * @param email
      * @return returns whether or not the friend was added successfully
      */
-    public Boolean addFriend(String name, String email) {
+    public Boolean addFriend(String firstName, String lastName, String email) {
         Set<String> keys = MainActivity.credentials.keySet();
         User newFriend = null;
         for (String key : keys) {
-            if (MainActivity.credentials.get(key).getEmail() == email) {
-                newFriend = MainActivity.credentials.get(key);
+            User curr = MainActivity.credentials.get(key);
+            if (curr.getEmail().equals(email)) {
+                if (curr.getFirst().equals(firstName) && curr.getLast().equals(lastName)) {
+                    newFriend = curr;
+                }
                 break;
             }
         }
         if (newFriend != null) {
-            friendList.put(name, newFriend);
+            Log.d("email", email);
+            Log.d("new friend", newFriend.toString());
+            friendList.put(email, newFriend);
+            newFriend.addFriend(this);//adds them back
             return true;
         } else {
             return false;
         }
+    }
+
+    /**
+     * Adds a user as a friend using their user object
+     * @param friend
+     */
+    public void addFriend(User friend) {
+        friendList.put(friend.getEmail(), friend);
     }
 
     /**
@@ -88,5 +105,13 @@ public class User {
      */
     public HashMap<String, User> getFriendList() {
         return friendList;
+    }
+
+    /**
+     * To String
+     * @return userName
+     */
+    public String toString() {
+        return this.getUserName();
     }
 }
