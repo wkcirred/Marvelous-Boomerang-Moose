@@ -1,4 +1,4 @@
-package marvelousboomerangmoose.shoppingwithfriends;
+    package marvelousboomerangmoose.shoppingwithfriends;
 
 import java.util.HashMap;
 import java.util.Set;
