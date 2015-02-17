@@ -21,10 +21,8 @@ public class NewFriendListActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
             intent = getIntent();
-            if (!intent.hasExtra(AddFriendActivity.MESSAGE)){
-                setContentView(R.layout.activity_new_friend_list);
-            } else {
-                setContentView(R.layout.activity_new_friend_list);
+            setContentView(R.layout.activity_new_friend_list);
+            if (intent.hasExtra(AddFriendActivity.MESSAGE)){
                 message = intent.getStringExtra(AddFriendActivity.MESSAGE);
                 arrayList = new ArrayList<>();
                 ListView myListView = (ListView) this.findViewById(R.id.listView);
