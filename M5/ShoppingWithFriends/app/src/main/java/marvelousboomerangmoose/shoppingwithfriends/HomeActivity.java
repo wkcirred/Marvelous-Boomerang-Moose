@@ -41,6 +41,7 @@ public class HomeActivity extends ActionBarActivity {
      */
     public void logoutOnClick(View v) {
         Button button=(Button) v;
+        MainActivity.loggedInUser = null;
         startActivity(new Intent(this, MainActivity.class));
     }
 

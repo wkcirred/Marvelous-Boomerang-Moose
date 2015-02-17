@@ -6,12 +6,5 @@
     tools:context="marvelousboomerangmoose.shoppingwithfriends.HomeActivity"
     tools:ignore="MergeRootFrame" >
 
-    <Button
-        style="?android:attr/buttonStyleSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Friend List"
-        android:id="@+id/addFriend"
-        android:layout_gravity="center"
-        android:onClick="addFriendOnClick" />
+
 </FrameLayout>
