@@ -12,17 +12,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.os.Build;
 import android.widget.Button;
+import android.util.Log;
 
 import java.util.HashMap;
 
 
 public class MainActivity extends ActionBarActivity {
 
-        /*if (LoginActivity.loggedIn == 1) {
-            startActivity(new Intent(this, HomeActivity.class));
-        }*/
+    /*if (LoginActivity.loggedIn == 1) {
+        startActivity(new Intent(this, HomeActivity.class));
+    }*/
     public static HashMap<String, String> credentials = new HashMap<String, String>();
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
