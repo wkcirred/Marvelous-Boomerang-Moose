@@ -3,8 +3,6 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="marvelousboomerangmoose.shoppingwithfriends.HomeActivity"
-    tools:ignore="MergeRootFrame" >
-
-
-</FrameLayout>
+    android:background="#33CCFF"
+    tools:context=".MainActivity"
+    tools:ignore="MergeRootFrame" />
