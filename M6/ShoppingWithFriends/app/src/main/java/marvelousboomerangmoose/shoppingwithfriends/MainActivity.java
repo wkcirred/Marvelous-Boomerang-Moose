@@ -16,7 +16,9 @@ import android.util.Log;
 
 import java.util.HashMap;
 
-
+/**
+ * The screen that is visible upon startup.  Has the login and and registration buttons.
+ */
 public class MainActivity extends ActionBarActivity {
 
     /*if (LoginActivity.loggedIn == 1) {

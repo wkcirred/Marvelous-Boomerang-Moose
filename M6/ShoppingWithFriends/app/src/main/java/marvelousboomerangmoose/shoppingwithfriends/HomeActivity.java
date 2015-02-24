@@ -10,9 +10,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-
+/**
+ * Home activity contains a way to log out as well as a friends list and a way to lookup/add
+ * new friends.
+ */
 public class HomeActivity extends ActionBarActivity {
-    /*This is a test comment*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
