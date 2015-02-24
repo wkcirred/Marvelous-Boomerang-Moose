@@ -6,40 +6,52 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.ArrayAdapter;
-import android.widget.AdapterView;
+
 import java.util.ArrayList;
 import java.util.HashMap;
+import android.util.Log;
+import android.widget.Toast;
 
 public class CurrentFriendListActivity extends ActionBarActivity {
-    private Intent intent;
+    //private Intent intent;
     private String message;
     private static ArrayList<String> arrayList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-            intent = getIntent();
-            setContentView(R.layout.activity_new_friend_list);
+            //intent = getIntent();
+            setContentView(R.layout.activity_current_friend_list);
             arrayList = new ArrayList<>();
             ListView myListView = (ListView) this.findViewById(R.id.listView);
             ArrayAdapter listAdapter = new ArrayAdapter<>(this,R.layout.simplerow, arrayList);
             HashMap<String, User> friends = MainActivity.loggedInUser.getFriendList();
-            for (String key : friends.keySet()) {
+            for (final String key : friends.keySet()) {
+                //Log.d("Email:",key);
                 User friend = friends.get(key);
-                listAdapter.add(friend.getFirst() + " " + friend.getLast());
-                //listAdapter.add(friend.getFirst() + " " + friend.getLast() + " " + friend.getEmail());
+                listAdapter.add(friend.getFirst() + " " + friend.getLast() + " " + friend.getEmail());
+                myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        Object object = parent.getItemAtPosition(position);
+                        String item = (String) object;
+                        item = item.substring(item.lastIndexOf(" ") + 1);
+                        //item = item.split();
+                        Intent intent = new Intent(CurrentFriendListActivity.this,CurrentFriendDetailActivity.class);
+                        intent.putExtra("email",item);
+                        startActivity(intent);
+                    }
+                });
             }
             myListView.setAdapter(listAdapter);
-            myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                    Intent intent = new Intent(CurrentFriendListActivity.this,FriendDetailActivity.class);
-                    intent.putExtra("User Name",friends.);
-                }
-            });
+
+
+
+
 
 
 
