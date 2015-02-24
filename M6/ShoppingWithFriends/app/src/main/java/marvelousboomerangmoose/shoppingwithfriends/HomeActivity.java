@@ -2,7 +2,6 @@ package marvelousboomerangmoose.shoppingwithfriends;
 
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,8 +9,6 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.os.Build;
-import android.widget.Button;
 
 
 public class HomeActivity extends ActionBarActivity {
@@ -40,7 +37,6 @@ public class HomeActivity extends ActionBarActivity {
      * @param v the button being clicked
      */
     public void logoutOnClick(View v) {
-        Button button=(Button) v;
         MainActivity.loggedInUser = null;
         startActivity(new Intent(this, MainActivity.class));
     }
@@ -49,14 +45,16 @@ public class HomeActivity extends ActionBarActivity {
      * Changes the screen to the friends list
      * @param v the button being clicked
      */
-    public void friendsListOnClick(View v) {
-        Button button=(Button) v;
-        startActivity(new Intent(this, FriendListActivity.class));
+    public void activeUsersOnClick(View v) {
+        startActivity(new Intent(this, ActiveUsersListActivity.class));
     }
 
-    public void addFriendOnClick(View v) {
-        Button button=(Button) v;
-        startActivity(new Intent(this, NewFriendListActivity.class));
+    /**
+     * Changes the screen to the new friend list screen
+     * @param v the button being clicked
+     */
+    public void currentFriendsOnClick(View v) {
+        startActivity(new Intent(this, CurrentFriendListActivity.class));
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {

@@ -14,6 +14,7 @@ public class User {
     private String email;
     private String userName;
     private String password;
+    private String rating;
     private HashMap<String, User> friendList = new HashMap<String, User>();
 
     //TODO: Add friend list and shopping attributes
@@ -23,6 +24,7 @@ public class User {
         this.email = email;
         this.userName = userName;
         this.password = password;
+        this.rating = "0";
     }
 
     /**
@@ -53,6 +55,28 @@ public class User {
     public String getUserName() {
         return userName;
     }
+
+    /**
+     * Returns the user rating of the user
+     * @return user rating
+     */
+    public String getRating() { return rating;}
+
+    /**
+     * Sets the user rating of the user
+     * @param rating
+     * @return - boolean if rating was set
+     */
+    public boolean setRating(String rating) {
+        int intRating = Integer.parseInt(rating);
+
+        if (intRating < 0 || intRating > 10) {
+            return false;
+        }
+        this.rating = rating;
+        return true;
+    }
+
     /**
      * Returns whether or not passwords match
      * @return whether or not passwords match
@@ -98,6 +122,15 @@ public class User {
     public void addFriend(User friend) {
         friendList.put(friend.getEmail(), friend);
     }
+
+    /**
+     * Deletes a user as a friend using their user object
+     * @param friend
+     */
+    public void deleteFriend(User friend) {
+        friendList.remove(friend.getEmail());
+    }
+
 
     /**
      * Returns the friend list

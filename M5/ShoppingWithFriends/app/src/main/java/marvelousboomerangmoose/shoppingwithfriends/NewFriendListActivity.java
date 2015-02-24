@@ -29,7 +29,7 @@ public class NewFriendListActivity extends ActionBarActivity {
             HashMap<String, User> friends = MainActivity.loggedInUser.getFriendList();
             for (String key : friends.keySet()) {
                 User friend = friends.get(key);
-                listAdapter.add(friend.getFirst() + " " + friend.getLast() + " " + friend.getEmail());
+                listAdapter.add(friend.getFirst() + " " + friend.getLast() + "\n" + friend.getEmail());
             }
             myListView.setAdapter(listAdapter);
     }
