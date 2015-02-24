@@ -35,9 +35,14 @@ public class Person2 {
 	  String out = "";
 	  int pointer = 0;
 	  for (int i = 0; i < input.length(); i++) {
-	  	pointer = (int) Math.random() * s.length();
+	  	pointer = (int) Math.abs(Math.random() * s.length());
 	  	out += s.charAt(pointer);
-	  	s = s.substring(0, pointer - 1) + s.substring(pointer + 1, s.length()); 
+	  	if (pointer == 0 && s.length()==1) {
+	  	} else if (pointer == 0) {
+	  		s = s.substring(1, s.length());
+	  	} else {
+	  		s = s.substring(0, pointer) + s.substring(pointer+1, s.length()); 
+	  	}
 	  }
 	  return out;
 	}
