@@ -27,6 +27,7 @@ public class ActiveUsersDetailActivity extends ActionBarActivity {
                 foundUserName = userName;
             }
         }
+        
         User user = users.get(foundUserName);
 
         TextView tv1 = (TextView) findViewById(R.id.activefirstName);
