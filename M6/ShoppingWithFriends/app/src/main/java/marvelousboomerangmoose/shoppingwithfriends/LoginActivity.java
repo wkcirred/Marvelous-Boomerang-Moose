@@ -4,6 +4,8 @@ import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.support.v7.app.ActionBar;
+import android.support.v4.app.NavUtils;
 import android.app.LoaderManager.LoaderCallbacks;
 import android.content.ContentResolver;
 import android.content.CursorLoader;
@@ -20,6 +22,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.KeyEvent;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.inputmethod.EditorInfo;
@@ -37,17 +40,8 @@ import java.util.List;
  * A login screen that offers login via userID/password.
  */
 public class LoginActivity extends ActionBarActivity implements LoaderCallbacks<Cursor> {
-    //protected static int loggedIn = 0;
+    public static final int minLengthUserInfo = 3;
 
-    /**
-     * A dummy authentication store containing known user names and passwords.
-     * TODO: remove after connecting to a real authentication system.
-     */
-    /*
-    private static final String[] DUMMY_CREDENTIALS = new String[]{
-            "user:pass"
-    };
-    */
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
      */
@@ -63,6 +57,10 @@ public class LoginActivity extends ActionBarActivity implements LoaderCallbacks<
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
+        //ActionBar actionBar = getSupportActionBar();
+        //getActionBar().setDisplayHomeAsUpEnabled(true);
+        //getSupportParentActivityIntent();
 
         // Set up the login form.
         mUserView = (AutoCompleteTextView) findViewById(R.id.userID);
@@ -161,9 +159,7 @@ public class LoginActivity extends ActionBarActivity implements LoaderCallbacks<
      * @param user the user ID being checked
      * @return true or false depending on if it is valid
      */
-    private boolean isUserIDValid(String user) {
-        return user.length() > 3;
-    }
+    private boolean isUserIDValid(String user) {return user.length() >= minLengthUserInfo;}
 
     /**
      * Checks the validity of the password.
@@ -171,7 +167,7 @@ public class LoginActivity extends ActionBarActivity implements LoaderCallbacks<
      * @return true or false depending on if it is valid
      */
     private boolean isPasswordValid(String password) {
-        return password.length() > 3;
+        return password.length() >= minLengthUserInfo;
     }
 
     /**
@@ -341,6 +337,8 @@ public class LoginActivity extends ActionBarActivity implements LoaderCallbacks<
     public void buttonCancelOnClick(View v) {
         startActivity(new Intent(this, MainActivity.class));
     }
+
+
 }
 
 

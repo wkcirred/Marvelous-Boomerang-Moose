@@ -35,9 +35,9 @@ public class MainActivity extends ActionBarActivity {
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
         }
-        credentials.put("admin", new User("First", "Last", "admin@shop.moose", "admin", "pass"));
-        credentials.put("user", new User("First", "Last", "user@shop.moose", "user", "pass"));
-        credentials.put("new", new User("First", "Last", "new@shop.moose", "new", "pass"));
+        credentials.put("admin", new User("Robbie", "Hooke", "admin@shop.moose", "admin", "pass"));
+        credentials.put("user", new User("Derrick", "Williams", "user@shop.moose", "user", "pass"));
+        credentials.put("new", new User("Richard", "Wang", "new@shop.moose", "new", "pass"));
     }
 
     /**
@@ -45,20 +45,14 @@ public class MainActivity extends ActionBarActivity {
      *
      * @param v the button being clicked
      */
-    public void buttonLoginOnClick(View v) {
-//        Button button=(Button) v;
-        startActivity(new Intent(this, LoginActivity.class));
-    }
+    public void buttonLoginOnClick(View v) {startActivity(new Intent(this, LoginActivity.class));}
 
     /**
      * When the registration button is clicked, this transitions to the registration screen.
      *
      * @param v the button being clicked
      */
-    public void buttonRegOnClick(View v) {
-
-        startActivity(new Intent(this, RegActivity.class));
-    }
+    public void buttonRegOnClick(View v) {startActivity(new Intent(this, RegActivity.class));}
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

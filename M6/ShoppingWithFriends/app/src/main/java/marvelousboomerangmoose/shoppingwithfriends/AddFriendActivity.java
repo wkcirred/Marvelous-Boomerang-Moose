@@ -8,11 +8,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.View;
-import android.view.MenuItem;
-import android.widget.Button;
-import android.widget.ListView;
 
 public class AddFriendActivity extends ActionBarActivity {
     public final static String MESSAGE = "marvelousboomerangmoose.shoppingwithfriends.MESSAGE";
@@ -24,9 +20,11 @@ public class AddFriendActivity extends ActionBarActivity {
         setContentView(R.layout.activity_add_friend);
     }
 
-
-    public void addFriendCancelOnClick(View v){
-        //Button button=(Button) v;
+    /**
+     * Cancels add friend function; sends user back to home activity
+     * @param v - button that is clicked
+     */
+    public void addFriendCancelOnClick(View v) {
         startActivity(new Intent(this, HomeActivity.class));
     }
 
@@ -91,7 +89,7 @@ public class AddFriendActivity extends ActionBarActivity {
                                 // if this button is clicked, close
                                 // current activity
 
-                                Intent intent = new Intent(context, NewFriendListActivity.class);
+                                Intent intent = new Intent(context, CurrentFriendListActivity.class);
                                 intent.putExtra(MESSAGE, first + " " + last + "\n" + email);
                                 startActivity(intent);
 
