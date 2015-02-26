@@ -5,9 +5,9 @@ import android.util.Log;
 import java.util.HashMap;
 import java.util.Set;
 
-/**
- * Created by Robbie on 2/10/2015.
- */
+    /**
+     * User class that holds all the information about a user, ie password, friend lists
+     */
 public class User {
     private String first;
     private String last;
