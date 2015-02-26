@@ -86,37 +86,62 @@ public class AddFriendActivity extends ActionBarActivity {
         } else {
             alertDialogBuilder.setTitle("");
 
-            Boolean status = MainActivity.loggedInUser.addFriend(first, last, email);
-
-            if (status) {
+            if (MainActivity.loggedInUser.getEmail().equals(email)) {
+                //added self
                 // set dialog message
                 alertDialogBuilder
-                        .setMessage("Successfully added a friend")
-                        .setCancelable(false)
-                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                // if this button is clicked, close
-                                // current activity
-
-                                Intent intent = new Intent(context, CurrentFriendListActivity.class);
-                                intent.putExtra(MESSAGE, first + " " + last + "\n" + email);
-                                startActivity(intent);
-
-                            }
-                        });
-                AlertDialog alertDialog = alertDialogBuilder.create();
-                alertDialog.show();
-            } else {
-                // set dialog message
-                alertDialogBuilder
-                        .setMessage("Failed to add a friend")
+                        .setMessage("Sorry if you don't have any, but you can't add yourself as a friend")
                         .setCancelable(false).setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {}
+                    public void onClick(DialogInterface dialog, int id) {
+                    }
                 });
                 AlertDialog alertDialog = alertDialogBuilder.create();
                 alertDialog.show();
+            } else if (MainActivity.loggedInUser.getFriendList().containsKey(email)) {
+                //re-adding friend
+                // set dialog message
+                alertDialogBuilder
+                        .setMessage("You've already added this friend")
+                        .setCancelable(false).setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                    }
+                });
+                AlertDialog alertDialog = alertDialogBuilder.create();
+                alertDialog.show();
+            } else {
+                Boolean status = MainActivity.loggedInUser.addFriend(first, last, email);
+
+                if (status) {
+                    // set dialog message
+                    alertDialogBuilder
+                            .setMessage("Successfully added a friend")
+                            .setCancelable(false)
+                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    // if this button is clicked, close
+                                    // current activity
+
+                                    Intent intent = new Intent(context, CurrentFriendListActivity.class);
+                                    intent.putExtra(MESSAGE, first + " " + last + "\n" + email);
+                                    startActivity(intent);
+
+                                }
+                            });
+                    AlertDialog alertDialog = alertDialogBuilder.create();
+                    alertDialog.show();
+                } else {
+                    // set dialog message
+                    alertDialogBuilder
+                            .setMessage("Failed to add a friend")
+                            .setCancelable(false).setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                        }
+                    });
+                    AlertDialog alertDialog = alertDialogBuilder.create();
+                    alertDialog.show();
+                }
+
             }
         }
-
     }
 }
