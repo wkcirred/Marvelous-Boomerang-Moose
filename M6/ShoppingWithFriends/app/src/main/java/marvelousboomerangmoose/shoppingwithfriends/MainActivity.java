@@ -24,7 +24,9 @@ import java.io.ObjectOutputStream;
 import java.io.OutputStream;
 import java.util.HashMap;
 
-
+/**
+ * The screen that is visible upon startup.  Has the login and and registration buttons.
+ */
 public class MainActivity extends ActionBarActivity {
 
     /*if (LoginActivity.loggedIn == 1) {

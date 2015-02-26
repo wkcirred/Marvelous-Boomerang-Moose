@@ -10,6 +10,10 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.View;
 
+/**
+ * The add friend screen where a user can input information relevant to adding a new friend and
+ * then add that person.
+ */
 public class AddFriendActivity extends ActionBarActivity {
     public final static String MESSAGE = "marvelousboomerangmoose.shoppingwithfriends.MESSAGE";
 
@@ -29,6 +33,11 @@ public class AddFriendActivity extends ActionBarActivity {
     }
 
     final Context context = this;
+
+    /**
+     * Adds a friend when the button is clicked if  all checks pass.
+     * @param v the button being clicked
+     */
     public void addFriendButtonOnClick(View v){
         final String first = ((EditText)findViewById(R.id.friendFirst)).getText().toString();
         final String last = ((EditText)findViewById(R.id.friendLast)).getText().toString();

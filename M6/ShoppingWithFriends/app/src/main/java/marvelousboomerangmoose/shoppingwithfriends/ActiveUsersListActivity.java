@@ -13,7 +13,9 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-
+/**
+ * Displays a list of the active users.
+ */
 public class ActiveUsersListActivity extends ActionBarActivity {
     private String message;
     private static ArrayList<String> arrayList;
