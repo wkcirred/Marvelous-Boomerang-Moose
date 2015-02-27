@@ -1,0 +1,6 @@
+/Users/Degel/Marvelous-Boomerang-Moose/M7/ShoppingWithFriends/app/build/intermediates/classes/debug
+/Users/Degel/Marvelous-Boomerang-Moose/M7/ShoppingWithFriends/app/build/intermediates/pre-dexed/debug/support-annotations-21.0.3-bc8d4fcdae55045dd1e4e054f9b3a86ab736df78.jar
+/Users/Degel/Marvelous-Boomerang-Moose/M7/ShoppingWithFriends/app/build/intermediates/pre-dexed/debug/internal_impl-21.0.3-df88bffbad14360f953313b34a221708b00de9a2.jar
+/Users/Degel/Marvelous-Boomerang-Moose/M7/ShoppingWithFriends/app/build/intermediates/pre-dexed/debug/classes-c7fb34d275658e63cab8501c8c1f3c441dc67137.jar
+/Users/Degel/Marvelous-Boomerang-Moose/M7/ShoppingWithFriends/app/build/intermediates/pre-dexed/debug/classes-cb84b78f8864d31cb1096c3e035969ee3e8dc9cf.jar
+/Users/Degel/Marvelous-Boomerang-Moose/M7/ShoppingWithFriends/app/build/intermediates/pre-dexed/debug/classes-feba10619d4ca2432a75123d49cdbf814d4a84f1.jar
