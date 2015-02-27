@@ -48,14 +48,6 @@ public class CurrentFriendListActivity extends ActionBarActivity {
             }
             myListView.setAdapter(listAdapter);
 
-
-
-
-
-
-
-
-
     }
 
 

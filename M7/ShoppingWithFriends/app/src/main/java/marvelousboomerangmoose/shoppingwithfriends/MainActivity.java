@@ -34,7 +34,7 @@ public class MainActivity extends ActionBarActivity {
     }*/
     public static HashMap<String, User> credentials = new HashMap<String, User>();
     public static User loggedInUser = null;
-    //public static HashMap<String, ArrayList<Product>> productList = new HashMap<String, ArrayList<Product>>();
+    public static HashMap<String, Product> productList = new HashMap<String, Product>();
 
 
 
@@ -50,7 +50,9 @@ public class MainActivity extends ActionBarActivity {
         credentials.put("admin", new User("Robbie", "Hooke", "admin@shop.moose", "admin", "pass"));
         credentials.put("user", new User("Derrick", "Williams", "user@shop.moose", "user", "pass"));
         credentials.put("new", new User("Richard", "Wang", "new@shop.moose", "new", "pass"));
-
+        productList.put("X-box", new Product("X-box", 0.1));
+        productList.put("Arm Chair", new Product("Arm Chair", 0.1));
+        productList.put("Laundry Bag", new Product("Laundry Bag", 0.1));
     }
 
     /**
@@ -66,6 +68,7 @@ public class MainActivity extends ActionBarActivity {
      * @param v the button being clicked
      */
     public void buttonRegOnClick(View v) {startActivity(new Intent(this, RegActivity.class));}
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

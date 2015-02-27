@@ -1,0 +1,86 @@
+package marvelousboomerangmoose.shoppingwithfriends;
+
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.support.v7.app.ActionBarActivity;
+import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.EditText;
+import java.util.ArrayList;
+import java.util.HashMap;
+
+
+public class AddItemActivity extends ActionBarActivity {
+    ArrayList<String> arrayList;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_add_item);
+        arrayList = new ArrayList<>(MainActivity.productList.keySet());
+        ListView myListView = (ListView) this.findViewById(R.id.listView);
+        ArrayAdapter listAdapter = new ArrayAdapter<>(this,R.layout.simplerow, arrayList);
+        myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Object object = parent.getItemAtPosition(position);
+                String item = (String) object;
+                ((EditText) findViewById(R.id.nameTextEdit)).setText(item);
+            }
+        });
+        myListView.setAdapter(listAdapter);
+    }
+
+
+    public void buttonAddOnClick(View v){
+        String name =((EditText) findViewById(R.id.nameTextEdit)).getText().toString();
+        String price = ((EditText) findViewById(R.id.priceTextEdit)).getText().toString();
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        if (name.matches("")||price.matches("")){
+            alertDialogBuilder.setMessage("Please enter name and price").setCancelable(false)
+                    .setNegativeButton("OK", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    });
+            alertDialogBuilder.setTitle("Invalid Input");
+            alertDialogBuilder.show();
+            return;
+
+        }
+        Product p = new Product(name, Double.parseDouble(price));
+        MainActivity.productList.put(p.getName(),p);
+        MainActivity.loggedInUser.addItem(p);
+        startActivity(new Intent(this, ItemListActivity.class));
+    }
+    public void buttonCancelOnClick(View v){
+        startActivity(new Intent(this, ItemListActivity.class));
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_add_item, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+        if (id == R.id.action_settings) {
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+}

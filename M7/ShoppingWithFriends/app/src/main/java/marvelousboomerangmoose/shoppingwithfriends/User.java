@@ -16,7 +16,7 @@ public class User {
     private String password;
     private String rating;
     private HashMap<String, User> friendList = new HashMap<String, User>();
-
+    private HashMap<String,Product> itemList;
     //TODO: Add friend list and shopping attributes
     public User(String first, String last, String email, String userName, String password) {
         this.first = first;
@@ -25,6 +25,7 @@ public class User {
         this.userName = userName;
         this.password = password;
         this.rating = "0";
+        this.itemList = new HashMap<>();
     }
 
     /**
@@ -146,5 +147,10 @@ public class User {
      */
     public String toString() {
         return this.getUserName();
+    }
+
+    public HashMap<String, Product> getItemList() {return itemList;}
+    public void addItem(Product p){
+        itemList.put(p.getName(),p);
     }
 }

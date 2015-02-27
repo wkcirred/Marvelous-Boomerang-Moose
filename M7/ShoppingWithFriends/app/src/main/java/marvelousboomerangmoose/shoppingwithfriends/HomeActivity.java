@@ -26,6 +26,7 @@ public class HomeActivity extends ActionBarActivity {
         }
     }
 
+    public void buttonItemListOnClick(View v) {startActivity(new Intent(this, ItemListActivity.class));}
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
