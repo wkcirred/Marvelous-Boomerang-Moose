@@ -13,10 +13,20 @@ import android.view.ViewGroup;
 import android.os.Build;
 import android.widget.Button;
 import android.util.Log;
-
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.OutputStream;
 import java.util.HashMap;
 
-
+/**
+ * The screen that is visible upon startup.  Has the login and and registration buttons.
+ */
 public class MainActivity extends ActionBarActivity {
 
     /*if (LoginActivity.loggedIn == 1) {
@@ -24,6 +34,8 @@ public class MainActivity extends ActionBarActivity {
     }*/
     public static HashMap<String, User> credentials = new HashMap<String, User>();
     public static User loggedInUser = null;
+    //public static HashMap<String, ArrayList<Product>> productList = new HashMap<String, ArrayList<Product>>();
+
 
 
     @Override
@@ -38,6 +50,7 @@ public class MainActivity extends ActionBarActivity {
         credentials.put("admin", new User("Robbie", "Hooke", "admin@shop.moose", "admin", "pass"));
         credentials.put("user", new User("Derrick", "Williams", "user@shop.moose", "user", "pass"));
         credentials.put("new", new User("Richard", "Wang", "new@shop.moose", "new", "pass"));
+
     }
 
     /**
