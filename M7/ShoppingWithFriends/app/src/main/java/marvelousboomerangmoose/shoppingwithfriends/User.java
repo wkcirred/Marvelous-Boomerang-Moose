@@ -15,8 +15,8 @@ public class User {
     private String userName;
     private String password;
     private String rating;
-    private HashMap<String, User> friendList = new HashMap<String, User>();
-
+    public HashMap<String, User> friendList = new HashMap<String, User>();
+    private HashMap<String,Product> itemList;
     //TODO: Add friend list and shopping attributes
     public User(String first, String last, String email, String userName, String password) {
         this.first = first;
@@ -25,6 +25,7 @@ public class User {
         this.userName = userName;
         this.password = password;
         this.rating = "0";
+        this.itemList = new HashMap<>();
     }
 
     /**
@@ -93,10 +94,10 @@ public class User {
      * @return returns whether or not the friend was added successfully
      */
     public Boolean addFriend(String firstName, String lastName, String email) {
-        Set<String> keys = MainActivity.credentials.keySet();
+        Set<String> keys = UserActivity.credentials.keySet();
         User newFriend = null;
         for (String key : keys) {
-            User curr = MainActivity.credentials.get(key);
+            User curr = UserActivity.credentials.get(key);
             if (curr.getEmail().equals(email)) {
                 if (curr.getFirst().equals(firstName) && curr.getLast().equals(lastName)) {
                     newFriend = curr;
@@ -146,5 +147,19 @@ public class User {
      */
     public String toString() {
         return this.getUserName();
+    }
+
+    /**
+     * Get the Item list
+     * @return - returns itemList
+     */
+    public HashMap<String, Product> getItemList() {return itemList;}
+
+    /**
+      * Add item to list
+      * @param p - Product to add to item list
+      */
+    public void addItem(Product p){
+        itemList.put(p.getName(),p);
     }
 }
