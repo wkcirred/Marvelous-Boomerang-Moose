@@ -1,64 +1,74 @@
-<<<<<<< HEAD
 package marvelousboomerangmoose.shoppingwithfriends;
 
+import android.util.Log;
+
+import java.util.HashMap;
+import java.util.Set;
+
 /**
- * Contains information such as name and cost on a product.
+ * Product class stores information on various products for use in
+ * registering product interest and reporting sales.
  */
 public class Product {
-    private String item;
-    private double cost;
-    private double salesCost;
+    private String name;
+    private double price;
+    private double salesPrice;
     private String location;
+    private String storeName;
     private int inventory;
-    private Boolean onSale;
+    private boolean onSale;
+    private HashMap<String, Product> itemList = new HashMap<String, Product>();
 
-    public Product(String item, double cost, double salesCost,
-                   String location, int inventory, Boolean onSale) {
-        this.item = item;
-        this.cost = cost;
-        this.location = location;
-        this.inventory = inventory;
-        this.onSale = onSale;
+    public Product(String name, double price) {
+        this.name = name;
+        this.price = price;
     }
 
     /**
-     * Gets the item name.
-     * @return the item name
+     * Returns the name of the product
+     *
+     * @return name
      */
-    public String getItem() {
-        return item;
+    public String getName() {
+        return name;
     }
 
     /**
-     * Gets the cost of the item.
-     * @return the cost
+     * Gets the price of the item.
+     * @return the price
      */
-    public double getCost() {
-        return cost;
+    public double getPrice() {
+        return price;
     }
 
     /**
-     * Sets the cost of a product for if it changes in cost (goes on sale or otherwise).
-     * @param cost the new cost for the item
+     * Sets the price of the product
+     *
+     * @param price
+     * @return - boolean if price was set
      */
-    public void setCost(double cost) {
-        this.cost = cost;
+    public boolean setPrice(double price) {
+        if (price < 0) {
+            return false;
+        }
+        this.price = price;
+        return true;
     }
 
     /**
      * Gets the price of the sale on the item.
      * @return the price of the sale
      */
-    public double getSalesCost() {
-        return salesCost;
+    public double getSalesPrice() {
+        return salesPrice;
     }
 
     /**
      * Sets the price of the sale on the item.
-     * @param salesCost the cost of the item on sale
+     * @param salesPrice the price of the item on sale
      */
-    public void setSalesCost(double salesCost) {
-        this.salesCost = salesCost;
+    public void setSalesPrice(double salesPrice) {
+        this.salesPrice = salesPrice;
     }
 
     /**
@@ -70,6 +80,14 @@ public class Product {
     }
 
     /**
+     * Sets the location of the item
+     * @param location of the item
+     */
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    /**
      * Gets the amount of the product at the store.
      * @return the amount of product remaining
      */
@@ -78,10 +96,18 @@ public class Product {
     }
 
     /**
-     * Gets whether or not the product is on sale.
-     * @return true or false depending on if the product is on sale
+     * Sets the amount of stock available on the item
+     * @param inventory amount of the item
      */
-    public Boolean getOnSale() {
+    public void setInventory(int inventory) {
+        this.inventory = inventory;
+    }
+
+    /**
+     * Gets whether or not the item is on sale.
+     * @return true or false depending on if the item is on sale
+     */
+    public boolean getOnSale() {
         return onSale;
     }
 
@@ -89,74 +115,36 @@ public class Product {
      * Sets the item to be on sale or not.
      * @param onSale whether or not the item is on sale
      */
-    public void setOnSale(Boolean onSale) {
+    public void setOnSale(boolean onSale) {
         this.onSale = onSale;
     }
-}
-=======
-    package marvelousboomerangmoose.shoppingwithfriends;
-
-import android.util.Log;
-
-import java.util.HashMap;
-import java.util.Set;
 
     /**
-     * User class that holds all the information about a user, ie password, friend lists
+     * Gets the name of the store the product is located in
+     * @return the store name
      */
-public class Product {
-        private String name;
-        private double price;
-        private HashMap<String, Product> itemList = new HashMap<String, Product>();
+    public String getStoreName() {
+        return storeName;
+    }
 
-        public Product(String name, double price) {
-            this.name = name;
-            this.price = price;
-        }
+    /**
+     * Sets the name of the store the product is in
+     * @param storeName the store's name
+     */
+    public void setStoreName(String storeName) {
+        this.storeName = storeName;
+    }
 
-        /**
-         * Returns the name of the product
-         *
-         * @return name
-         */
-        public String getName() {
-            return name;
-        }
-
-        /**
-         * Returns the last name of the user
-         *
-         * @return Last name
-         */
-
-        public double getPrice() {
-            return price;
-        }
-
-        /**
-         * Sets the price of the product
-         *
-         * @param price
-         * @return - boolean if price was set
-         */
-        public boolean setPrice(double price) {
-            if (price < 0) {
-                return false;
-            }
-            this.price = price;
-            return true;
-        }
-
-        /**
-         * Adds an item to the itemList
-         *
-         * @param name
-         * @param price
-         * @return returns whether or not the item was added successfully
-         */
-        public Boolean addProduct(String name, double price) {
-            Set<String> keys = MainActivity.productList.keySet();
-            Product newProduct = new Product(name, price);
+    /**
+     * Adds an item to the itemList
+     *
+     * @param name
+     * @param price
+     * @return returns whether or not the item was added successfully
+     */
+    public Boolean addProduct(String name, double price) {
+        Set<String> keys = MainActivity.productList.keySet();
+        Product newProduct = new Product(name, price);
 //            for (String key : keys) {
 //                Product curr = MainActivity.productList.get(key);
 //                if (curr.getName().equals(name)) {
@@ -173,23 +161,16 @@ public class Product {
 //            }
         }
 
-        /**
-         * Adds an item
-         *
-         * @param item item to be added
-         */
-        public void addProduct(Product item) {
-            itemList.put(item.getName(), item);
-        }
+    /**
+     * Adds an item
+     *
+     * @param item item to be added
+     */
+    public void addProduct(Product item) {
+        itemList.put(item.getName(), item);
+    }
 
-
-        /**
-         * Returns the friend list
-         *
-         * @return itemList
-         */
-        public HashMap<String, Product> getItemList() {
+    public HashMap<String, Product> getItemList() {
             return itemList;
         }
-    }
->>>>>>> origin/master
+}
