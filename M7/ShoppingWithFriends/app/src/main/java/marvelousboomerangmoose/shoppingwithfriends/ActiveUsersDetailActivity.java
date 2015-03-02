@@ -22,7 +22,7 @@ public class ActiveUsersDetailActivity extends ActionBarActivity {
 
         Intent intent = getIntent();
         String key = intent.getStringExtra("email");
-        HashMap<String, User> users = MainActivity.credentials;
+        HashMap<String, User> users = UserActivity.credentials;
         String foundUserName = "";
         for (String userName : users.keySet()) {
             if (users.get(userName).getEmail().equals(key)) {
@@ -74,7 +74,7 @@ public class ActiveUsersDetailActivity extends ActionBarActivity {
     public void addFriendOnClick(View v) {
         Intent intent = getIntent();
         String key = intent.getStringExtra("email");
-        HashMap<String, User> users = MainActivity.credentials;
+        HashMap<String, User> users = UserActivity.credentials;
         String foundUserName = "";
         for (String userName : users.keySet()) {
             if (users.get(userName).getEmail().equals(key)) {
@@ -83,7 +83,7 @@ public class ActiveUsersDetailActivity extends ActionBarActivity {
         }
         User user = users.get(foundUserName);
 
-        MainActivity.loggedInUser.addFriend(user);
+        UserActivity.loggedInUser.addFriend(user);
 
         startActivity(new Intent(this, CurrentFriendListActivity.class));
     }

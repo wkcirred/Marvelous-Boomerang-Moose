@@ -55,7 +55,7 @@ public class AddItemActivity extends ActionBarActivity {
         }
         Product p = new Product(name, Double.parseDouble(price));
         MainActivity.productList.put(p.getName(),p);
-        MainActivity.loggedInUser.addItem(p);
+        UserActivity.loggedInUser.addItem(p);
         startActivity(new Intent(this, ItemListActivity.class));
     }
     public void buttonCancelOnClick(View v){

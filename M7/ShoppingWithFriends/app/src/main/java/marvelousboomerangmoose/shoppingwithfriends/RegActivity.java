@@ -145,7 +145,7 @@ public class RegActivity extends ActionBarActivity implements LoaderCallbacks<Cu
             mUserNameView.setError(getString(R.string.error_invalid_userID));
             focusView = mUserNameView;
             cancel = true;
-        } else if (MainActivity.credentials.containsKey(userName)) {
+        } else if (UserActivity.credentials.containsKey(userName)) {
             mUserNameView.setError("User Name Unavailable");
             focusView = mUserNameView;
             cancel = true;
@@ -330,7 +330,7 @@ public class RegActivity extends ActionBarActivity implements LoaderCallbacks<Cu
 
 
 
-            MainActivity.credentials.put(mUserName, new User(mFirst, mLast, mEmail, mUserName, mPassword));
+            UserActivity.credentials.put(mUserName, new User(mFirst, mLast, mEmail, mUserName, mPassword));
             return true;
         }
 
