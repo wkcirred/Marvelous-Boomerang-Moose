@@ -32,9 +32,10 @@ public class MainActivity extends ActionBarActivity {
     /*if (LoginActivity.loggedIn == 1) {
         startActivity(new Intent(this, HomeActivity.class));
     }*/
-    public static HashMap<String, User> credentials = new HashMap<String, User>();
-    public static User loggedInUser = null;
+
+
     public static HashMap<String, Product> productList = new HashMap<String, Product>();
+    public UserActivity users = new UserActivity();
 
 
 
@@ -47,9 +48,7 @@ public class MainActivity extends ActionBarActivity {
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
         }
-        credentials.put("admin", new User("Robbie", "Hooke", "admin@shop.moose", "admin", "pass"));
-        credentials.put("user", new User("Derrick", "Williams", "user@shop.moose", "user", "pass"));
-        credentials.put("new", new User("Richard", "Wang", "new@shop.moose", "new", "pass"));
+
         productList.put("X-box", new Product("X-box", 0.1));
         productList.put("Arm Chair", new Product("Arm Chair", 0.1));
         productList.put("Laundry Bag", new Product("Laundry Bag", 0.1));

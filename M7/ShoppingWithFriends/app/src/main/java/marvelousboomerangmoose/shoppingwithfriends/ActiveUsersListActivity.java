@@ -28,7 +28,7 @@ public class ActiveUsersListActivity extends ActionBarActivity {
         arrayList = new ArrayList<>();
         ListView myListView = (ListView) this.findViewById(R.id.listView);
         ArrayAdapter listAdapter = new ArrayAdapter<>(this,R.layout.simplerow, arrayList);
-        HashMap<String, User> users = MainActivity.credentials;
+        HashMap<String, User> users = UserActivity.credentials;
         for (String key : users.keySet()) {
             User user = users.get(key);
             listAdapter.add(user.getFirst() + " " + user.getLast() + " " + user.getEmail());

@@ -24,7 +24,7 @@ public class ItemListActivity extends ActionBarActivity {
 
         ListView myListView = (ListView) this.findViewById(R.id.listView);// not sure
         //MainActivity.loggedInUser.addItem(new Product("Dish",1.00));
-        MyAdapter adapter = new MyAdapter(MainActivity.loggedInUser.getItemList());
+        MyAdapter adapter = new MyAdapter(UserActivity.loggedInUser.getItemList());
         myListView.setAdapter(adapter);
     }
 

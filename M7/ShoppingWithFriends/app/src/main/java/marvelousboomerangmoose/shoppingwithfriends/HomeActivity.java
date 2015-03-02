@@ -40,7 +40,7 @@ public class HomeActivity extends ActionBarActivity {
      * @param v the button being clicked
      */
     public void logoutOnClick(View v) {
-        MainActivity.loggedInUser = null;
+        UserActivity.loggedInUser = null;
         startActivity(new Intent(this, MainActivity.class));
     }
 

@@ -33,7 +33,7 @@
     <string name="prompt_register_password">Preferred Password</string>
     <string name="action_register">Register</string>
     <string name="action_cancel_register">Cancel Registration</string>
--->                            <!-- <string name="action_sign_in_short">Sign in</string> -->
+-->                                <!-- <string name="action_sign_in_short">Sign in</string> -->
 
     <string name="error_invalid_email">This email address is invalid</string>
     <!-- <string name="error_invalid_password">This password is too short</string> -->
@@ -68,5 +68,6 @@
     <string name="title_activity_active_users_list">ActiveUsersListActivity</string>
     <string name="title_activity_item_list">ItemListActivity</string>
     <string name="title_activity_add_item">AddItemActivity</string>
+    <string name="title_activity_user">UserActivity</string>
 
 </resources>
