@@ -86,7 +86,7 @@ public class AddFriendActivity extends ActionBarActivity {
         } else {
             alertDialogBuilder.setTitle("");
 
-            if (MainActivity.loggedInUser.getEmail().equals(email)) {
+            if (UserActivity.loggedInUser.getEmail().equals(email)) {
                 //added self
                 // set dialog message
                 alertDialogBuilder
@@ -97,7 +97,7 @@ public class AddFriendActivity extends ActionBarActivity {
                 });
                 AlertDialog alertDialog = alertDialogBuilder.create();
                 alertDialog.show();
-            } else if (MainActivity.loggedInUser.getFriendList().containsKey(email)) {
+            } else if (UserActivity.loggedInUser.getFriendList().containsKey(email)) {
                 //re-adding friend
                 // set dialog message
                 alertDialogBuilder
@@ -109,7 +109,7 @@ public class AddFriendActivity extends ActionBarActivity {
                 AlertDialog alertDialog = alertDialogBuilder.create();
                 alertDialog.show();
             } else {
-                Boolean status = MainActivity.loggedInUser.addFriend(first, last, email);
+                Boolean status = UserActivity.loggedInUser.addFriend(first, last, email);
 
                 if (status) {
                     // set dialog message

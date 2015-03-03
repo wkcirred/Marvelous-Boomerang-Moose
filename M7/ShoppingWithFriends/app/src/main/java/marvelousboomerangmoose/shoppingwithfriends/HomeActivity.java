@@ -26,6 +26,7 @@ public class HomeActivity extends ActionBarActivity {
         }
     }
 
+    public void buttonItemListOnClick(View v) {startActivity(new Intent(this, ItemListActivity.class));}
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -39,7 +40,7 @@ public class HomeActivity extends ActionBarActivity {
      * @param v the button being clicked
      */
     public void logoutOnClick(View v) {
-        MainActivity.loggedInUser = null;
+        UserActivity.loggedInUser = null;
         startActivity(new Intent(this, MainActivity.class));
     }
 

@@ -294,8 +294,8 @@ public class LoginActivity extends ActionBarActivity implements LoaderCallbacks<
             }
             */
 
-            if (MainActivity.credentials.containsKey(mUser)) {
-                return (MainActivity.credentials.get(mUser).checkPassword(mPassword));
+            if (UserActivity.credentials.containsKey(mUser)) {
+                return (UserActivity.credentials.get(mUser).checkPassword(mPassword));
             }
 
             return false;
@@ -312,7 +312,7 @@ public class LoginActivity extends ActionBarActivity implements LoaderCallbacks<
 
             if (success) {
                 //loggedIn = 1;
-                MainActivity.loggedInUser = MainActivity.credentials.get(mUser);
+                UserActivity.loggedInUser = UserActivity.credentials.get(mUser);
                 goToHome();
                 //finish();
             } else {

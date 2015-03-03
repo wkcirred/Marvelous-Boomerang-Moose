@@ -20,7 +20,7 @@ public class CurrentFriendDetailActivity extends ActionBarActivity {
 
         Intent intent = getIntent();
         String key = intent.getStringExtra("email");
-        HashMap<String, User> friends = MainActivity.loggedInUser.getFriendList();
+        HashMap<String, User> friends = UserActivity.loggedInUser.getFriendList();
         User user = friends.get(key);
 
         TextView tv1 = (TextView) findViewById(R.id.firstName);
@@ -66,10 +66,10 @@ public class CurrentFriendDetailActivity extends ActionBarActivity {
     public void deleteFriendOnClick(View v) {
         Intent intent = getIntent();
         String key = intent.getStringExtra("email");
-        HashMap<String, User> friends = MainActivity.loggedInUser.getFriendList();
+        HashMap<String, User> friends = UserActivity.loggedInUser.getFriendList();
         User user = friends.get(key);
 
-        MainActivity.loggedInUser.deleteFriend(user);
+        UserActivity.loggedInUser.deleteFriend(user);
 
         startActivity(new Intent(this, CurrentFriendListActivity.class));
     }

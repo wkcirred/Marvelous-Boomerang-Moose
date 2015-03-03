@@ -28,7 +28,7 @@ public class CurrentFriendListActivity extends ActionBarActivity {
             arrayList = new ArrayList<>();
             ListView myListView = (ListView) this.findViewById(R.id.listView);
             ArrayAdapter listAdapter = new ArrayAdapter<>(this,R.layout.simplerow, arrayList);
-            HashMap<String, User> friends = MainActivity.loggedInUser.getFriendList();
+            HashMap<String, User> friends = UserActivity.loggedInUser.getFriendList();
             for (final String key : friends.keySet()) {
                 //Log.d("Email:",key);
                 User friend = friends.get(key);
@@ -47,14 +47,6 @@ public class CurrentFriendListActivity extends ActionBarActivity {
                 });
             }
             myListView.setAdapter(listAdapter);
-
-
-
-
-
-
-
-
 
     }
 
