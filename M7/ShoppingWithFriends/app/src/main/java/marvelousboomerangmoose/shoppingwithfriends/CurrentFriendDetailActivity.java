@@ -69,7 +69,7 @@ public class CurrentFriendDetailActivity extends ActionBarActivity {
         HashMap<String, User> friends = UserActivity.loggedInUser.getFriendList();
         User user = friends.get(key);
 
-        UserActivity.loggedInUser.deleteFriend(user);
+        UserActivity.loggedInUser.deleteFriendMutually(user);
 
         startActivity(new Intent(this, CurrentFriendListActivity.class));
     }

@@ -2,6 +2,7 @@
 
 import android.util.Log;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Set;
 
@@ -105,10 +106,12 @@ public class User {
                 break;
             }
         }
+
+        Log.d("User Email", this.getEmail());
+        Log.d("Friend Email", newFriend.getEmail());
         if (newFriend != null) {
-            Log.d("email", email);
-            Log.d("new friend", newFriend.toString());
             friendList.put(email, newFriend);
+            Log.d("Adding friend", "Success");
             newFriend.addFriend(this);//adds them back
             return true;
         } else {
@@ -116,11 +119,16 @@ public class User {
         }
     }
 
+
+    //TODO: change visibility so that only visible from User objects
     /**
      * Adds a user as a friend using their user object
      * @param friend
      */
     public void addFriend(User friend) {
+        Log.d("Adding friend", "Mutually");
+        Log.d("User Email", this.getEmail());
+        Log.d("Friend Email", friend.getEmail());
         friendList.put(friend.getEmail(), friend);
     }
 
@@ -130,6 +138,15 @@ public class User {
      */
     public void deleteFriend(User friend) {
         friendList.remove(friend.getEmail());
+    }
+
+    /**
+     * Deletes a user as a friend using their user object and remove you as their friend too
+     * @param friend
+     */
+    public void deleteFriendMutually(User friend) {
+        deleteFriend(friend);
+        friend.deleteFriend(this);
     }
 
 
