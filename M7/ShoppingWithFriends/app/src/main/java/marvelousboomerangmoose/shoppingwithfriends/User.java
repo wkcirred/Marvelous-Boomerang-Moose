@@ -22,6 +22,8 @@ public class User implements Serializable{
     public HashMap<String, User> friendList = new HashMap<String, User>();
     private HashMap<String,Product> itemList;
     //TODO: Add friend list and shopping attributes
+
+    // Constructor
     public User(String first, String last, String email, String userName, String password) {
         this.first = first;
         this.last = last;
@@ -40,6 +42,7 @@ public class User implements Serializable{
     public String getFirst() {
         return first;
     }
+
     /**
      * Returns the last name of the user
      * @return Last name
@@ -47,6 +50,7 @@ public class User implements Serializable{
     public String getLast() {
         return last;
     }
+
     /**
      * Returns the email of the user
      * @return email
@@ -54,6 +58,7 @@ public class User implements Serializable{
     public String getEmail() {
         return email;
     }
+
     /**
      * Returns the user name of the user
      * @return user name
@@ -155,7 +160,6 @@ public class User implements Serializable{
         friend.deleteFriend(this);
         Persistence.saveBinary();
     }
-
 
     /**
      * Returns the friend list

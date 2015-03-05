@@ -11,6 +11,11 @@ import android.widget.TextView;
 import java.util.HashMap;
 import android.widget.Button;
 
+/**
+ * Current friend detail list that shows detailed information about your friends that includes
+ * first name, last name, email address, user name, rating, and sales report.
+ */
+
 public class CurrentFriendDetailActivity extends ActionBarActivity {
 
     @Override

@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 /**
- * Displays a list of the active users.
+ * Displays a screen with a list of the active users.
  */
 public class ActiveUsersListActivity extends ActionBarActivity {
     private String message;

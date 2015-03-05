@@ -15,7 +15,7 @@ import android.widget.TextView;
 import java.util.HashMap;
 
 /**
- * Displays information pertaining to individual users.
+ * Displays detail information pertaining to individual users.
  */
 public class ActiveUsersDetailActivity extends ActionBarActivity {
 

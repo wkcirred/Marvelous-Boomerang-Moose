@@ -65,6 +65,10 @@ public class RegActivity extends ActionBarActivity implements LoaderCallbacks<Cu
     private EditText mPasswordView;
     private View mProgressView;
     private View mRegisterFormView;
+    private void populateAutoComplete() {
+        getLoaderManager().initLoader(0, null, this);
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,11 +104,6 @@ public class RegActivity extends ActionBarActivity implements LoaderCallbacks<Cu
         mRegisterFormView = findViewById(R.id.register_form);
         mProgressView = findViewById(R.id.register_progress);
     }
-
-    private void populateAutoComplete() {
-        getLoaderManager().initLoader(0, null, this);
-    }
-
 
     /**
      * Attempts to sign in or register the account specified by the register form.
@@ -270,6 +269,9 @@ public class RegActivity extends ActionBarActivity implements LoaderCallbacks<Cu
 
     }
 
+    /**
+     * Private interface for a profile query.
+     */
     private interface ProfileQuery {
         String[] PROJECTION = {
                 ContactsContract.CommonDataKinds.Email.ADDRESS,
@@ -280,7 +282,10 @@ public class RegActivity extends ActionBarActivity implements LoaderCallbacks<Cu
         int IS_PRIMARY = 1;
     }
 
-
+    /**
+     * Adds email to autocomplete email address list
+     * @param emailAddressCollection - email address collection for adapter
+     */
     private void addEmailsToAutoComplete(List<String> emailAddressCollection) {
         //Create adapter to tell the AutoCompleteTextView what to show in its dropdown list.
         ArrayAdapter<String> adapter =

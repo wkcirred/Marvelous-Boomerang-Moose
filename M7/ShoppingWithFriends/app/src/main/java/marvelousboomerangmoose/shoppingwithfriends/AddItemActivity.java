@@ -16,6 +16,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 
+/**
+ * Add item activity that user is interested in.
+ * User can add a new item or select from a few items already in the store.
+ */
 public class AddItemActivity extends ActionBarActivity {
     ArrayList<String> arrayList;
     @Override
@@ -36,7 +40,12 @@ public class AddItemActivity extends ActionBarActivity {
         myListView.setAdapter(listAdapter);
     }
 
-
+    /**
+     * Add item button that allows user to enter in the item of interest if successful information
+     * is populated in the appropriate fields.
+     * Will take the user back to ItemListActivity if successful.
+     * @param v - button to click
+     */
     public void buttonAddOnClick(View v){
         String name =((EditText) findViewById(R.id.nameTextEdit)).getText().toString();
         String price = ((EditText) findViewById(R.id.priceTextEdit)).getText().toString();

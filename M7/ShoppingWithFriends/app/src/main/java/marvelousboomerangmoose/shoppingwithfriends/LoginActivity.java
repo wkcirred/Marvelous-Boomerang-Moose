@@ -90,6 +90,9 @@ public class LoginActivity extends ActionBarActivity implements LoaderCallbacks<
         mProgressView = findViewById(R.id.login_progress);
     }
 
+    /**
+     * Populates autocomplete list
+     */
     private void populateAutoComplete() {
         getLoaderManager().initLoader(0, null, this);
     }
@@ -240,6 +243,9 @@ public class LoginActivity extends ActionBarActivity implements LoaderCallbacks<
 
     }
 
+    /**
+     * Interface for profile query
+     */
     private interface ProfileQuery {
         String[] PROJECTION = {
                 ContactsContract.CommonDataKinds.Identity.IDENTITY,
@@ -250,7 +256,10 @@ public class LoginActivity extends ActionBarActivity implements LoaderCallbacks<
         int IS_PRIMARY = 1;
     }
 
-
+    /**
+     * Add users to autocomplete list
+     * @param userAddressCollection - user address collection list
+     */
     private void addUsersToAutoComplete(List<String> userAddressCollection) {
         //Create adapter to tell the AutoCompleteTextView what to show in its dropdown list.
         ArrayAdapter<String> adapter =

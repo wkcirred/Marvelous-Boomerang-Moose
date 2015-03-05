@@ -20,6 +20,7 @@ public class Product implements Serializable{
     private boolean onSale;
     private HashMap<String, Product> itemList = new HashMap<String, Product>();
 
+    // Constructor
     public Product(String name, double price) {
         this.name = name;
         this.price = price;
@@ -171,6 +172,10 @@ public class Product implements Serializable{
         itemList.put(item.getName(), item);
     }
 
+    /**
+     * Gets currently logged in user item list.
+     * @return item list
+     */
     public HashMap<String, Product> getItemList() {
             return itemList;
         }
