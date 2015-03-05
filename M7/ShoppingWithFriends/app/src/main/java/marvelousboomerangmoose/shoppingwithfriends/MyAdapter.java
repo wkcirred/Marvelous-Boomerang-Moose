@@ -16,6 +16,7 @@ import java.util.Map;
 public class MyAdapter extends BaseAdapter {
     private final ArrayList mData;
 
+    // Constructor
     public MyAdapter(Map<String, Product> map) {
         mData = new ArrayList();
         mData.addAll(map.entrySet());

@@ -8,6 +8,7 @@ import java.util.ArrayList;
 public class Interest {
     private ArrayList interestList;
 
+    // Constructor
     public Interest(ArrayList interestList) {
         this.interestList = interestList;
     }

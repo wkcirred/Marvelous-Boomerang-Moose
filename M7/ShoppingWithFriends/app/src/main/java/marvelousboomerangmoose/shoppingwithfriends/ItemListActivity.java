@@ -14,7 +14,10 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-
+/**
+ * ItemListActivity displays all the current items of interest for currently logged in user.
+ *
+ */
 public class ItemListActivity extends ActionBarActivity {
     private static HashMap<String,Product> hashMap;
     @Override
@@ -28,19 +31,29 @@ public class ItemListActivity extends ActionBarActivity {
         myListView.setAdapter(adapter);
     }
 
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_item_list, menu);
         return true;
     }
+
+    /**
+     * Button to click that takes the user to the HomeActivity
+     * @param v - the button being clicked
+     */
     public void buttonHomeOnClick(View v){
         startActivity(new Intent(this, HomeActivity.class));
     }
+
+    /**
+     * Button to click that takes the user to the AddItemActivity
+     * @param v - - the button being clicked
+     */
     public void buttonAddItemOnClick(View v){
         startActivity(new Intent(this, AddItemActivity.class));
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will

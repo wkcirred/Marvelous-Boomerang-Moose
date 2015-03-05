@@ -15,6 +15,10 @@ import java.util.HashMap;
 import android.util.Log;
 import android.widget.Toast;
 
+/**
+ * Current Friend List Activity displays all of your current friends with basic information
+ * including first name, last name, and email.
+ */
 public class CurrentFriendListActivity extends ActionBarActivity {
     //private Intent intent;
     private String message;
