@@ -28,23 +28,26 @@ public class CurrentFriendListActivity extends ActionBarActivity {
             arrayList = new ArrayList<>();
             ListView myListView = (ListView) this.findViewById(R.id.listView);
             ArrayAdapter listAdapter = new ArrayAdapter<>(this,R.layout.simplerow, arrayList);
+            Log.d("Logged In User:", UserActivity.loggedInUser.toString());
             HashMap<String, User> friends = UserActivity.loggedInUser.getFriendList();
-            for (final String key : friends.keySet()) {
-                //Log.d("Email:",key);
-                User friend = friends.get(key);
-                listAdapter.add(friend.getFirst() + " " + friend.getLast() + " " + friend.getEmail());
-                myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        Object object = parent.getItemAtPosition(position);
-                        String item = (String) object;
-                        item = item.substring(item.lastIndexOf(" ") + 1);
-                        //item = item.split();
-                        Intent intent = new Intent(CurrentFriendListActivity.this,CurrentFriendDetailActivity.class);
-                        intent.putExtra("email",item);
-                        startActivity(intent);
-                    }
-                });
+            if (friends != null && !friends.isEmpty()) {
+                for (final String key : friends.keySet()) {
+                    //Log.d("Email:",key);
+                    User friend = friends.get(key);
+                    listAdapter.add(friend.getFirst() + " " + friend.getLast() + " " + friend.getEmail());
+                    myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                        @Override
+                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                            Object object = parent.getItemAtPosition(position);
+                            String item = (String) object;
+                            item = item.substring(item.lastIndexOf(" ") + 1);
+                            //item = item.split();
+                            Intent intent = new Intent(CurrentFriendListActivity.this, CurrentFriendDetailActivity.class);
+                            intent.putExtra("email", item);
+                            startActivity(intent);
+                        }
+                    });
+                }
             }
             myListView.setAdapter(listAdapter);
 

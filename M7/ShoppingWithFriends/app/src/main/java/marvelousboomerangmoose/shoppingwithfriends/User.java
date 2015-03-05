@@ -2,13 +2,17 @@
 
 import android.util.Log;
 
+import java.io.Serializable;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.Set;
+
+import marvelousboomerangmoose.shoppingwithfriends.util.Persistence;
 
     /**
      * User class that holds all the information about a user, ie password, friend lists
      */
-public class User {
+public class User implements Serializable{
     private String first;
     private String last;
     private String email;
@@ -26,6 +30,7 @@ public class User {
         this.password = password;
         this.rating = "0";
         this.itemList = new HashMap<>();
+        //make sure you save after creating a new user//Persistence.saveBinary();
     }
 
     /**
@@ -75,6 +80,7 @@ public class User {
             return false;
         }
         this.rating = rating;
+        Persistence.saveBinary();
         return true;
     }
 
@@ -105,10 +111,12 @@ public class User {
                 break;
             }
         }
+
+        Log.d("User Email", this.getEmail());
+        Log.d("Friend Email", newFriend.getEmail());
         if (newFriend != null) {
-            Log.d("email", email);
-            Log.d("new friend", newFriend.toString());
             friendList.put(email, newFriend);
+            Log.d("Adding friend", "Success");
             newFriend.addFriend(this);//adds them back
             return true;
         } else {
@@ -116,12 +124,18 @@ public class User {
         }
     }
 
+
+    //TODO: change visibility so that only visible from User objects
     /**
      * Adds a user as a friend using their user object
      * @param friend
      */
     public void addFriend(User friend) {
+        Log.d("Adding friend", "Mutually");
+        Log.d("User Email", this.getEmail());
+        Log.d("Friend Email", friend.getEmail());
         friendList.put(friend.getEmail(), friend);
+        Persistence.saveBinary();
     }
 
     /**
@@ -130,6 +144,16 @@ public class User {
      */
     public void deleteFriend(User friend) {
         friendList.remove(friend.getEmail());
+    }
+
+    /**
+     * Deletes a user as a friend using their user object and remove you as their friend too
+     * @param friend
+     */
+    public void deleteFriendMutually(User friend) {
+        deleteFriend(friend);
+        friend.deleteFriend(this);
+        Persistence.saveBinary();
     }
 
 
@@ -161,5 +185,6 @@ public class User {
       */
     public void addItem(Product p){
         itemList.put(p.getName(),p);
+        Persistence.saveBinary();
     }
 }
