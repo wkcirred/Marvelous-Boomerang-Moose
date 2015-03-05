@@ -35,6 +35,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
+import marvelousboomerangmoose.shoppingwithfriends.util.Persistence;
+
 
 /**
  * A registration screen that offers registration via FN, LN, username, email, password.
@@ -331,6 +333,7 @@ public class RegActivity extends ActionBarActivity implements LoaderCallbacks<Cu
 
 
             UserActivity.credentials.put(mUserName, new User(mFirst, mLast, mEmail, mUserName, mPassword));
+            Persistence.saveBinary();
             return true;
         }
 
