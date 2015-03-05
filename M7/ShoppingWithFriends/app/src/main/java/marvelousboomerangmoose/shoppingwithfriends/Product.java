@@ -2,6 +2,7 @@ package marvelousboomerangmoose.shoppingwithfriends;
 
 import android.util.Log;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Set;
 
@@ -9,7 +10,7 @@ import java.util.Set;
  * Product class stores information on various products for use in
  * registering product interest and reporting sales.
  */
-public class Product {
+public class Product implements Serializable{
     private String name;
     private double price;
     private double salesPrice;
@@ -173,4 +174,12 @@ public class Product {
     public HashMap<String, Product> getItemList() {
             return itemList;
         }
+
+    /**
+     * Returns the string of the product's name
+     * @return product name
+     */
+    public String toString() {
+        return (String) getName();
+    }
 }
