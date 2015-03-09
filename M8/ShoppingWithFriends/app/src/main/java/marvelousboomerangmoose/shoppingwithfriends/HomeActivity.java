@@ -30,7 +30,17 @@ public class HomeActivity extends ActionBarActivity {
      * Button click that takes the user to ItemListActivity screen
      * @param v - the button being clicked
      */
-    public void buttonItemListOnClick(View v) {startActivity(new Intent(this, ItemListActivity.class));}
+    public void buttonItemListOnClick(View v) {
+        startActivity(new Intent(this, ItemListActivity.class));
+    }
+
+    /**
+     * Button click that takes the user to SalesReportActivity screen
+     * @param v - the button being clicked
+     */
+    public void reportSaleOnClick(View v) {
+        startActivity(new Intent(this, SalesReportActivity.class));
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
