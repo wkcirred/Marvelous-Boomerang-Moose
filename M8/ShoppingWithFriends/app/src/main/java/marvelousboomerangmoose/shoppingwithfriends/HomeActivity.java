@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -27,31 +28,12 @@ public class HomeActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        if (savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction()
-                    .add(R.id.container, new PlaceholderFragment())
-                    .commit();
-        }
-        //new
-        //if (!Sale.getSalesList().isEmpty()) {
-        //problem area in this block
         if (!ProductActivity.salesList.isEmpty()) {
-            /*
             arrayList = new ArrayList<>(ProductActivity.salesList.keySet());
             //remove keys that do not match for this user (friend/price)
-            ListView myListView = (ListView) this.findViewById(R.id.listView2);
-            ArrayAdapter listAdapter = new ArrayAdapter<>(this, R.layout.simplerow, arrayList);
-            myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    Object object = parent.getItemAtPosition(position);
-                    String item = (String) object;
-                    ((EditText) findViewById(R.id.itemName)).setText(item);
-                }
-            });
+            ListView myListView = (ListView) this.findViewById(R.id.listView3);
+            SaleReportAdapter listAdapter = new SaleReportAdapter(ProductActivity.salesList);
             myListView.setAdapter(listAdapter);
-            //new
-            */
         }
     }
 
@@ -121,7 +103,7 @@ public class HomeActivity extends ActionBarActivity {
     /**
      * A placeholder fragment containing a simple view.
      */
-    public static class PlaceholderFragment extends Fragment {
+    /*public static class PlaceholderFragment extends Fragment {
 
         public PlaceholderFragment() {
         }
@@ -132,5 +114,5 @@ public class HomeActivity extends ActionBarActivity {
             View rootView = inflater.inflate(R.layout.fragment_home, container, false);
             return rootView;
         }
-    }
+    }*/
 }
