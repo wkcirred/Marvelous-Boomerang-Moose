@@ -22,6 +22,7 @@ import java.util.HashMap;
  */
 public class AddItemActivity extends ActionBarActivity {
     ArrayList<String> arrayList;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,6 +68,11 @@ public class AddItemActivity extends ActionBarActivity {
         UserActivity.loggedInUser.addItem(p);
         startActivity(new Intent(this, ItemListActivity.class));
     }
+
+    /**
+     * Returns to the previous screen.
+     * @param v the button being pressed
+     */
     public void buttonCancelOnClick(View v){
         startActivity(new Intent(this, ItemListActivity.class));
     }

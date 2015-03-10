@@ -1,11 +1,14 @@
 package marvelousboomerangmoose.shoppingwithfriends;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 
 
 public class SalesReportActivity extends ActionBarActivity {
@@ -21,6 +24,35 @@ public class SalesReportActivity extends ActionBarActivity {
      * @param v the button being clicked
      */
     public void cancelOnClick(View v) {
+        startActivity(new Intent(this, HomeActivity.class));
+    }
+
+    /**
+     * Add item button that allows user to enter in the item of interest if successful information
+     * is populated in the appropriate fields.
+     * Will take the user back to ItemListActivity if successful.
+     * @param v - button to click
+     */
+    public void saleReportedOnClick(View v){
+        String name =((EditText) findViewById(R.id.itemName)).getText().toString();
+        String price = ((EditText) findViewById(R.id.itemSalePrice)).getText().toString();
+        String location = ((EditText) findViewById(R.id.locationName)).getText().toString();
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        if (name.matches("")||price.matches("")||location.matches("")){
+            alertDialogBuilder.setMessage("Please enter name, price, and location.").setCancelable(false)
+                    .setNegativeButton("OK", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            dialog.cancel();
+                        }
+                    });
+            alertDialogBuilder.setTitle("Invalid Input");
+            alertDialogBuilder.show();
+            return;
+
+        }
+        Product p = new Product(name, Double.parseDouble(price));//need to add location, quantity, store name
+        ProductActivity.reportSale(p);
+        //UserActivity.loggedInUser.addItem(p);
         startActivity(new Intent(this, HomeActivity.class));
     }
 
