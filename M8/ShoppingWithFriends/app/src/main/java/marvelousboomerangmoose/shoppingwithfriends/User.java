@@ -181,7 +181,9 @@ public class User implements Serializable{
      * Get the Item list
      * @return - returns itemList
      */
-    public HashMap<String, Product> getItemList() {return itemList;}
+    public HashMap<String, Product> getItemList() {
+        return itemList;
+    }
 
     /**
       * Add item to list

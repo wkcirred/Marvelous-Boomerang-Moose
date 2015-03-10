@@ -13,7 +13,8 @@ import java.util.Set;
 public class Product implements Serializable{
     private String name;
     private double price;
-    private double salesPrice;
+    private double salesPrice;//if we want to have expiration dates on sales reports,
+    // might want to use this depending on implementation rather than simply using price
     private String location;
     private String storeName;
     private int inventory;
@@ -25,6 +26,16 @@ public class Product implements Serializable{
         this.name = name;
         this.price = price;
     }
+
+    /*// Constructor
+    public Product(String name, double price, String storeName, String location, int inventory, boolean onSale) {
+        this.name = name;
+        this.price = price;
+        this.storeName = storeName;
+        this.location = location;
+        this.inventory = inventory;
+        this.onSale = onSale;
+    }*/
 
     /**
      * Returns the name of the product

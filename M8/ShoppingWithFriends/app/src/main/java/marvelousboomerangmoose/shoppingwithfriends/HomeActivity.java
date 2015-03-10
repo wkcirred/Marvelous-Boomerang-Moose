@@ -9,12 +9,20 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.EditText;
+import android.widget.ListView;
+
+import java.util.ArrayList;
 
 /**
  * Home activity contains a way to log out as well as a friends list and a way to lookup/add
  * new friends.
  */
 public class HomeActivity extends ActionBarActivity {
+    ArrayList<String> arrayList;//
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,13 +32,44 @@ public class HomeActivity extends ActionBarActivity {
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
         }
+        //new
+        //if (!Sale.getSalesList().isEmpty()) {
+        //problem area in this block
+        if (!ProductActivity.salesList.isEmpty()) {
+            /*
+            arrayList = new ArrayList<>(ProductActivity.salesList.keySet());
+            //remove keys that do not match for this user (friend/price)
+            ListView myListView = (ListView) this.findViewById(R.id.listView2);
+            ArrayAdapter listAdapter = new ArrayAdapter<>(this, R.layout.simplerow, arrayList);
+            myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                @Override
+                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                    Object object = parent.getItemAtPosition(position);
+                    String item = (String) object;
+                    ((EditText) findViewById(R.id.itemName)).setText(item);
+                }
+            });
+            myListView.setAdapter(listAdapter);
+            //new
+            */
+        }
     }
 
     /**
      * Button click that takes the user to ItemListActivity screen
      * @param v - the button being clicked
      */
-    public void buttonItemListOnClick(View v) {startActivity(new Intent(this, ItemListActivity.class));}
+    public void buttonItemListOnClick(View v) {
+        startActivity(new Intent(this, ItemListActivity.class));
+    }
+
+    /**
+     * Button click that takes the user to SalesReportActivity screen
+     * @param v - the button being clicked
+     */
+    public void reportSaleOnClick(View v) {
+        startActivity(new Intent(this, SalesReportActivity.class));
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
