@@ -58,6 +58,9 @@ public class MainActivity extends ActionBarActivity {
         obj = this;
         USER_FILE = new File(obj.getFilesDir(), "users.bin");
         PRODUCT_FILE = new File(obj.getFilesDir(), "products.bin");
+        //uncomment the following 2 lines of code to delete your binary files and begin working on startup
+        //PRODUCT_FILE.delete();
+        //PRODUCT_FILE = new File(obj.getFilesDir(), "products.bin");
         users = new UserActivity();//TODO: Not sure if this is the best way to do this
 
 
@@ -94,9 +97,9 @@ public class MainActivity extends ActionBarActivity {
             if (productList.isEmpty()) {
                 Log.d("ADDING PRODUCTS", "Attempting to add default products");
 
-                productList.put("X-box", new Product("X-box", 0.1));
-                productList.put("Arm Chair", new Product("Arm Chair", 0.1));
-                productList.put("Laundry Bag", new Product("Laundry Bag", 0.1));
+                productList.put("X-box", new Product("X-box", 0.1, "N/A", "N/A", 0));
+                productList.put("Arm Chair", new Product("Arm Chair", 0.1, "N/A", "N/A", 0));
+                productList.put("Laundry Bag", new Product("Laundry Bag", 0.1, "N/A", "N/A", 0));
 
             }
             Persistence.saveBinary();
