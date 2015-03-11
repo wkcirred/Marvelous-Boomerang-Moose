@@ -16,23 +16,40 @@ import android.widget.EditText;
 import android.widget.ListView;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * Home activity contains a way to log out as well as a friends list and a way to lookup/add
  * new friends.
  */
 public class HomeActivity extends ActionBarActivity {
-    ArrayList<String> arrayList;//
+    ArrayList<String> arrayList;
+    ArrayList<String> interestList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         if (!ProductActivity.salesList.isEmpty()) {
+            HashMap<String, Product> interestAlert = new HashMap<>();
             arrayList = new ArrayList<>(ProductActivity.salesList.keySet());
-            //remove keys that do not match for this user (friend/price)
+            interestList = new ArrayList<>(UserActivity.loggedInUser.getItemList().keySet());
+            //for a sale report to show up it needs to be: (interest price >= sale price)
+            for (int i = 0; i < arrayList.size(); i++) {
+                if (interestList.contains(arrayList.get(i))) {
+                    Product sale = ProductActivity.salesList.get(arrayList.get(i));
+                    double saleCost = sale.getPrice();
+                    Product interest = UserActivity.loggedInUser.getItemList().get(arrayList.get(i));
+                    double interestCost = interest.getPrice();
+                    //add stuff to the new hashmap
+                    if (saleCost <= interestCost) {
+                        interestAlert.put(arrayList.get(i), ProductActivity.salesList.get(arrayList.get(i)));
+                    }
+                }
+            }
             ListView myListView = (ListView) this.findViewById(R.id.listView3);
-            SaleReportAdapter listAdapter = new SaleReportAdapter(ProductActivity.salesList);
+            //SaleReportAdapter listAdapter = new SaleReportAdapter(ProductActivity.salesList);
+            SaleReportAdapter listAdapter = new SaleReportAdapter(interestAlert);
             myListView.setAdapter(listAdapter);
         }
     }

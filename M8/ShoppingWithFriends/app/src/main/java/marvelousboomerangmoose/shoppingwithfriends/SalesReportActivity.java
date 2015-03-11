@@ -52,9 +52,8 @@ public class SalesReportActivity extends ActionBarActivity {
             return;
 
         }
-        Product p = new Product(name, Double.parseDouble(price), location, storeName, Integer.parseInt(quantity));//need to add location, quantity, store name
+        Product p = new Product(name, Double.parseDouble(price), location, storeName, Integer.parseInt(quantity));
         ProductActivity.reportSale(p);
-        //UserActivity.loggedInUser.addItem(p);
         startActivity(new Intent(this, HomeActivity.class));
     }
 

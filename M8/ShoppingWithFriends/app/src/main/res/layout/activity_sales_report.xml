@@ -34,7 +34,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Name:"
+        android:text="Item Name:"
         android:id="@+id/textView8"
         android:layout_alignParentTop="true"
         android:layout_alignEnd="@+id/textView9" />

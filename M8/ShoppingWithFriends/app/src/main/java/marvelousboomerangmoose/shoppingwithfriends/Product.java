@@ -18,7 +18,7 @@ public class Product implements Serializable{
     private String location;
     private String storeName;
     private int inventory;
-    private boolean onSale;//not really needed with howe are doing the code
+    private boolean onSale;//not really needed with how we are doing the code
     private HashMap<String, Product> itemList = new HashMap<String, Product>();
 
     // Constructor
