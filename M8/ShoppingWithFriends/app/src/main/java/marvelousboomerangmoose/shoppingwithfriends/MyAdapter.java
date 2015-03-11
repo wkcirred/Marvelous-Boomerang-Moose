@@ -52,7 +52,7 @@ public class MyAdapter extends BaseAdapter {
 
         // TODO replace findViewById by ViewHolder
         ((TextView) result.findViewById(android.R.id.text1)).setText(item.getKey());
-        ((TextView) result.findViewById(android.R.id.text2)).setText("Price: "+item.getValue().getPrice());
+        ((TextView) result.findViewById(android.R.id.text2)).setText("Price: $" + item.getValue().getPrice());
 
         return result;
     }

@@ -51,8 +51,10 @@ public class SaleReportAdapter extends BaseAdapter {
         Map.Entry<String, Product> item = getItem(position);
 
         // TODO replace findViewById by ViewHolder
-        ((TextView) result.findViewById(android.R.id.text1)).setText(item.getKey());
-        ((TextView) result.findViewById(android.R.id.text2)).setText("Location: 104 Valley Rd.\t\t" + "Price: $"+item.getValue().getPrice());
+        ((TextView) result.findViewById(android.R.id.text1)).setText("Item Name: " + item.getKey() + "\t\tStore Name: "
+                + item.getValue().getStoreName() + "\t\tLocation: " + item.getValue().getLocation());
+        ((TextView) result.findViewById(android.R.id.text2)).setText("Individual Price: $"
+                + item.getValue().getPrice() + "\t\tQuantity Remaining: " + item.getValue().getInventory());
 
         return result;
     }

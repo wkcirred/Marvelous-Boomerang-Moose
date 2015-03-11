@@ -63,7 +63,7 @@ public class AddItemActivity extends ActionBarActivity {
             return;
 
         }
-        Product p = new Product(name, Double.parseDouble(price));
+        Product p = new Product(name, Double.parseDouble(price), "N/A", "N/A", 0);
         MainActivity.productList.put(p.getName(),p);
         UserActivity.loggedInUser.addItem(p);
         startActivity(new Intent(this, ItemListActivity.class));

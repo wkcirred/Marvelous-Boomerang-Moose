@@ -18,13 +18,16 @@ public class Product implements Serializable{
     private String location;
     private String storeName;
     private int inventory;
-    private boolean onSale;
+    private boolean onSale;//not really needed with how we are doing the code
     private HashMap<String, Product> itemList = new HashMap<String, Product>();
 
     // Constructor
-    public Product(String name, double price) {
+    public Product(String name, double price, String location, String storeName, int inventory) {
         this.name = name;
         this.price = price;
+        this.location = location;
+        this.storeName = storeName;
+        this.inventory = inventory;
     }
 
     /*// Constructor
@@ -157,7 +160,7 @@ public class Product implements Serializable{
      */
     public Boolean addProduct(String name, double price) {
         Set<String> keys = MainActivity.productList.keySet();
-        Product newProduct = new Product(name, price);
+        Product newProduct = new Product(name, price, "N/A", "N/A", 0);
 //            for (String key : keys) {
 //                Product curr = MainActivity.productList.get(key);
 //                if (curr.getName().equals(name)) {

@@ -36,9 +36,11 @@ public class SalesReportActivity extends ActionBarActivity {
     public void saleReportedOnClick(View v){
         String name =((EditText) findViewById(R.id.itemName)).getText().toString();
         String price = ((EditText) findViewById(R.id.itemSalePrice)).getText().toString();
-        String location = ((EditText) findViewById(R.id.locationName)).getText().toString();
+        String location = ((EditText) findViewById(R.id.locationAddress)).getText().toString();
+        String storeName = ((EditText) findViewById(R.id.storeName)).getText().toString();
+        String quantity = ((EditText) findViewById(R.id.quantityAmount)).getText().toString();
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-        if (name.matches("")||price.matches("")||location.matches("")){
+        if (name.matches("")||price.matches("")||location.matches("")||storeName.matches("")||quantity.matches("")){
             alertDialogBuilder.setMessage("Please enter name, price, and location.").setCancelable(false)
                     .setNegativeButton("OK", new DialogInterface.OnClickListener() {
                         public void onClick(DialogInterface dialog, int id) {
@@ -50,9 +52,8 @@ public class SalesReportActivity extends ActionBarActivity {
             return;
 
         }
-        Product p = new Product(name, Double.parseDouble(price));//need to add location, quantity, store name
+        Product p = new Product(name, Double.parseDouble(price), location, storeName, Integer.parseInt(quantity));
         ProductActivity.reportSale(p);
-        //UserActivity.loggedInUser.addItem(p);
         startActivity(new Intent(this, HomeActivity.class));
     }
 
