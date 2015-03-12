@@ -10,6 +10,8 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.View;
 
+import marvelousboomerangmoose.shoppingwithfriends.Model.UserActivity;
+
 /**
  * The add friend screen where a user can input information relevant to adding a new friend and
  * then add that person.
@@ -109,7 +111,7 @@ public class AddFriendActivity extends ActionBarActivity {
                 AlertDialog alertDialog = alertDialogBuilder.create();
                 alertDialog.show();
             } else {
-                Boolean status = UserActivity.loggedInUser.addFriend(first, last, email);
+                Boolean status = UserActivity.addFriend(first, last, email);
 
                 if (status) {
                     // set dialog message

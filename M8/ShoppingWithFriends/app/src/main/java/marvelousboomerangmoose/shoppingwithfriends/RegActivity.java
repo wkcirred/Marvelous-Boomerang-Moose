@@ -3,20 +3,14 @@ package marvelousboomerangmoose.shoppingwithfriends;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
-import android.app.Activity;
 import android.support.v7.app.ActionBarActivity;
 import android.app.LoaderManager.LoaderCallbacks;
-import android.content.ContentResolver;
 import android.content.CursorLoader;
 import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-import android.text.Editable;
-import android.util.Log;
 
 import android.os.Build;
 import android.os.Bundle;
@@ -35,7 +29,9 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import marvelousboomerangmoose.shoppingwithfriends.util.Persistence;
+import marvelousboomerangmoose.shoppingwithfriends.Model.Persistence;
+import marvelousboomerangmoose.shoppingwithfriends.Model.User;
+import marvelousboomerangmoose.shoppingwithfriends.Model.UserActivity;
 
 
 /**
@@ -146,7 +142,7 @@ public class RegActivity extends ActionBarActivity implements LoaderCallbacks<Cu
             mUserNameView.setError(getString(R.string.error_invalid_userID));
             focusView = mUserNameView;
             cancel = true;
-        } else if (UserActivity.credentials.containsKey(userName)) {
+        } else if (UserActivity.getCredentials().containsKey(userName)) {
             mUserNameView.setError("User Name Unavailable");
             focusView = mUserNameView;
             cancel = true;
@@ -317,28 +313,8 @@ public class RegActivity extends ActionBarActivity implements LoaderCallbacks<Cu
 
         @Override
         protected Boolean doInBackground(Void... params) {
-            // TODO: attempt authentication against a network service.
-            /*
-            try {
-                // Simulate network access.
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                return false;
-            }
-            for (String credential : DUMMY_CREDENTIALS) {
-                String[] pieces = credential.split(":");
-                if (pieces[0].equals(mEmail)) {
-                    // Account exists, return true if the password matches.
-                    return pieces[1].equals(mPassword);
-                }
-            }
-            */
-            // TODO: register the new account here.
-
-
-
-            UserActivity.credentials.put(mUserName, new User(mFirst, mLast, mEmail, mUserName, mPassword));
-            Persistence.saveBinary();
+            //Adds new User
+            UserActivity.newUser(mFirst, mLast, mEmail, mUserName, mPassword);
             return true;
         }
 

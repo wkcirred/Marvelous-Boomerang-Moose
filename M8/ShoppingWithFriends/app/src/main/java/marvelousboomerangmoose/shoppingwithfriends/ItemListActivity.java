@@ -1,18 +1,17 @@
 package marvelousboomerangmoose.shoppingwithfriends;
 
-import android.content.ClipData;
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import java.util.ArrayList;
 import java.util.HashMap;
+
+import marvelousboomerangmoose.shoppingwithfriends.Model.Product;
+import marvelousboomerangmoose.shoppingwithfriends.Model.UserActivity;
 
 /**
  * ItemListActivity displays all the current items of interest for currently logged in user.

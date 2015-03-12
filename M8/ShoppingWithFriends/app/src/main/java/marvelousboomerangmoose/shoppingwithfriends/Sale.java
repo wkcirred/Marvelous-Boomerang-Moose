@@ -1,8 +1,8 @@
 package marvelousboomerangmoose.shoppingwithfriends;
 
-import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.HashMap;
+
+import marvelousboomerangmoose.shoppingwithfriends.Model.Product;
 
 /**
  * Holds a list of the reported sales.

@@ -1,6 +1,4 @@
-package marvelousboomerangmoose.shoppingwithfriends;
-
-import android.util.Log;
+package marvelousboomerangmoose.shoppingwithfriends.Model;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -159,7 +157,7 @@ public class Product implements Serializable{
      * @return returns whether or not the item was added successfully
      */
     public Boolean addProduct(String name, double price) {
-        Set<String> keys = MainActivity.productList.keySet();
+        Set<String> keys = ProductActivity.productList.keySet();
         Product newProduct = new Product(name, price, "N/A", "N/A", 0);
 //            for (String key : keys) {
 //                Product curr = MainActivity.productList.get(key);
@@ -169,7 +167,7 @@ public class Product implements Serializable{
 //                }
 //            }
 //            if (newProduct != null) {
-                itemList.put(name, newProduct);
+                itemList.put(name, newProduct);//TODO:MAKE KEY MORE SPECIFIC
                 newProduct.addProduct(name, price);//adds them back
                 return true;
 //            } else {

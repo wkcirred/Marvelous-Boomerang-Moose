@@ -13,6 +13,9 @@ import android.widget.ListView;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+import marvelousboomerangmoose.shoppingwithfriends.Model.User;
+import marvelousboomerangmoose.shoppingwithfriends.Model.UserActivity;
+
 /**
  * Displays a screen with a list of the active users.
  */
@@ -28,7 +31,7 @@ public class ActiveUsersListActivity extends ActionBarActivity {
         arrayList = new ArrayList<>();
         ListView myListView = (ListView) this.findViewById(R.id.listView);
         ArrayAdapter listAdapter = new ArrayAdapter<>(this,R.layout.simplerow, arrayList);
-        HashMap<String, User> users = UserActivity.credentials;
+        HashMap<String, User> users = UserActivity.getCredentials();
         for (String key : users.keySet()) {
             User user = users.get(key);
             listAdapter.add(user.getFirst() + " " + user.getLast() + " " + user.getEmail());
