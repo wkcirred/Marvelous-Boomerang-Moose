@@ -26,6 +26,10 @@ public class HomeActivity extends ActionBarActivity {
         }
     }
 
+    /**
+     * Button click that takes the user to ItemListActivity screen
+     * @param v - the button being clicked
+     */
     public void buttonItemListOnClick(View v) {startActivity(new Intent(this, ItemListActivity.class));}
 
     @Override
@@ -59,6 +63,7 @@ public class HomeActivity extends ActionBarActivity {
     public void currentFriendsOnClick(View v) {
         startActivity(new Intent(this, CurrentFriendListActivity.class));
     }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will

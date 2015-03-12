@@ -1,7 +1,8 @@
 package marvelousboomerangmoose.shoppingwithfriends;
 
 /**
- * Created by Degel on 2/26/15.
+ * Add an item to the item list and adjust the display and show it on the
+ * item list page.
  */
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +16,7 @@ import java.util.Map;
 public class MyAdapter extends BaseAdapter {
     private final ArrayList mData;
 
+    // Constructor
     public MyAdapter(Map<String, Product> map) {
         mData = new ArrayList();
         mData.addAll(map.entrySet());

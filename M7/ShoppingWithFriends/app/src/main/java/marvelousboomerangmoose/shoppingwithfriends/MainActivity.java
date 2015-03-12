@@ -29,6 +29,7 @@ import marvelousboomerangmoose.shoppingwithfriends.util.Persistence;
 
 /**
  * The screen that is visible upon startup.  Has the login and and registration buttons.
+ * Also, is the main class that runs everything currently.
  */
 public class MainActivity extends ActionBarActivity {
 
@@ -84,7 +85,7 @@ public class MainActivity extends ActionBarActivity {
 
             if (UserActivity.credentials.isEmpty()) {
                 Log.d("ADDING CREDENTIALS", "Attempting to add default credentials");
-
+                //users = new UserActivity();
                 UserActivity.credentials.put("admin", new User("Robbie", "Hooke", "admin@shop.moose", "admin", "pass"));
                 UserActivity.credentials.put("user", new User("Derrick", "Williams", "user@shop.moose", "user", "pass"));
                 UserActivity.credentials.put("new", new User("Richard", "Wang", "new@shop.moose", "new", "pass"));
