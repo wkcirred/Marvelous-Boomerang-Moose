@@ -41,10 +41,6 @@ public class MainActivity extends ActionBarActivity {
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
         }
-
-        //uncomment the following 2 lines of code to delete your product binary file and begin working on startup
-        //PRODUCT_FILE.delete();
-        //PRODUCT_FILE = new File(obj.getFilesDir(), "products.bin");
         users = new UserActivity();//TODO: Not sure if this is the best way to do this
         ArrayList<File> files = new ArrayList<File>();
         files.add(new File(this.getFilesDir(), "users.bin"));

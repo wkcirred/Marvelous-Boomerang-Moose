@@ -13,7 +13,10 @@ import android.widget.EditText;
 import marvelousboomerangmoose.shoppingwithfriends.Model.Product;
 import marvelousboomerangmoose.shoppingwithfriends.Model.ProductActivity;
 
-
+/**
+ * Takes information from the text fields on the sales report screen
+ * and calls on ProductActivity to add them to the sales list.
+ */
 public class SalesReportActivity extends ActionBarActivity {
 
     @Override

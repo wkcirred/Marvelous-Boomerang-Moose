@@ -15,6 +15,10 @@ public class ProductActivity {
         //salesList = new HashMap<String, Product>();
     }
 
+    /**
+     * Adds a sale report to the list of reported sales
+     * @param p the product on sale
+     */
     public static void reportSale(Product p) {
         //sale.addSaleItem(p);
         salesList.put(p.getName(), p);
