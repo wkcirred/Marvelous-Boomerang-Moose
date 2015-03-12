@@ -13,6 +13,8 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.Map;
 
+import marvelousboomerangmoose.shoppingwithfriends.Model.Product;
+
 public class SaleReportAdapter extends BaseAdapter {
     private final ArrayList mData;
 

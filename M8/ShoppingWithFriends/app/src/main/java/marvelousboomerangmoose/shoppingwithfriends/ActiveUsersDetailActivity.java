@@ -14,6 +14,9 @@ import android.widget.TextView;
 
 import java.util.HashMap;
 
+import marvelousboomerangmoose.shoppingwithfriends.Model.User;
+import marvelousboomerangmoose.shoppingwithfriends.Model.UserActivity;
+
 /**
  * Displays detail information pertaining to individual users.
  */
@@ -26,7 +29,7 @@ public class ActiveUsersDetailActivity extends ActionBarActivity {
 
         Intent intent = getIntent();
         String key = intent.getStringExtra("email");
-        HashMap<String, User> users = UserActivity.credentials;
+        HashMap<String, User> users = UserActivity.getCredentials();
         String foundUserName = "";
         for (String userName : users.keySet()) {
             if (users.get(userName).getEmail().equals(key)) {
@@ -78,7 +81,7 @@ public class ActiveUsersDetailActivity extends ActionBarActivity {
     public void addFriendOnClick(View v) {
         Intent intent = getIntent();
         String key = intent.getStringExtra("email");
-        HashMap<String, User> users = UserActivity.credentials;
+        HashMap<String, User> users = UserActivity.getCredentials();
         String foundUserName = "";
         String foundEmail = "";
         for (String userName : users.keySet()) {
@@ -93,6 +96,8 @@ public class ActiveUsersDetailActivity extends ActionBarActivity {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
         //TODO: make this less repetitive of the addfriend activity**********
         //TODO: also it used the wrong addFriend method, so it needs to be reworked
+
+
         if (user.equals(UserActivity.loggedInUser)) {
             //added self
             // set dialog message
@@ -118,7 +123,7 @@ public class ActiveUsersDetailActivity extends ActionBarActivity {
             alertDialog.show();
         } else {
             Log.d("Add Friend on Click:", "New");
-            UserActivity.loggedInUser.addFriend(user.getFirst(), user.getLast(), user.getEmail());
+            UserActivity.addFriend(user.getFirst(), user.getLast(), user.getEmail());
             alertDialogBuilder
                     .setMessage("Successfully added a friend")
                     .setCancelable(false)
@@ -134,5 +139,6 @@ public class ActiveUsersDetailActivity extends ActionBarActivity {
             alertDialog.show();
 
         }
+
     }
 }

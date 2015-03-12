@@ -13,7 +13,11 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.EditText;
 import java.util.ArrayList;
-import java.util.HashMap;
+
+import marvelousboomerangmoose.shoppingwithfriends.Model.Persistence;
+import marvelousboomerangmoose.shoppingwithfriends.Model.Product;
+import marvelousboomerangmoose.shoppingwithfriends.Model.ProductActivity;
+import marvelousboomerangmoose.shoppingwithfriends.Model.UserActivity;
 
 
 /**
@@ -27,7 +31,7 @@ public class AddItemActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_item);
-        arrayList = new ArrayList<>(MainActivity.productList.keySet());
+        arrayList = new ArrayList<>(ProductActivity.productList.keySet());
         ListView myListView = (ListView) this.findViewById(R.id.listView);
         ArrayAdapter listAdapter = new ArrayAdapter<>(this,R.layout.simplerow, arrayList);
         myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -64,8 +68,9 @@ public class AddItemActivity extends ActionBarActivity {
 
         }
         Product p = new Product(name, Double.parseDouble(price), "N/A", "N/A", 0);
-        MainActivity.productList.put(p.getName(),p);
+        ProductActivity.productList.put(p.getName(), p);
         UserActivity.loggedInUser.addItem(p);
+        Persistence.saveBinary();
         startActivity(new Intent(this, ItemListActivity.class));
     }
 

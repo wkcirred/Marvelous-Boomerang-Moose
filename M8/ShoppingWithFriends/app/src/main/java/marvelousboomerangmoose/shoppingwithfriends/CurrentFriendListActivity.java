@@ -13,7 +13,9 @@ import android.widget.ArrayAdapter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import android.util.Log;
-import android.widget.Toast;
+
+import marvelousboomerangmoose.shoppingwithfriends.Model.User;
+import marvelousboomerangmoose.shoppingwithfriends.Model.UserActivity;
 
 /**
  * Current Friend List Activity displays all of your current friends with basic information

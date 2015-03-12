@@ -9,7 +9,9 @@ import android.view.View;
 import android.widget.TextView;
 
 import java.util.HashMap;
-import android.widget.Button;
+
+import marvelousboomerangmoose.shoppingwithfriends.Model.User;
+import marvelousboomerangmoose.shoppingwithfriends.Model.UserActivity;
 
 /**
  * Current friend detail list that shows detailed information about your friends that includes

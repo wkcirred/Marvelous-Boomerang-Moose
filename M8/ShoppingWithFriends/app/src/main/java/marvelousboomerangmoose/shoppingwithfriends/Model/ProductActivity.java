@@ -1,4 +1,4 @@
-package marvelousboomerangmoose.shoppingwithfriends;
+package marvelousboomerangmoose.shoppingwithfriends.Model;
 
 import java.util.HashMap;
 
@@ -8,6 +8,7 @@ import java.util.HashMap;
 public class ProductActivity {
     //private static Sale sale;
     public static HashMap<String, Product> salesList = new HashMap<String, Product>();
+    public static HashMap<String, Product> productList = new HashMap<String, Product>();
 
     public ProductActivity() {
         //sale = new Sale(Sale.getSalesList());
@@ -17,5 +18,6 @@ public class ProductActivity {
     public static void reportSale(Product p) {
         //sale.addSaleItem(p);
         salesList.put(p.getName(), p);
+        Persistence.saveBinary();
     }
 }

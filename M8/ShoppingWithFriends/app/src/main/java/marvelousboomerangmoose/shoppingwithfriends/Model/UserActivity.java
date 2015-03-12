@@ -1,6 +1,11 @@
-package marvelousboomerangmoose.shoppingwithfriends;
+package marvelousboomerangmoose.shoppingwithfriends.Model;
+
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.util.Log;
 
 import java.util.HashMap;
+import java.util.Set;
 
 
 /**
@@ -10,13 +15,78 @@ import java.util.HashMap;
 public class UserActivity {
 
     // Credentials - key is username
-    public static HashMap<String, User> credentials = new HashMap<String, User>();//TODO: getters?
+    private static HashMap<String, User> credentials = new HashMap<String, User>();//TODO: getters?
     //save binary when updated
     public static User loggedInUser = null; //TODO: create a getter for this
 
-    //UserActivity.credentials.put("admin", new User("Robbie", "Hooke", "admin@shop.moose", "admin", "pass"));
-    //UserActivity.credentials.put("user", new User("Derrick", "Williams", "user@shop.moose", "user", "pass"));
-    //UserActivity.credentials.put("new", new User("Richard", "Wang", "new@shop.moose", "new", "pass"));
+
+    /**
+     * Adds a bunch of values to the credentials, only called in Persistence.java
+     * TODO: Remove this
+     * @param cred a hashmap of credential entries
+     */
+    static void setCredentials(HashMap<String, User> cred) {
+        credentials.putAll(cred);
+    }
+
+
+    /**
+     * Creates a new User and adds it to the HashMap//TODO: move validation here
+     * @param first
+     * @param last
+     * @param email
+     * @param userName
+     * @param password
+     */
+    public static void newUser(String first, String last, String email, String userName, String password) {
+        User newUser = new User(first, last, email, userName, password);
+        credentials.put(userName, newUser);
+        Persistence.saveBinary();
+    }
+
+    //TODO: this shouldn't exist, make other ways to access required info
+    /**
+     * Returns the credentials HashMap
+     * @return credentials HashMap
+     */
+    public static HashMap<String, User> getCredentials() {
+        return credentials;
+    }
+
+    /**
+     * Adds a friend to the friendlist
+     * @param firstName
+     * @param lastName
+     * @param email
+     * @return returns whether or not the friend was added successfully
+     */
+    public static Boolean addFriend(String firstName, String lastName, String email) {
+        Set<String> keys = credentials.keySet();
+        User newFriend = null;
+        for (String key : keys) {
+            User curr = credentials.get(key);
+            if (curr.getEmail().equals(email)) {
+                if (curr.getFirst().equals(firstName) && curr.getLast().equals(lastName)) {
+                    newFriend = curr;
+                }
+                break;
+            }
+        }
+
+        Log.d("User Email", loggedInUser.getEmail());
+        Log.d("Friend Email", newFriend.getEmail());
+        if (newFriend != null) {
+            loggedInUser.addFriend(newFriend);
+            Log.d("Adding friend", "Success");
+            newFriend.addFriend(loggedInUser);//adds them back
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+
 
 
 /*

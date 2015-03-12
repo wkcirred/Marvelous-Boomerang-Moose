@@ -1,13 +1,10 @@
-    package marvelousboomerangmoose.shoppingwithfriends;
+    package marvelousboomerangmoose.shoppingwithfriends.Model;
 
 import android.util.Log;
 
 import java.io.Serializable;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Set;
-
-import marvelousboomerangmoose.shoppingwithfriends.util.Persistence;
 
     /**
      * User class that holds all the information about a user, ie password, friend lists
@@ -20,11 +17,11 @@ public class User implements Serializable{
     private String password;
     private String rating;
     public HashMap<String, User> friendList = new HashMap<String, User>();
-    private HashMap<String,Product> itemList;
+    private HashMap<String,Product> itemList = new HashMap<String, Product>();//TODO:RENAME TO INTERESTLIST
     //TODO: Add friend list and shopping attributes
 
     // Constructor
-    public User(String first, String last, String email, String userName, String password) {
+    User(String first, String last, String email, String userName, String password) {
         this.first = first;
         this.last = last;
         this.email = email;
@@ -97,37 +94,6 @@ public class User implements Serializable{
         return (input.equals(password));
     }
 
-    /**
-     * Adds a friend to the friendlist
-     * @param firstName
-     * @param lastName
-     * @param email
-     * @return returns whether or not the friend was added successfully
-     */
-    public Boolean addFriend(String firstName, String lastName, String email) {
-        Set<String> keys = UserActivity.credentials.keySet();
-        User newFriend = null;
-        for (String key : keys) {
-            User curr = UserActivity.credentials.get(key);
-            if (curr.getEmail().equals(email)) {
-                if (curr.getFirst().equals(firstName) && curr.getLast().equals(lastName)) {
-                    newFriend = curr;
-                }
-                break;
-            }
-        }
-
-        Log.d("User Email", this.getEmail());
-        Log.d("Friend Email", newFriend.getEmail());
-        if (newFriend != null) {
-            friendList.put(email, newFriend);
-            Log.d("Adding friend", "Success");
-            newFriend.addFriend(this);//adds them back
-            return true;
-        } else {
-            return false;
-        }
-    }
 
 
     //TODO: change visibility so that only visible from User objects

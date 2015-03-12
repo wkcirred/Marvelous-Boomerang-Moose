@@ -2,21 +2,18 @@ package marvelousboomerangmoose.shoppingwithfriends;
 
 import android.content.Intent;
 import android.support.v7.app.ActionBarActivity;
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+
+import marvelousboomerangmoose.shoppingwithfriends.Model.Product;
+import marvelousboomerangmoose.shoppingwithfriends.Model.ProductActivity;
+import marvelousboomerangmoose.shoppingwithfriends.Model.UserActivity;
 
 /**
  * Home activity contains a way to log out as well as a friends list and a way to lookup/add

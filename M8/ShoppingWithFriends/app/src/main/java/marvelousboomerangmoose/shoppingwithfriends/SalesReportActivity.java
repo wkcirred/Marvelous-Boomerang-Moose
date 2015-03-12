@@ -10,6 +10,9 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
+import marvelousboomerangmoose.shoppingwithfriends.Model.Product;
+import marvelousboomerangmoose.shoppingwithfriends.Model.ProductActivity;
+
 
 public class SalesReportActivity extends ActionBarActivity {
 
