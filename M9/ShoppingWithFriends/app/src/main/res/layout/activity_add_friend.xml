@@ -1,0 +1,106 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:background="@color/teal"
+    tools:context="marvelousboomerangmoose.shoppingwithfriends.AddFriendActivity"
+    >
+
+
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/friendFirst"
+        android:editable="true"
+        android:layout_marginTop="56dp"
+        android:layout_alignStart="@+id/addFriendAdd"/>
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        android:ems="10"
+        android:id="@+id/friendLast"
+        android:editable="true"
+        android:layout_below="@+id/friendFirst"
+        android:layout_alignStart="@+id/friendFirst" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="textEmailAddress"
+        android:ems="10"
+        android:id="@+id/friendEmail"
+        android:editable="true"
+        android:layout_below="@+id/friendLast"
+        android:layout_alignStart="@+id/friendLast" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="Add"
+        android:id="@+id/addFriendAdd"
+        android:layout_below="@+id/friendEmail"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="132dp"
+        android:onClick="addFriendButtonOnClick" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="Cancel"
+        android:id="@+id/addFriendCancel"
+        android:onClick="addFriendCancelOnClick"
+        android:layout_below="@+id/addFriendAdd"
+        android:layout_centerHorizontal="true" />
+
+<!--
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Add Friend"
+        android:id="@+id/textView3"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
+-->
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="First Name:"
+        android:id="@+id/textViewFirstName"
+        android:layout_above="@+id/friendLast"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Last Name:"
+        android:id="@+id/textViewLastName"
+        android:layout_above="@+id/friendEmail"
+        android:layout_alignParentStart="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Email:"
+        android:id="@+id/textViewFriendEmail"
+        android:layout_alignBottom="@+id/friendEmail"
+        android:layout_alignEnd="@+id/textView5" />
+
+</RelativeLayout>

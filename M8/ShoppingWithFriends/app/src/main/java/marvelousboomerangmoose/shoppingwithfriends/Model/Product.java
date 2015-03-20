@@ -1,6 +1,4 @@
-package marvelousboomerangmoose.shoppingwithfriends;
-
-import android.util.Log;
+package marvelousboomerangmoose.shoppingwithfriends.Model;
 
 import java.io.Serializable;
 import java.util.HashMap;
@@ -13,18 +11,32 @@ import java.util.Set;
 public class Product implements Serializable{
     private String name;
     private double price;
-    private double salesPrice;
+    private double salesPrice;//if we want to have expiration dates on sales reports,
+    // might want to use this depending on implementation rather than simply using price
     private String location;
     private String storeName;
     private int inventory;
-    private boolean onSale;
+    private boolean onSale;//not really needed with how we are doing the code
     private HashMap<String, Product> itemList = new HashMap<String, Product>();
 
     // Constructor
-    public Product(String name, double price) {
+    public Product(String name, double price, String location, String storeName, int inventory) {
         this.name = name;
         this.price = price;
+        this.location = location;
+        this.storeName = storeName;
+        this.inventory = inventory;
     }
+
+    /*// Constructor
+    public Product(String name, double price, String storeName, String location, int inventory, boolean onSale) {
+        this.name = name;
+        this.price = price;
+        this.storeName = storeName;
+        this.location = location;
+        this.inventory = inventory;
+        this.onSale = onSale;
+    }*/
 
     /**
      * Returns the name of the product
@@ -145,8 +157,8 @@ public class Product implements Serializable{
      * @return returns whether or not the item was added successfully
      */
     public Boolean addProduct(String name, double price) {
-        Set<String> keys = MainActivity.productList.keySet();
-        Product newProduct = new Product(name, price);
+        Set<String> keys = ProductActivity.productList.keySet();
+        Product newProduct = new Product(name, price, "N/A", "N/A", 0);
 //            for (String key : keys) {
 //                Product curr = MainActivity.productList.get(key);
 //                if (curr.getName().equals(name)) {
@@ -155,7 +167,7 @@ public class Product implements Serializable{
 //                }
 //            }
 //            if (newProduct != null) {
-                itemList.put(name, newProduct);
+                itemList.put(name, newProduct);//TODO:MAKE KEY MORE SPECIFIC
                 newProduct.addProduct(name, price);//adds them back
                 return true;
 //            } else {
