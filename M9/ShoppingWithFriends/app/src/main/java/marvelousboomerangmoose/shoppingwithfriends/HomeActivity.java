@@ -7,6 +7,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.Toast;
+import android.content.Context;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -22,13 +25,16 @@ import marvelousboomerangmoose.shoppingwithfriends.Model.UserActivity;
 public class HomeActivity extends ActionBarActivity {
     ArrayList<String> arrayList;
     ArrayList<String> interestList;
+    // Used to store interestAlert for User
+    public static HashMap<String, Product> interestAlert = new HashMap<String, Product>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
         if (!ProductActivity.salesList.isEmpty()) {
-            HashMap<String, Product> interestAlert = new HashMap<>();
+            //HashMap<String, Product> interestAlert = new HashMap<>();
+            interestAlert = new HashMap<>();
             arrayList = new ArrayList<>(ProductActivity.salesList.keySet());
             interestList = new ArrayList<>(UserActivity.loggedInUser.getItemList().keySet());
             //for a sale report to show up it needs to be: (interest price >= sale price)
@@ -97,6 +103,23 @@ public class HomeActivity extends ActionBarActivity {
      */
     public void currentFriendsOnClick(View v) {
         startActivity(new Intent(this, CurrentFriendListActivity.class));
+    }
+
+    /**
+     * Changes the screen to the sales map screen
+     * @param v the button being clicked
+     */
+    public void salesMapOnClick(View v) {
+        if (!interestAlert.isEmpty()) {
+            startActivity(new Intent(this, SalesMapActivity.class));
+        } else {
+            Context context = getApplicationContext();
+            CharSequence text = "No Sales Map data available.";
+            int duration = Toast.LENGTH_SHORT;
+
+            Toast toast = Toast.makeText(context, text, duration);
+            toast.show();
+        }
     }
 
     @Override
