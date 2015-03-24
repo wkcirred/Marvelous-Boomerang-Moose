@@ -58,7 +58,7 @@ public class Product implements Serializable{
     /**
      * Sets the price of the product
      *
-     * @param price
+     * @param price the price of the product
      * @return - boolean if price was set
      */
     public boolean setPrice(double price) {
@@ -152,8 +152,8 @@ public class Product implements Serializable{
     /**
      * Adds an item to the itemList
      *
-     * @param name
-     * @param price
+     * @param name the name of the item
+     * @param price the price of the item
      * @return returns whether or not the item was added successfully
      */
     public Boolean addProduct(String name, double price) {
@@ -197,6 +197,6 @@ public class Product implements Serializable{
      * @return product name
      */
     public String toString() {
-        return (String) getName();
+        return getName();
     }
 }
