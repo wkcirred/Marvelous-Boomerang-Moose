@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.Toast;
 import android.content.Context;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -44,7 +43,7 @@ public class HomeActivity extends ActionBarActivity {
                     double saleCost = sale.getPrice();
                     Product interest = UserActivity.loggedInUser.getItemList().get(arrayList.get(i));
                     double interestCost = interest.getPrice();
-                    //add stuff to the new hashmap
+                    //add stuff to the new hashMap
                     if (saleCost <= interestCost) {
                         interestAlert.put(arrayList.get(i), ProductActivity.salesList.get(arrayList.get(i)));
                     }

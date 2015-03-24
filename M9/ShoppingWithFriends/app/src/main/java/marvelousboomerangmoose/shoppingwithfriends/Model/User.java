@@ -4,7 +4,6 @@ import android.util.Log;
 
 import java.io.Serializable;
 import java.util.HashMap;
-import java.util.Set;
 
     /**
      * User class that holds all the information about a user, ie password, friend lists
@@ -17,7 +16,7 @@ public class User implements Serializable{
     private String password;
     private String rating;
     public HashMap<String, User> friendList = new HashMap<String, User>();
-    private HashMap<String,Product> itemList = new HashMap<String, Product>();//TODO:RENAME TO INTERESTLIST
+    private HashMap<String,Product> itemList = new HashMap<String, Product>();//TODO:RENAME TO interestList
     //TODO: Add friend list and shopping attributes
 
     // Constructor
@@ -72,7 +71,7 @@ public class User implements Serializable{
 
     /**
      * Sets the user rating of the user
-     * @param rating
+     * @param rating the user's rating
      * @return - boolean if rating was set
      */
     public boolean setRating(String rating) {
@@ -99,7 +98,7 @@ public class User implements Serializable{
     //TODO: change visibility so that only visible from User objects
     /**
      * Adds a user as a friend using their user object
-     * @param friend
+     * @param friend the friend object of the user
      */
     public void addFriend(User friend) {
         Log.d("Adding friend", "Mutually");
@@ -111,7 +110,7 @@ public class User implements Serializable{
 
     /**
      * Deletes a user as a friend using their user object
-     * @param friend
+     * @param friend the friend object of the user
      */
     public void deleteFriend(User friend) {
         friendList.remove(friend.getEmail());
@@ -119,7 +118,7 @@ public class User implements Serializable{
 
     /**
      * Deletes a user as a friend using their user object and remove you as their friend too
-     * @param friend
+     * @param friend the friend object of the user
      */
     public void deleteFriendMutually(User friend) {
         deleteFriend(friend);
@@ -129,7 +128,7 @@ public class User implements Serializable{
 
     /**
      * Returns the friend list
-     * @return friendlist
+     * @return friendList
      */
     public HashMap<String, User> getFriendList() {
         return friendList;
