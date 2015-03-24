@@ -21,16 +21,7 @@ import marvelousboomerangmoose.shoppingwithfriends.Model.UserActivity;
  * Also, is the main class that runs everything currently.
  */
 public class MainActivity extends ActionBarActivity {
-
-    /*if (LoginActivity.loggedIn == 1) {
-        startActivity(new Intent(this, HomeActivity.class));
-    }*/
-
-
-
     public UserActivity users;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,14 +33,11 @@ public class MainActivity extends ActionBarActivity {
                     .commit();
         }
         users = new UserActivity();//TODO: Not sure if this is the best way to do this
-        ArrayList<File> files = new ArrayList<File>();
+        ArrayList<File> files = new ArrayList<>();
         files.add(new File(this.getFilesDir(), "users.bin"));
         files.add(new File(this.getFilesDir(), "products.bin"));
         files.add(new File(this.getFilesDir(), "salesReport.bin"));
         Persistence.setUpBinary(files);
-
-
-
     }
 
     /**
@@ -57,14 +45,18 @@ public class MainActivity extends ActionBarActivity {
      *
      * @param v the button being clicked
      */
-    public void buttonLoginOnClick(View v) {startActivity(new Intent(this, LoginActivity.class));}
+    public void buttonLoginOnClick(View v) {
+        startActivity(new Intent(this, LoginActivity.class));
+    }
 
     /**
      * When the registration button is clicked, this transitions to the registration screen.
      *
      * @param v the button being clicked
      */
-    public void buttonRegOnClick(View v) {startActivity(new Intent(this, RegActivity.class));}
+    public void buttonRegOnClick(View v) {
+        startActivity(new Intent(this, RegActivity.class));
+    }
 
 
     @Override
@@ -100,8 +92,7 @@ public class MainActivity extends ActionBarActivity {
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_main, container, false);
-            return rootView;
+            return inflater.inflate(R.layout.fragment_main, container, false);
         }
     }
 }
