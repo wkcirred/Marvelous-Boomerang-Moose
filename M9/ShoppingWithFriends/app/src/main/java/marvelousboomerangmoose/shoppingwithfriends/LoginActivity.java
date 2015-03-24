@@ -36,7 +36,7 @@ import marvelousboomerangmoose.shoppingwithfriends.Model.UserActivity;
  * A login screen that offers login via userID/password.
  */
 public class LoginActivity extends ActionBarActivity implements LoaderCallbacks<Cursor> {
-    public static final int minLengthUserInfo = 3;
+    private static final int minLengthUserInfo = 3;
 
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
@@ -96,7 +96,7 @@ public class LoginActivity extends ActionBarActivity implements LoaderCallbacks<
     /**
      * Sends the user to the Home screen.
      */
-    protected void goToHome() {
+    private void goToHome() {
         startActivity(new Intent(this, HomeActivity.class));
     }
 
@@ -105,7 +105,7 @@ public class LoginActivity extends ActionBarActivity implements LoaderCallbacks<
      * If there are form errors (invalid user, missing fields, etc.), the
      * errors are presented and no actual login attempt is made.
      */
-    public void attemptLogin() {
+    private void attemptLogin() {
         if (mAuthTask != null) {
             return;
         }
@@ -173,7 +173,7 @@ public class LoginActivity extends ActionBarActivity implements LoaderCallbacks<
      * Shows the progress UI and hides the login form.
      */
     @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
-    public void showProgress(final boolean show) {
+    private void showProgress(final boolean show) {
         // On Honeycomb MR2 we have the ViewPropertyAnimator APIs, which allow
         // for very easy animations. If available, use these APIs to fade-in
         // the progress spinner.
@@ -224,13 +224,12 @@ public class LoginActivity extends ActionBarActivity implements LoaderCallbacks<
 
     @Override
     public void onLoadFinished(Loader<Cursor> cursorLoader, Cursor cursor) {
-        List<String> users = new ArrayList<String>();
+        List<String> users = new ArrayList<>();
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
             users.add(cursor.getString(ProfileQuery.ADDRESS));
             cursor.moveToNext();
         }
-
         addUsersToAutoComplete(users);
     }
 
@@ -247,9 +246,7 @@ public class LoginActivity extends ActionBarActivity implements LoaderCallbacks<
                 ContactsContract.CommonDataKinds.Identity.IDENTITY,
                 ContactsContract.CommonDataKinds.Identity.IS_PRIMARY,
         };
-
         int ADDRESS = 0;
-        int IS_PRIMARY = 1;
     }
 
     /**
@@ -259,7 +256,7 @@ public class LoginActivity extends ActionBarActivity implements LoaderCallbacks<
     private void addUsersToAutoComplete(List<String> userAddressCollection) {
         //Create adapter to tell the AutoCompleteTextView what to show in its dropdown list.
         ArrayAdapter<String> adapter =
-                new ArrayAdapter<String>(LoginActivity.this,
+                new ArrayAdapter<>(LoginActivity.this,
                         android.R.layout.simple_dropdown_item_1line, userAddressCollection);
 
         mUserView.setAdapter(adapter);
@@ -283,31 +280,10 @@ public class LoginActivity extends ActionBarActivity implements LoaderCallbacks<
         protected Boolean doInBackground(Void... params) {
             // Not in this version
             // TODO: attempt authentication against a network service.
-            /*
-            try {
-                // Simulate network access.
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                return false;
-            }
-            for (String credential : DUMMY_CREDENTIALS) {
-                String[] pieces = credential.split(":");
-                if (pieces[0].equals(mUser)) {
-                    // Account exists, return true if the password matches.
-                    return pieces[1].equals(mPassword);
-                }
-            }
-            */
-
             if (UserActivity.getCredentials().containsKey(mUser)) {
                 return (UserActivity.getCredentials().get(mUser).checkPassword(mPassword));
             }
-
             return false;
-
-            // This isn't used in this version
-            // TODO: register the new account here.
-            // return true;
         }
 
         @Override
@@ -316,10 +292,8 @@ public class LoginActivity extends ActionBarActivity implements LoaderCallbacks<
             showProgress(false);
 
             if (success) {
-                //loggedIn = 1;
                 UserActivity.loggedInUser = UserActivity.getCredentials().get(mUser);
                 goToHome();
-                //finish();
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));
                 //Error message for if the username or password is incorrect
@@ -342,8 +316,6 @@ public class LoginActivity extends ActionBarActivity implements LoaderCallbacks<
     public void buttonCancelOnClick(View v) {
         startActivity(new Intent(this, MainActivity.class));
     }
-
-
 }
 
 
