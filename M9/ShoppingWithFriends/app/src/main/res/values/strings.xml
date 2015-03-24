@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- General -->
+
+
+    <!-- Strings related to main application -->
+    <string name="app_name">Shopping With Friends</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- Strings related to login -->
+    <string name="title_activity_login">Log in</string>
+    <string name="prompt_userID">Email</string>
+    <string name="prompt_password">Password (optional)</string>
+    <string name="action_sign_in">Sign in</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="action_cancel_login">Cancel Login</string>
+    <string name="error_invalid_userID">This user ID is invalid</string>
+    <string name="error_invalid_password">This password is too short</string>
+    <string name="error_incorrect_password">This password is incorrect</string>
+    <string name="error_field_required">This field is required</string>
+    <string name="error_incorrect_password_or_userID">Incorrect Password and/or User ID.</string>
+
+    <!-- Strings related to home -->
+    <string name="title_activity_home">Home</string>
+
+    <!-- Strings related to registration -->
+    <string name="title_activity_reg">Registration</string>
+    <string name="prompt_register_firstName">First Name</string>
+    <string name="prompt_register_lastName">Last Name</string>
+    <string name="prompt_register_email">Email</string>
+    <string name="prompt_register_userName">Preferred User Name</string>
+    <string name="prompt_register_password">Preferred Password</string>
+    <string name="action_register">Register</string>
+    <string name="action_cancel_register">Cancel Registration</string>
+    <string name="error_invalid_email">This email address is invalid</string>
+
+    <!-- Strings related to Active User List -->
+    <string name="title_user_list">Active Users</string>
+    <string name="title_activity_active_users_detail">ActiveUsersDetailActivity</string>
+    <string name="title_activity_active_users_list">ActiveUsersListActivity</string>
+
+    <!-- Strings related to Friend Detail -->
+    <string name="title_friend_detail">Friend Detail</string>
+
+    <!-- Strings related to Add Friend -->
+    <string name="title_activity_add_friend">Add Friend</string>
+
+    <!-- Strings related to Current Friend List -->
+    <string name="title_activity_current_friend_list">Current Friend List</string>
+
+    <!-- Strings related to Current Friend Detail -->
+    <string name="title_activity_current_friend_detail">Current Friend Detail</string>
+
+    <!-- Strings related to Sales -->
+    <string name="title_activity_sales_report">Sales Report</string>
+    <string name="title_activity_maps">SalesMap</string>
+
+    <!-- Strings related to Misc -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_world">Hello world!</string>
+
+    <!-- Strings related to Item -->
+    <string name="title_item_list">Items</string>
+    <string name="title_item_detail">Item Detail</string>
+    <string name="title_activity_item_list">Item List</string>
+    <string name="title_activity_add_item">Add Item</string>
+
+    <!-- Strings related to User -->
+    <string name="title_user_detail">User Detail</string>
+    <string name="title_activity_user">UserActivity</string>
+
+
+</resources>
