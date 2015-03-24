@@ -18,8 +18,6 @@ import android.util.DisplayMetrics;
 import java.io.IOException;
 
 import marvelousboomerangmoose.shoppingwithfriends.Model.Product;
-import marvelousboomerangmoose.shoppingwithfriends.Model.ProductActivity;
-import marvelousboomerangmoose.shoppingwithfriends.Model.UserActivity;
 
 
 /**
@@ -29,7 +27,7 @@ import marvelousboomerangmoose.shoppingwithfriends.Model.UserActivity;
 public class SalesMapActivity extends FragmentActivity {
 
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
-    private LatLngBounds mapView;  //Mapview for camera position and size
+    private LatLngBounds mapView;  //mapView for camera position and size
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -101,7 +99,7 @@ public class SalesMapActivity extends FragmentActivity {
         for (String key : interestAlert.keySet()) {
             Product p = interestAlert.get(key);
 
-            // Need try/catch block to process Geocoding address
+            // Need try/catch block to process geocode address
             try {
                 // Process geocode address into five potentials
                 addressList = coder.getFromLocationName(p.getLocation(), 5);

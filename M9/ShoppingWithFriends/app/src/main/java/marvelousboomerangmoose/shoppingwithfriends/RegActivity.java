@@ -29,8 +29,6 @@ import android.widget.TextView;
 import java.util.ArrayList;
 import java.util.List;
 
-import marvelousboomerangmoose.shoppingwithfriends.Model.Persistence;
-import marvelousboomerangmoose.shoppingwithfriends.Model.User;
 import marvelousboomerangmoose.shoppingwithfriends.Model.UserActivity;
 
 

@@ -1,7 +1,5 @@
 package marvelousboomerangmoose.shoppingwithfriends.Model;
 
-import android.app.AlertDialog;
-import android.content.DialogInterface;
 import android.util.Log;
 
 import java.util.HashMap;
@@ -23,7 +21,7 @@ public class UserActivity {
     /**
      * Adds a bunch of values to the credentials, only called in Persistence.java
      * TODO: Remove this
-     * @param cred a hashmap of credential entries
+     * @param cred a hashMap of credential entries
      */
     static void setCredentials(HashMap<String, User> cred) {
         credentials.putAll(cred);
@@ -32,11 +30,11 @@ public class UserActivity {
 
     /**
      * Creates a new User and adds it to the HashMap//TODO: move validation here
-     * @param first
-     * @param last
-     * @param email
-     * @param userName
-     * @param password
+     * @param first the user's first name
+     * @param last the user's last name
+     * @param email the user's email
+     * @param userName the user's username
+     * @param password the user's password
      */
     public static void newUser(String first, String last, String email, String userName, String password) {
         User newUser = new User(first, last, email, userName, password);
@@ -54,10 +52,10 @@ public class UserActivity {
     }
 
     /**
-     * Adds a friend to the friendlist
-     * @param firstName
-     * @param lastName
-     * @param email
+     * Adds a friend to the friendList
+     * @param firstName the friend's first name
+     * @param lastName the friend's last name
+     * @param email the friend's email
      * @return returns whether or not the friend was added successfully
      */
     public static Boolean addFriend(String firstName, String lastName, String email) {
@@ -183,7 +181,7 @@ public class UserActivity {
 
     */
 /**
-     * Adds a friend to the friendlist
+     * Adds a friend to the friendList
      * @param firstName
      * @param lastName
      * @param email
@@ -256,7 +254,7 @@ public class UserActivity {
     */
 /**
      * Returns the friend list
-     * @return friendlist
+     * @return friendList
      *//*
 
     public HashMap<String, User> getFriendList() {

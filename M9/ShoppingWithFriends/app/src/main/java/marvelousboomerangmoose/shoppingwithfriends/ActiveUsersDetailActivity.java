@@ -94,7 +94,7 @@ public class ActiveUsersDetailActivity extends ActionBarActivity {
         User user = users.get(foundUserName);
         Log.d("Add Friend on Click:", "Entering");
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
-        //TODO: make this less repetitive of the addfriend activity**********
+        //TODO: make this less repetitive of the addFriend activity**********
         //TODO: also it used the wrong addFriend method, so it needs to be reworked
 
 
