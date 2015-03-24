@@ -113,17 +113,10 @@ public class SalesMapActivity extends FragmentActivity {
                         ,p.getName());
 
                 // For figuring out proper camera size and position
-                if (latitude < minLatitude) {
-                    minLatitude = latitude;
-                } else if (latitude > maxLatitude) {
-                    maxLatitude = latitude;
-                }
-                if (longitude < minLongitude) {
-                    minLongitude = longitude;
-                } else if (longitude > maxLongitude) {
-                    maxLongitude = longitude;
-                }
-
+                minLatitude = Math.min(latitude,minLatitude);
+                maxLatitude = Math.max(latitude,maxLatitude);
+                minLongitude = Math.min(longitude,minLongitude);
+                maxLongitude = Math.max(longitude,maxLongitude);
 
             } catch (IOException e) {
                 e.printStackTrace();
