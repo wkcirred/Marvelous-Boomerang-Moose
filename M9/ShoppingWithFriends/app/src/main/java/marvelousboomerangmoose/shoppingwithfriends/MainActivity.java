@@ -22,7 +22,7 @@ import marvelousboomerangmoose.shoppingwithfriends.Model.UserActivity;
  */
 @SuppressWarnings("WeakerAccess")
 public class MainActivity extends ActionBarActivity {
-    public UserActivity users;
+    private UserActivity users;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
