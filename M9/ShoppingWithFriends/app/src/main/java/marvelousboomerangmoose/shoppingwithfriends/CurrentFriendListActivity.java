@@ -23,10 +23,9 @@ import marvelousboomerangmoose.shoppingwithfriends.Model.UserActivity;
  */
 @SuppressWarnings("ALL")
 public class CurrentFriendListActivity extends ActionBarActivity {
-<<<<<<< HEAD
+
     //private Intent intent;
-=======
->>>>>>> origin/master
+
     private static ArrayList<String> arrayList;
 
     @Override

@@ -17,12 +17,11 @@ import marvelousboomerangmoose.shoppingwithfriends.Model.UserActivity;
  * then add that person.
  */
 public class AddFriendActivity extends ActionBarActivity {
-<<<<<<< HEAD
+
     //public final static String MESSAGE = "marvelousboomerangmoose.shoppingwithfriends.MESSAGE";
     private final Context context = this;
 
-=======
->>>>>>> origin/master
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,22 +38,18 @@ public class AddFriendActivity extends ActionBarActivity {
         startActivity(new Intent(this, HomeActivity.class));
     }
 
-<<<<<<< HEAD
 
-
-=======
->>>>>>> origin/master
     /**
      * Adds a friend when the button is clicked if  all checks pass.
      * @param v the button being clicked
      */
     public void addFriendButtonOnClick(View v){
-<<<<<<< HEAD
+
         //Does nothing but to eliminate a analyzing error
         v.getId();
-=======
+
         final Context context = this;
->>>>>>> origin/master
+
         final String first = ((EditText)findViewById(R.id.friendFirst)).getText().toString();
         final String last = ((EditText)findViewById(R.id.friendLast)).getText().toString();
         final String email = ((EditText)findViewById(R.id.friendEmail)).getText().toString();
@@ -132,10 +127,9 @@ public class AddFriendActivity extends ActionBarActivity {
                                     // current activity
 
                                     Intent intent = new Intent(context, CurrentFriendListActivity.class);
-<<<<<<< HEAD
+
                                     //intent.putExtra(MESSAGE, first + " " + last + "\n" + email);
-=======
->>>>>>> origin/master
+
                                     startActivity(intent);
 
                                 }

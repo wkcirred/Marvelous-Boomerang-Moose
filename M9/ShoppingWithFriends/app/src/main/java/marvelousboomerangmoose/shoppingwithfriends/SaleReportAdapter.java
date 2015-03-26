@@ -15,12 +15,10 @@ import java.util.Map;
 
 import marvelousboomerangmoose.shoppingwithfriends.Model.Product;
 
-<<<<<<< HEAD
+
 @SuppressWarnings("unchecked")
 public class SaleReportAdapter extends BaseAdapter {
-=======
-class SaleReportAdapter extends BaseAdapter {
->>>>>>> origin/master
+
     private final ArrayList mData;
 
     // Constructor
