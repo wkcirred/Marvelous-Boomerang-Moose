@@ -15,14 +15,9 @@ import java.util.HashMap;
  * In charge of saving and loading binary files
  */
 public class Persistence{
-    private static Integer bla = 4;
-
     private static File USER_FILE;
     private static File PRODUCT_FILE;
-    private static File SALESREPORT_FILE;
-
-    public Persistence() {
-    }
+    private static File SALES_REPORT_FILE;
 
     /**
      * Saves credentials and product list to the binary file
@@ -56,30 +51,30 @@ public class Persistence{
             Log.d("PRODUCT_FILE SAVE:", "File Does Not Exist");
         }
 
-        if (SALESREPORT_FILE.exists()) {
+        if (SALES_REPORT_FILE.exists()) {
             try {
-                ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(SALESREPORT_FILE));
+                ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(SALES_REPORT_FILE));
                 out.writeObject(ProductActivity.salesList);
-                Log.d("SALESREPORT_FILE SAVED:", ProductActivity.salesList.toString());
+                Log.d("SALES_REPORT_FILE SAVED:", ProductActivity.salesList.toString());
                 out.flush();
                 out.close();
             } catch (IOException e) {
-                Log.e("SALESREPORT_FILE:", "Error writing an entry from binary file");
+                Log.e("SALES_REPORT_FILE:", "Error writing an entry from binary file");
             }
         } else {
-            Log.d("SALESREPORT_FILE SAVE:", "File Does Not Exist");
+            Log.d("SALES_REPORT_FILE SAVE:", "File Does Not Exist");
         }
     }
 
     /**
      * Loads credentials and product list from the binary file
      */
-    public static void loadBinary() {
+    private static void loadBinary() {
         try {
             ObjectInputStream user_in = new ObjectInputStream(new FileInputStream(USER_FILE));
-            //all objects to be loaded
 
-            HashMap<String, User> cred = (HashMap<String, User>) user_in.readObject();
+            //ERROR WILL BE CAUGHT IN CATCH BLOCK
+            @SuppressWarnings("unchecked") HashMap<String, User> cred = (HashMap<String, User>) user_in.readObject();
             UserActivity.setCredentials(cred);
 
             Log.d("LOAD-Loaded Cred:", cred.toString());
@@ -89,12 +84,14 @@ public class Persistence{
             Log.e("USER_FILE:", "Error reading an entry from binary file");
         } catch (ClassNotFoundException e) {
             Log.e("USER_FILE:", "Error casting a class from the binary file");
+        } catch (ClassCastException e) {
+            Log.e("USER_FILE", "Error casting class");
         }
         try {
             ObjectInputStream product_in = new ObjectInputStream(new FileInputStream(PRODUCT_FILE));
-            //all objects to be loaded
 
-            HashMap<String, Product> prod = (HashMap<String, Product>) product_in.readObject();
+            //ERROR WILL BE CAUGHT IN CATCH BLOCK
+            @SuppressWarnings("unchecked") HashMap<String, Product> prod = (HashMap<String, Product>) product_in.readObject();
             ProductActivity.productList.clear();
             ProductActivity.productList.putAll(prod);
             Log.d("LOAD-Loaded Prod:", prod.toString());
@@ -104,22 +101,26 @@ public class Persistence{
             Log.e("PRODUCT_FILE:", "Error reading an entry from binary file");
         } catch (ClassNotFoundException e) {
             Log.e("PRODUCT_FILE:", "Error casting a class from the binary file");
+        } catch (ClassCastException e) {
+            Log.e("PRODUCT_FILE", "Error casting class");
         }
 
         try {
-            ObjectInputStream salesReport_in = new ObjectInputStream(new FileInputStream(SALESREPORT_FILE));
-            //all objects to be loaded
+            ObjectInputStream salesReport_in = new ObjectInputStream(new FileInputStream(SALES_REPORT_FILE));
 
-            HashMap<String, Product> sales = (HashMap<String, Product>) salesReport_in.readObject();
+            //ERROR WILL BE CAUGHT IN CATCH BLOCK
+            @SuppressWarnings("unchecked") HashMap<String, Product> sales = (HashMap<String, Product>) salesReport_in.readObject();
             ProductActivity.salesList.clear();
             ProductActivity.salesList.putAll(sales);
             Log.d("LOAD-Loaded Sales:", sales.toString());
             Log.d("LOAD-Current Sales:", ProductActivity.salesList.toString());
             salesReport_in.close();
         } catch (IOException e) {
-            Log.e("SALESREPORT_FILE:", "Error reading an entry from binary file");
+            Log.e("SALES_REPORT_FILE:", "Error reading an entry from binary file");
         } catch (ClassNotFoundException e) {
-            Log.e("SALESREPORT_FILE:", "Error casting a class from the binary file");
+            Log.e("SALES_REPORT_FILE:", "Error casting a class from the binary file");
+        } catch (ClassCastException e) {
+            Log.e("SALES_REPORT_FILE", "Error casting class");
         }
 
     }
@@ -127,34 +128,47 @@ public class Persistence{
     public static void setUpBinary(ArrayList<File> files) {
         USER_FILE = files.get(0);
         PRODUCT_FILE = files.get(1);
-        SALESREPORT_FILE = files.get(2);
-        if (USER_FILE.exists() && PRODUCT_FILE.exists() && SALESREPORT_FILE.exists()) {
+        SALES_REPORT_FILE = files.get(2);
+        if (USER_FILE.exists() && PRODUCT_FILE.exists() && SALES_REPORT_FILE.exists()) {
             Log.d("FILES EXIST", "Attempting to Load");
             loadBinary();
         } else {//TODO: Possibly rework this as else ifs
             Log.d("USER_FILE DOES NOT EXIST", "Attempting to Create");
+            boolean success;
             if (!USER_FILE.exists()) {
                 try {
-                    USER_FILE.createNewFile();
-                    Log.d("CREATING USER_FILE", "File Created Successfully");
+                    success = USER_FILE.createNewFile();
+                    if (success) {
+                        Log.d("CREATING USER_FILE", "File Created Successfully");
+                    } else {
+                        Log.d("CREATING USER_FILE", "File Already Exists");
+                    }
                 } catch (IOException e) {
                     Log.e("USER_FILE CREATION", "Error Creation Failed");
                 }
             }
             if (!PRODUCT_FILE.exists()) {
                 try {
-                    PRODUCT_FILE.createNewFile();
-                    Log.d("CREATING PRODUCT_FILE", "File Created Successfully");
+                    success = PRODUCT_FILE.createNewFile();
+                    if (success) {
+                        Log.d("CREATING PRODUCT_FILE", "File Created Successfully");
+                    } else {
+                        Log.d("CREATING PRODUCT_FILE", "File Already Exists");
+                    }
                 } catch (IOException e) {
                     Log.e("PRODUCT_FILE CREATION", "Error Creation Failed");
                 }
             }
-            if (!SALESREPORT_FILE.exists()) {
+            if (!SALES_REPORT_FILE.exists()) {
                 try {
-                    SALESREPORT_FILE.createNewFile();
-                    Log.d("CREATING SALESREPORT_FILE", "File Created Successfully");
+                    success = SALES_REPORT_FILE.createNewFile();
+                    if (success) {
+                        Log.d("CREATING SALES_REPORT_FILE", "File Created Successfully");
+                    } else {
+                        Log.d("CREATING SALES_REPORT_FILE", "File Already Exists");
+                    }
                 } catch (IOException e) {
-                    Log.e("SALESREPORT_FILE CREATION", "Error Creation Failed");
+                    Log.e("SALES_REPORT_FILE CREATION", "Error Creation Failed");
                 }
             }
 

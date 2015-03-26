@@ -1,23 +1,17 @@
 package marvelousboomerangmoose.shoppingwithfriends.Model;
 
 import java.io.Serializable;
-import java.util.HashMap;
-import java.util.Set;
 
 /**
  * Product class stores information on various products for use in
  * registering product interest and reporting sales.
  */
 public class Product implements Serializable{
-    private String name;
-    private double price;
-    private double salesPrice;//if we want to have expiration dates on sales reports,
-    // might want to use this depending on implementation rather than simply using price
-    private String location;
-    private String storeName;
-    private int inventory;
-    private boolean onSale;//not really needed with how we are doing the code
-    private HashMap<String, Product> itemList = new HashMap<String, Product>();
+    private final String name;
+    private final double price;
+    private final String location;
+    private final String storeName;
+    private final int inventory;
 
     // Constructor
     public Product(String name, double price, String location, String storeName, int inventory) {
@@ -27,16 +21,6 @@ public class Product implements Serializable{
         this.storeName = storeName;
         this.inventory = inventory;
     }
-
-    /*// Constructor
-    public Product(String name, double price, String storeName, String location, int inventory, boolean onSale) {
-        this.name = name;
-        this.price = price;
-        this.storeName = storeName;
-        this.location = location;
-        this.inventory = inventory;
-        this.onSale = onSale;
-    }*/
 
     /**
      * Returns the name of the product
@@ -56,49 +40,11 @@ public class Product implements Serializable{
     }
 
     /**
-     * Sets the price of the product
-     *
-     * @param price the price of the product
-     * @return - boolean if price was set
-     */
-    public boolean setPrice(double price) {
-        if (price < 0) {
-            return false;
-        }
-        this.price = price;
-        return true;
-    }
-
-    /**
-     * Gets the price of the sale on the item.
-     * @return the price of the sale
-     */
-    public double getSalesPrice() {
-        return salesPrice;
-    }
-
-    /**
-     * Sets the price of the sale on the item.
-     * @param salesPrice the price of the item on sale
-     */
-    public void setSalesPrice(double salesPrice) {
-        this.salesPrice = salesPrice;
-    }
-
-    /**
      * Gets the item's location
      * @return the location
      */
     public String getLocation() {
         return location;
-    }
-
-    /**
-     * Sets the location of the item
-     * @param location of the item
-     */
-    public void setLocation(String location) {
-        this.location = location;
     }
 
     /**
@@ -110,30 +56,6 @@ public class Product implements Serializable{
     }
 
     /**
-     * Sets the amount of stock available on the item
-     * @param inventory amount of the item
-     */
-    public void setInventory(int inventory) {
-        this.inventory = inventory;
-    }
-
-    /**
-     * Gets whether or not the item is on sale.
-     * @return true or false depending on if the item is on sale
-     */
-    public boolean getOnSale() {
-        return onSale;
-    }
-
-    /**
-     * Sets the item to be on sale or not.
-     * @param onSale whether or not the item is on sale
-     */
-    public void setOnSale(boolean onSale) {
-        this.onSale = onSale;
-    }
-
-    /**
      * Gets the name of the store the product is located in
      * @return the store name
      */
@@ -141,56 +63,6 @@ public class Product implements Serializable{
         return storeName;
     }
 
-    /**
-     * Sets the name of the store the product is in
-     * @param storeName the store's name
-     */
-    public void setStoreName(String storeName) {
-        this.storeName = storeName;
-    }
-
-    /**
-     * Adds an item to the itemList
-     *
-     * @param name the name of the item
-     * @param price the price of the item
-     * @return returns whether or not the item was added successfully
-     */
-    public Boolean addProduct(String name, double price) {
-        Set<String> keys = ProductActivity.productList.keySet();
-        Product newProduct = new Product(name, price, "N/A", "N/A", 0);
-//            for (String key : keys) {
-//                Product curr = MainActivity.productList.get(key);
-//                if (curr.getName().equals(name)) {
-//                    newProduct = curr;
-//                    break;
-//                }
-//            }
-//            if (newProduct != null) {
-                itemList.put(name, newProduct);//TODO:MAKE KEY MORE SPECIFIC
-                newProduct.addProduct(name, price);//adds them back
-                return true;
-//            } else {
-//                return false;
-//            }
-        }
-
-    /**
-     * Adds an item
-     *
-     * @param item item to be added
-     */
-    public void addProduct(Product item) {
-        itemList.put(item.getName(), item);
-    }
-
-    /**
-     * Gets currently logged in user item list.
-     * @return item list
-     */
-    public HashMap<String, Product> getItemList() {
-            return itemList;
-        }
 
     /**
      * Returns the string of the product's name
