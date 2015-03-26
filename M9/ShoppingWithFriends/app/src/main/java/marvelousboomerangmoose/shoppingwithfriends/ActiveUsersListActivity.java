@@ -19,8 +19,8 @@ import marvelousboomerangmoose.shoppingwithfriends.Model.UserActivity;
 /**
  * Displays a screen with a list of the active users.
  */
+@SuppressWarnings("FieldCanBeLocal")
 public class ActiveUsersListActivity extends ActionBarActivity {
-    private String message;
     private static ArrayList<String> arrayList;
 
     @Override

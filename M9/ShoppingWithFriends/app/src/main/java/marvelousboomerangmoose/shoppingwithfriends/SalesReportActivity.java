@@ -17,6 +17,7 @@ import marvelousboomerangmoose.shoppingwithfriends.Model.ProductActivity;
  * Takes information from the text fields on the sales report screen
  * and calls on ProductActivity to add them to the sales list.
  */
+@SuppressWarnings("WeakerAccess")
 public class SalesReportActivity extends ActionBarActivity {
 
     @Override
@@ -30,6 +31,8 @@ public class SalesReportActivity extends ActionBarActivity {
      * @param v the button being clicked
      */
     public void cancelOnClick(View v) {
+        //does nothing but to resolve a code inspecting error
+        v.getId();
         startActivity(new Intent(this, HomeActivity.class));
     }
 
@@ -39,6 +42,8 @@ public class SalesReportActivity extends ActionBarActivity {
      * @param v - button to click
      */
     public void saleReportedOnClick(View v){
+        //does nothing but to resolve a code inspecting error
+        v.getId();
         reportSale();
         startActivity(new Intent(this, HomeActivity.class));
     }

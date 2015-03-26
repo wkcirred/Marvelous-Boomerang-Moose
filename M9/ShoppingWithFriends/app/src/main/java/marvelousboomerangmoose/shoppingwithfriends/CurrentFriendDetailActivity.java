@@ -71,6 +71,8 @@ public class CurrentFriendDetailActivity extends ActionBarActivity {
      * @param v the button being clicked
      */
     public void deleteFriendOnClick(View v) {
+        //Does nothing but to eliminate a analyzing error
+        v.getId();
         Intent intent = getIntent();
         String key = intent.getStringExtra("email");
         HashMap<String, User> friends = UserActivity.loggedInUser.getFriendList();

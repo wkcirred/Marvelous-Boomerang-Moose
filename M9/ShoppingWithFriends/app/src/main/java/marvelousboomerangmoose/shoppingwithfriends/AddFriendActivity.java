@@ -17,8 +17,8 @@ import marvelousboomerangmoose.shoppingwithfriends.Model.UserActivity;
  * then add that person.
  */
 public class AddFriendActivity extends ActionBarActivity {
-    public final static String MESSAGE = "marvelousboomerangmoose.shoppingwithfriends.MESSAGE";
-
+    //public final static String MESSAGE = "marvelousboomerangmoose.shoppingwithfriends.MESSAGE";
+    private final Context context = this;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,19 +31,23 @@ public class AddFriendActivity extends ActionBarActivity {
      * @param v - button that is clicked
      */
     public void addFriendCancelOnClick(View v) {
+        //Does nothing but to eliminate a analyzing error
+        v.getId();
         startActivity(new Intent(this, HomeActivity.class));
     }
 
-    final Context context = this;
+
 
     /**
      * Adds a friend when the button is clicked if  all checks pass.
      * @param v the button being clicked
      */
     public void addFriendButtonOnClick(View v){
+        //Does nothing but to eliminate a analyzing error
+        v.getId();
         final String first = ((EditText)findViewById(R.id.friendFirst)).getText().toString();
         final String last = ((EditText)findViewById(R.id.friendLast)).getText().toString();
-        final String email= ((EditText)findViewById(R.id.friendEmail)).getText().toString();
+        final String email = ((EditText)findViewById(R.id.friendEmail)).getText().toString();
 
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
         if(first.matches("")||last.matches("")||email.matches("")){
@@ -124,7 +128,7 @@ public class AddFriendActivity extends ActionBarActivity {
                                     // current activity
 
                                     Intent intent = new Intent(context, CurrentFriendListActivity.class);
-                                    intent.putExtra(MESSAGE, first + " " + last + "\n" + email);
+                                    //intent.putExtra(MESSAGE, first + " " + last + "\n" + email);
                                     startActivity(intent);
 
                                 }
