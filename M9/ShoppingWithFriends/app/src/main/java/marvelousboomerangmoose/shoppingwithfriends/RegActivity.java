@@ -104,7 +104,7 @@ public class RegActivity extends ActionBarActivity implements LoaderCallbacks<Cu
      * If there are form errors (invalid email, missing fields, etc.), the
      * errors are presented and no actual register attempt is made.
      */
-    public void attemptRegister() {
+    private void attemptRegister() {
         if (mAuthTask != null) {
             return;
         }
@@ -197,7 +197,7 @@ public class RegActivity extends ActionBarActivity implements LoaderCallbacks<Cu
      * Shows the progress UI and hides the register form.
      */
     @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
-    public void showProgress(final boolean show) {
+    private void showProgress(final boolean show) {
         // On Honeycomb MR2 we have the ViewPropertyAnimator APIs, which allow
         // for very easy animations. If available, use these APIs to fade-in
         // the progress spinner.
@@ -339,7 +339,7 @@ public class RegActivity extends ActionBarActivity implements LoaderCallbacks<Cu
     /**
      * Sends the user to the Home screen.
      */
-    protected void goToLogin() {
+    private void goToLogin() {
         startActivity(new Intent(this, LoginActivity.class));
     }
 

@@ -22,8 +22,8 @@ import marvelousboomerangmoose.shoppingwithfriends.Model.UserActivity;
  * new friends.
  */
 public class HomeActivity extends ActionBarActivity {
-    ArrayList<String> arrayList;
-    ArrayList<String> interestList;
+    private ArrayList<String> arrayList;
+    private ArrayList<String> interestList;
     // Used to store interestAlert for User
     public static HashMap<String, Product> interestAlert = new HashMap<String, Product>();
 

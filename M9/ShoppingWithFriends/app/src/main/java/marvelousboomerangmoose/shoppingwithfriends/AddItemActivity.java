@@ -25,7 +25,7 @@ import marvelousboomerangmoose.shoppingwithfriends.Model.UserActivity;
  * User can add a new item or select from a few items already in the store.
  */
 public class AddItemActivity extends ActionBarActivity {
-    ArrayList<String> arrayList;
+    private ArrayList<String> arrayList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

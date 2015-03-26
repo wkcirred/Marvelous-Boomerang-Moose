@@ -47,7 +47,7 @@ public class SalesReportActivity extends ActionBarActivity {
      * Reads information in the text fields and tells ProductActivity to add it to the
      * sales list.
      */
-    public void reportSale() {
+    private void reportSale() {
         String name =((EditText) findViewById(R.id.itemName)).getText().toString();
         String price = ((EditText) findViewById(R.id.itemSalePrice)).getText().toString();
         String location = ((EditText) findViewById(R.id.locationAddress)).getText().toString();
