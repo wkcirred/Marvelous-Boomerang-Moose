@@ -15,7 +15,7 @@ import java.util.Map;
 
 import marvelousboomerangmoose.shoppingwithfriends.Model.Product;
 
-public class MyAdapter extends BaseAdapter {
+class MyAdapter extends BaseAdapter {
     private final ArrayList mData;
 
     // Constructor

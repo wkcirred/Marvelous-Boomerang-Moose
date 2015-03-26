@@ -7,12 +7,12 @@ import marvelousboomerangmoose.shoppingwithfriends.Model.Product;
 /**
  * Holds a list of the reported sales.
  */
-public class Sale {
+class Sale {
     private static HashMap<String, Product> salesList = new HashMap<String, Product>();
 
     // Constructor
     public Sale(HashMap<String, Product> salesList) {
-        this.salesList = salesList;
+        Sale.salesList = salesList;
     }
 
     /**
@@ -36,6 +36,6 @@ public class Sale {
      * @param salesList the list of sales
      */
     public void setArrayList(HashMap<String, Product> salesList) {
-        this.salesList = salesList;
+        Sale.salesList = salesList;
     }
 }

@@ -21,7 +21,7 @@ import marvelousboomerangmoose.shoppingwithfriends.Model.UserActivity;
  * Also, is the main class that runs everything currently.
  */
 public class MainActivity extends ActionBarActivity {
-    public UserActivity users;
+    private UserActivity users;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -83,10 +83,8 @@ public class ActiveUsersDetailActivity extends ActionBarActivity {
         String key = intent.getStringExtra("email");
         HashMap<String, User> users = UserActivity.getCredentials();
         String foundUserName = "";
-        String foundEmail = "";
         for (String userName : users.keySet()) {
             if (users.get(userName).getEmail().equals(key)) {
-                foundEmail = users.get(userName).getEmail();
                 foundUserName = userName;
             }
         }
