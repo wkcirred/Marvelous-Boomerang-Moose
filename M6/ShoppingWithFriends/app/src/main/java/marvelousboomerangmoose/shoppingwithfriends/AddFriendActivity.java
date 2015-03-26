@@ -10,6 +10,10 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.View;
 
+/**
+ * The add friend screen where a user can input information relevant to adding a new friend and
+ * then add that person.
+ */
 public class AddFriendActivity extends ActionBarActivity {
     public final static String MESSAGE = "marvelousboomerangmoose.shoppingwithfriends.MESSAGE";
 
@@ -29,6 +33,11 @@ public class AddFriendActivity extends ActionBarActivity {
     }
 
     final Context context = this;
+
+    /**
+     * Adds a friend when the button is clicked if  all checks pass.
+     * @param v the button being clicked
+     */
     public void addFriendButtonOnClick(View v){
         final String first = ((EditText)findViewById(R.id.friendFirst)).getText().toString();
         final String last = ((EditText)findViewById(R.id.friendLast)).getText().toString();
@@ -77,37 +86,62 @@ public class AddFriendActivity extends ActionBarActivity {
         } else {
             alertDialogBuilder.setTitle("");
 
-            Boolean status = MainActivity.loggedInUser.addFriend(first, last, email);
-
-            if (status) {
+            if (MainActivity.loggedInUser.getEmail().equals(email)) {
+                //added self
                 // set dialog message
                 alertDialogBuilder
-                        .setMessage("Successfully added a friend")
-                        .setCancelable(false)
-                        .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                            public void onClick(DialogInterface dialog, int id) {
-                                // if this button is clicked, close
-                                // current activity
-
-                                Intent intent = new Intent(context, CurrentFriendListActivity.class);
-                                intent.putExtra(MESSAGE, first + " " + last + "\n" + email);
-                                startActivity(intent);
-
-                            }
-                        });
-                AlertDialog alertDialog = alertDialogBuilder.create();
-                alertDialog.show();
-            } else {
-                // set dialog message
-                alertDialogBuilder
-                        .setMessage("Failed to add a friend")
+                        .setMessage("Sorry if you don't have any, but you can't add yourself as a friend")
                         .setCancelable(false).setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int id) {}
+                    public void onClick(DialogInterface dialog, int id) {
+                    }
                 });
                 AlertDialog alertDialog = alertDialogBuilder.create();
                 alertDialog.show();
+            } else if (MainActivity.loggedInUser.getFriendList().containsKey(email)) {
+                //re-adding friend
+                // set dialog message
+                alertDialogBuilder
+                        .setMessage("You've already added this friend")
+                        .setCancelable(false).setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+                    }
+                });
+                AlertDialog alertDialog = alertDialogBuilder.create();
+                alertDialog.show();
+            } else {
+                Boolean status = MainActivity.loggedInUser.addFriend(first, last, email);
+
+                if (status) {
+                    // set dialog message
+                    alertDialogBuilder
+                            .setMessage("Successfully added a friend")
+                            .setCancelable(false)
+                            .setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    // if this button is clicked, close
+                                    // current activity
+
+                                    Intent intent = new Intent(context, CurrentFriendListActivity.class);
+                                    intent.putExtra(MESSAGE, first + " " + last + "\n" + email);
+                                    startActivity(intent);
+
+                                }
+                            });
+                    AlertDialog alertDialog = alertDialogBuilder.create();
+                    alertDialog.show();
+                } else {
+                    // set dialog message
+                    alertDialogBuilder
+                            .setMessage("Failed to add a friend")
+                            .setCancelable(false).setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                        }
+                    });
+                    AlertDialog alertDialog = alertDialogBuilder.create();
+                    alertDialog.show();
+                }
+
             }
         }
-
     }
 }

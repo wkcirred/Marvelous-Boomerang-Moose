@@ -180,13 +180,21 @@ public class RegActivity extends ActionBarActivity implements LoaderCallbacks<Cu
         }
     }
 
+    /**
+     * Checks if the user name being used for registration is valid.
+     * @param userName the username being checked
+     * @return whether or not the username is valid
+     */
     private boolean isUserNameValid(String userName) {
-        //TODO: Replace this with your own logic
         return userName.length() > 3;
     }
 
+    /**
+     * Checks if the password being used for registration is valid.
+     * @param password the password being checked
+     * @return whether or not the password is valid
+     */
     private boolean isPasswordValid(String password) {
-        //TODO: Replace this with your own logic
         return password.length() > 3;
     }
 
