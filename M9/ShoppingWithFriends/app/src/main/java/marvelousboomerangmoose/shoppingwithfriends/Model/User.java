@@ -9,14 +9,14 @@ import java.util.HashMap;
      * User class that holds all the information about a user, ie password, friend lists
      */
 public class User implements Serializable{
-    private String first;
-    private String last;
-    private String email;
-    private String userName;
-    private String password;
-    private String rating;
-    public HashMap<String, User> friendList = new HashMap<String, User>();
-    private HashMap<String,Product> itemList = new HashMap<String, Product>();//TODO:RENAME TO interestList
+    private final String first;
+    private final String last;
+    private final String email;
+    private final String userName;
+    private final String password;
+    private final String rating;
+    private final HashMap<String, User> friendList = new HashMap<>();
+    private HashMap<String,Product> itemList = new HashMap<>();//TODO:RENAME TO interestList
     //TODO: Add friend list and shopping attributes
 
     // Constructor
@@ -69,21 +69,6 @@ public class User implements Serializable{
      */
     public String getRating() { return rating;}
 
-    /**
-     * Sets the user rating of the user
-     * @param rating the user's rating
-     * @return - boolean if rating was set
-     */
-    public boolean setRating(String rating) {
-        int intRating = Integer.parseInt(rating);
-
-        if (intRating < 0 || intRating > 10) {
-            return false;
-        }
-        this.rating = rating;
-        Persistence.saveBinary();
-        return true;
-    }
 
     /**
      * Returns whether or not passwords match
@@ -112,7 +97,7 @@ public class User implements Serializable{
      * Deletes a user as a friend using their user object
      * @param friend the friend object of the user
      */
-    public void deleteFriend(User friend) {
+    void deleteFriend(User friend) {
         friendList.remove(friend.getEmail());
     }
 
