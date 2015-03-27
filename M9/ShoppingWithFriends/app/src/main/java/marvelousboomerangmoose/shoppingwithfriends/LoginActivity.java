@@ -314,6 +314,8 @@ public class LoginActivity extends ActionBarActivity implements LoaderCallbacks<
      * @param v the button being clicked
      */
     public void buttonCancelOnClick(View v) {
+        //Does nothing but to eliminate a analyzing error
+        v.getId();
         startActivity(new Intent(this, MainActivity.class));
     }
 }
