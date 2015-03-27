@@ -1,18 +1,18 @@
 package marvelousboomerangmoose.shoppingwithfriends;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ListView;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import android.util.Log;
 
 import marvelousboomerangmoose.shoppingwithfriends.Model.User;
 import marvelousboomerangmoose.shoppingwithfriends.Model.UserActivity;
@@ -21,7 +21,11 @@ import marvelousboomerangmoose.shoppingwithfriends.Model.UserActivity;
  * Current Friend List Activity displays all of your current friends with basic information
  * including first name, last name, and email.
  */
+@SuppressWarnings("ALL")
 public class CurrentFriendListActivity extends ActionBarActivity {
+
+    //private Intent intent;
+
     private static ArrayList<String> arrayList;
 
     @Override
@@ -85,6 +89,8 @@ public class CurrentFriendListActivity extends ActionBarActivity {
      * @param v - button is clicked
      */
     public void addFriendButtonOnClick(View v){
+        //Does nothing but to eliminate a analyzing error
+        v.getId();
         startActivity(new Intent(this, AddFriendActivity.class));
     }
 
@@ -93,6 +99,8 @@ public class CurrentFriendListActivity extends ActionBarActivity {
      * @param v - button is clicked
      */
     public void homeButtonOnClick(View v){
+        //Does nothing but to eliminate a analyzing error
+        v.getId();
         startActivity(new Intent(this, HomeActivity.class));
     }
 

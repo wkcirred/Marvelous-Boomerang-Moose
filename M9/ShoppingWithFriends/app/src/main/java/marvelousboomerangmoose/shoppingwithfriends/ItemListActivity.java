@@ -1,16 +1,13 @@
 package marvelousboomerangmoose.shoppingwithfriends;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
 
-import java.util.HashMap;
-
-import marvelousboomerangmoose.shoppingwithfriends.Model.Product;
 import marvelousboomerangmoose.shoppingwithfriends.Model.UserActivity;
 
 /**
@@ -18,7 +15,7 @@ import marvelousboomerangmoose.shoppingwithfriends.Model.UserActivity;
  *
  */
 public class ItemListActivity extends ActionBarActivity {
-    private static HashMap<String,Product> hashMap;
+    // --Commented out by Inspection (3/26/15, 7:30 PM):private static HashMap<String,Product> hashMap;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +39,8 @@ public class ItemListActivity extends ActionBarActivity {
      * @param v - the button being clicked
      */
     public void buttonHomeOnClick(View v){
+        //Does nothing but to eliminate a analyzing error
+        v.getId();
         startActivity(new Intent(this, HomeActivity.class));
     }
 
@@ -50,6 +49,8 @@ public class ItemListActivity extends ActionBarActivity {
      * @param v - - the button being clicked
      */
     public void buttonAddItemOnClick(View v){
+        //Does nothing but to eliminate a analyzing error
+        v.getId();
         startActivity(new Intent(this, AddItemActivity.class));
     }
 

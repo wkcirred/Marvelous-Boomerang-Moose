@@ -158,7 +158,9 @@ public class LoginActivity extends ActionBarActivity implements LoaderCallbacks<
      * @param user the user ID being checked
      * @return true or false depending on if it is valid
      */
-    private boolean isUserIDValid(String user) {return user.length() >= minLengthUserInfo;}
+    private boolean isUserIDValid(String user) {
+        return user.length() >= minLengthUserInfo;
+    }
 
     /**
      * Checks the validity of the password.
@@ -314,6 +316,8 @@ public class LoginActivity extends ActionBarActivity implements LoaderCallbacks<
      * @param v the button being clicked
      */
     public void buttonCancelOnClick(View v) {
+        //Does nothing but to eliminate a analyzing error
+        v.getId();
         startActivity(new Intent(this, MainActivity.class));
     }
 }

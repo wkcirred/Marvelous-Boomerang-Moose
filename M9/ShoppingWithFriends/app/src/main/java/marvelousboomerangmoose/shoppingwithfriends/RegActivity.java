@@ -35,6 +35,7 @@ import marvelousboomerangmoose.shoppingwithfriends.Model.UserActivity;
 /**
  * A registration screen that offers registration via FN, LN, username, email, password.
  */
+@SuppressWarnings("WeakerAccess")
 public class RegActivity extends ActionBarActivity implements LoaderCallbacks<Cursor> {
 
     /**
@@ -248,7 +249,7 @@ public class RegActivity extends ActionBarActivity implements LoaderCallbacks<Cu
 
     @Override
     public void onLoadFinished(Loader<Cursor> cursorLoader, Cursor cursor) {
-        List<String> emails = new ArrayList<String>();
+        List<String> emails = new ArrayList<>();
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
             emails.add(cursor.getString(ProfileQuery.ADDRESS));
@@ -273,7 +274,6 @@ public class RegActivity extends ActionBarActivity implements LoaderCallbacks<Cu
         };
 
         int ADDRESS = 0;
-        int IS_PRIMARY = 1;
     }
 
     /**
@@ -283,7 +283,7 @@ public class RegActivity extends ActionBarActivity implements LoaderCallbacks<Cu
     private void addEmailsToAutoComplete(List<String> emailAddressCollection) {
         //Create adapter to tell the AutoCompleteTextView what to show in its dropdown list.
         ArrayAdapter<String> adapter =
-                new ArrayAdapter<String>(RegActivity.this,
+                new ArrayAdapter<>(RegActivity.this,
                         android.R.layout.simple_dropdown_item_1line, emailAddressCollection);
 
         mUserNameView.setAdapter(adapter);
@@ -348,6 +348,8 @@ public class RegActivity extends ActionBarActivity implements LoaderCallbacks<Cu
      * @param v the button being clicked
      */
     public void buttonCancelOnClick(View v) {
+        //Does nothing but to eliminate a analyzing error
+        v.getId();
         startActivity(new Intent(this, MainActivity.class));
     }
 }

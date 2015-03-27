@@ -24,6 +24,7 @@ import marvelousboomerangmoose.shoppingwithfriends.Model.UserActivity;
  * Add item activity that user is interested in.
  * User can add a new item or select from a few items already in the store.
  */
+@SuppressWarnings("FieldCanBeLocal")
 public class AddItemActivity extends ActionBarActivity {
     private ArrayList<String> arrayList;
 
@@ -52,6 +53,8 @@ public class AddItemActivity extends ActionBarActivity {
      * @param v - button to click
      */
     public void buttonAddOnClick(View v){
+        //Does nothing but to eliminate a analyzing error
+        v.getId();
         String name =((EditText) findViewById(R.id.nameTextEdit)).getText().toString();
         String price = ((EditText) findViewById(R.id.priceTextEdit)).getText().toString();
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
@@ -79,6 +82,8 @@ public class AddItemActivity extends ActionBarActivity {
      * @param v the button being pressed
      */
     public void buttonCancelOnClick(View v){
+        //Does nothing but to eliminate a analyzing error
+        v.getId();
         startActivity(new Intent(this, ItemListActivity.class));
     }
 

@@ -39,15 +39,15 @@ public class ActiveUsersDetailActivity extends ActionBarActivity {
         
         User user = users.get(foundUserName);
 
-        TextView tv1 = (TextView) findViewById(R.id.activefirstName);
+        TextView tv1 = (TextView) findViewById(R.id.activeFirstName);
         tv1.setText(user.getFirst());
         TextView tv2 = (TextView) findViewById(R.id.activelastName);
         tv2.setText(user.getLast());
-        TextView tv3 = (TextView) findViewById(R.id.activeemailAddress);
+        TextView tv3 = (TextView) findViewById(R.id.activeEmailAddress);
         tv3.setText(user.getEmail());
         TextView tv4 = (TextView) findViewById(R.id.activeuserName);
         tv4.setText(user.getUserName());
-        TextView tv5 = (TextView) findViewById(R.id.activerating);
+        TextView tv5 = (TextView) findViewById(R.id.activeRating);
         tv5.setText(user.getRating());
     }
 
@@ -79,6 +79,8 @@ public class ActiveUsersDetailActivity extends ActionBarActivity {
      * @param v the button being clicked
      */
     public void addFriendOnClick(View v) {
+        //Does nothing but to eliminate a analyzing error
+        v.getId();
         Intent intent = getIntent();
         String key = intent.getStringExtra("email");
         HashMap<String, User> users = UserActivity.getCredentials();

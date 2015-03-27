@@ -7,8 +7,12 @@ import marvelousboomerangmoose.shoppingwithfriends.Model.Product;
 /**
  * Holds a list of the reported sales.
  */
-class Sale {
+
+@SuppressWarnings({"AccessStaticViaInstance", "WeakerAccess"})
+public class Sale {
+
     private static HashMap<String, Product> salesList = new HashMap<String, Product>();
+
 
     // Constructor
     public Sale(HashMap<String, Product> salesList) {
