@@ -22,38 +22,43 @@ import marvelousboomerangmoose.shoppingwithfriends.Model.UserActivity;
  * new friends.
  */
 public class HomeActivity extends ActionBarActivity {
-
-    private ArrayList<String> arrayList;
-    private ArrayList<String> interestList;
+    ArrayList<String> arrayList;
+    ArrayList<String> interestList;
     // Used to store interestAlert for User
-    public static HashMap<String, Product> interestAlert = new HashMap<>();
+    public static HashMap<String, Product> interestAlert = new HashMap<String, Product>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        if (!ProductActivity.salesList.isEmpty()) {
-            //HashMap<String, Product> interestAlert = new HashMap<>();
+        interestedSalesList(ProductActivity.salesList, UserActivity.loggedInUser.getItemList());
+        ListView myListView = (ListView) this.findViewById(R.id.listView3);
+        SaleReportAdapter listAdapter = new SaleReportAdapter(interestAlert);
+        myListView.setAdapter(listAdapter);
+    }
+
+    /**
+     * Creates a list of the user's interested items that have been reported to be on sale.
+     */
+    public void interestedSalesList(HashMap<String, Product> salesMap,
+                                    HashMap<String, Product> interestMap) {
+        if (salesMap != null && !salesMap.isEmpty()) {
+            arrayList = new ArrayList<>(salesMap.keySet());
+            interestList = new ArrayList<>(interestMap.keySet());
             interestAlert = new HashMap<>();
-            ArrayList<String> arrayList = new ArrayList<>(ProductActivity.salesList.keySet());
-            ArrayList<String> interestList = new ArrayList<>(UserActivity.loggedInUser.getItemList().keySet());
             //for a sale report to show up it needs to be: (interest price >= sale price)
             for (int i = 0; i < arrayList.size(); i++) {
                 if (interestList.contains(arrayList.get(i))) {
-                    Product sale = ProductActivity.salesList.get(arrayList.get(i));
+                    Product sale = salesMap.get(arrayList.get(i));
                     double saleCost = sale.getPrice();
-                    Product interest = UserActivity.loggedInUser.getItemList().get(arrayList.get(i));
+                    Product interest = interestMap.get(arrayList.get(i));
                     double interestCost = interest.getPrice();
                     //add stuff to the new hashMap
                     if (saleCost <= interestCost) {
-                        interestAlert.put(arrayList.get(i), ProductActivity.salesList.get(arrayList.get(i)));
+                        interestAlert.put(arrayList.get(i), salesMap.get(arrayList.get(i)));
                     }
                 }
             }
-            ListView myListView = (ListView) this.findViewById(R.id.listView3);
-            //SaleReportAdapter listAdapter = new SaleReportAdapter(ProductActivity.salesList);
-            SaleReportAdapter listAdapter = new SaleReportAdapter(interestAlert);
-            myListView.setAdapter(listAdapter);
         }
     }
 
@@ -62,8 +67,6 @@ public class HomeActivity extends ActionBarActivity {
      * @param v - the button being clicked
      */
     public void buttonItemListOnClick(View v) {
-        //Does nothing but to eliminate a analyzing error
-        v.getId();
         startActivity(new Intent(this, ItemListActivity.class));
     }
 
@@ -72,8 +75,6 @@ public class HomeActivity extends ActionBarActivity {
      * @param v - the button being clicked
      */
     public void reportSaleOnClick(View v) {
-        //Does nothing but to eliminate a analyzing error
-        v.getId();
         startActivity(new Intent(this, SalesReportActivity.class));
     }
 
@@ -89,8 +90,6 @@ public class HomeActivity extends ActionBarActivity {
      * @param v the button being clicked
      */
     public void logoutOnClick(View v) {
-        //Does nothing but to eliminate a analyzing error
-        v.getId();
         UserActivity.loggedInUser = null;
         startActivity(new Intent(this, MainActivity.class));
     }
@@ -100,8 +99,6 @@ public class HomeActivity extends ActionBarActivity {
      * @param v the button being clicked
      */
     public void activeUsersOnClick(View v) {
-        //Does nothing but to eliminate a analyzing error
-        v.getId();
         startActivity(new Intent(this, ActiveUsersListActivity.class));
     }
 
@@ -110,8 +107,6 @@ public class HomeActivity extends ActionBarActivity {
      * @param v the button being clicked
      */
     public void currentFriendsOnClick(View v) {
-        //Does nothing but to eliminate a analyzing error
-        v.getId();
         startActivity(new Intent(this, CurrentFriendListActivity.class));
     }
 
@@ -120,8 +115,6 @@ public class HomeActivity extends ActionBarActivity {
      * @param v the button being clicked
      */
     public void salesMapOnClick(View v) {
-        //Does nothing but to eliminate a analyzing error
-        v.getId();
         if (!interestAlert.isEmpty()) {
             startActivity(new Intent(this, SalesMapActivity.class));
         } else {
