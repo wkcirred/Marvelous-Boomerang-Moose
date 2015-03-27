@@ -1,29 +1,38 @@
 package marvelousboomerangmoose.shoppingwithfriends;
 
-import org.junit.Before;
-import org.junit.Test;
+import android.test.ActivityUnitTestCase;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 
 import marvelousboomerangmoose.shoppingwithfriends.Model.Product;
 
-import static org.junit.Assert.*;
+public class HomeActivityTest extends ActivityUnitTestCase<HomeActivity> {
+    HashMap<String, Product> salesMap = new HashMap<>();
+    HashMap<String, Product> interestMap = new HashMap<>();
+    HomeActivity home = new HomeActivity();
 
-public class HomeActivityTest {
-    ArrayList<String> arrayList;
-    ArrayList<String> interestList;
-    HashMap<String, Product> salesMap;
-
-    @Before
-    public void setUp() throws Exception {
-        arrayList = new ArrayList<>();
-        interestList = new ArrayList<>();
-        salesMap = new HashMap<>();
+    public HomeActivityTest() {
+        super(HomeActivity.class);
     }
 
-    @Test
-    public void testInterestedSalesList() throws Exception {
+    public void setUp() throws Exception {
+        salesMap = new HashMap<>();
+        interestMap = new HashMap<>();
+    }
 
+    /**
+     * If there is no salesMap, the list on the home page should not generate
+     * a list alerting the user to interests on sale.
+     * @throws Exception
+     */
+    public void testInterestedSalesList() throws Exception {
+        Product tv = new Product("tv", 10, "t", "t", 1);
+        interestMap.put("tv", tv);
+        home.interestedSalesList(salesMap, interestMap);
+        assertNull(home.interestList);
+    }
+
+    public void testInterestedSalesList1() throws Exception {
+        
     }
 }
