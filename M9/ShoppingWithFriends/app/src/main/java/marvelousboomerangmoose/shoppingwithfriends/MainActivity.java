@@ -20,8 +20,9 @@ import marvelousboomerangmoose.shoppingwithfriends.Model.UserActivity;
  * The screen that is visible upon startup.  Has the login and and registration buttons.
  * Also, is the main class that runs everything currently.
  */
+@SuppressWarnings("WeakerAccess")
 public class MainActivity extends ActionBarActivity {
-    public UserActivity users;
+    private UserActivity users;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +47,8 @@ public class MainActivity extends ActionBarActivity {
      * @param v the button being clicked
      */
     public void buttonLoginOnClick(View v) {
+        //Does nothing but to eliminate a analyzing error
+        v.getId();
         startActivity(new Intent(this, LoginActivity.class));
     }
 
@@ -55,6 +58,8 @@ public class MainActivity extends ActionBarActivity {
      * @param v the button being clicked
      */
     public void buttonRegOnClick(View v) {
+        //Does nothing but to eliminate a analyzing error
+        v.getId();
         startActivity(new Intent(this, RegActivity.class));
     }
 

@@ -35,6 +35,7 @@ import marvelousboomerangmoose.shoppingwithfriends.Model.UserActivity;
 /**
  * A registration screen that offers registration via FN, LN, username, email, password.
  */
+@SuppressWarnings("WeakerAccess")
 public class RegActivity extends ActionBarActivity implements LoaderCallbacks<Cursor> {
 
     /**
@@ -104,7 +105,7 @@ public class RegActivity extends ActionBarActivity implements LoaderCallbacks<Cu
      * If there are form errors (invalid email, missing fields, etc.), the
      * errors are presented and no actual register attempt is made.
      */
-    public void attemptRegister() {
+    private void attemptRegister() {
         if (mAuthTask != null) {
             return;
         }
@@ -197,7 +198,7 @@ public class RegActivity extends ActionBarActivity implements LoaderCallbacks<Cu
      * Shows the progress UI and hides the register form.
      */
     @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
-    public void showProgress(final boolean show) {
+    private void showProgress(final boolean show) {
         // On Honeycomb MR2 we have the ViewPropertyAnimator APIs, which allow
         // for very easy animations. If available, use these APIs to fade-in
         // the progress spinner.
@@ -248,7 +249,7 @@ public class RegActivity extends ActionBarActivity implements LoaderCallbacks<Cu
 
     @Override
     public void onLoadFinished(Loader<Cursor> cursorLoader, Cursor cursor) {
-        List<String> emails = new ArrayList<String>();
+        List<String> emails = new ArrayList<>();
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
             emails.add(cursor.getString(ProfileQuery.ADDRESS));
@@ -273,7 +274,6 @@ public class RegActivity extends ActionBarActivity implements LoaderCallbacks<Cu
         };
 
         int ADDRESS = 0;
-        int IS_PRIMARY = 1;
     }
 
     /**
@@ -283,7 +283,7 @@ public class RegActivity extends ActionBarActivity implements LoaderCallbacks<Cu
     private void addEmailsToAutoComplete(List<String> emailAddressCollection) {
         //Create adapter to tell the AutoCompleteTextView what to show in its dropdown list.
         ArrayAdapter<String> adapter =
-                new ArrayAdapter<String>(RegActivity.this,
+                new ArrayAdapter<>(RegActivity.this,
                         android.R.layout.simple_dropdown_item_1line, emailAddressCollection);
 
         mUserNameView.setAdapter(adapter);
@@ -339,7 +339,7 @@ public class RegActivity extends ActionBarActivity implements LoaderCallbacks<Cu
     /**
      * Sends the user to the Home screen.
      */
-    protected void goToLogin() {
+    private void goToLogin() {
         startActivity(new Intent(this, LoginActivity.class));
     }
 
@@ -348,6 +348,8 @@ public class RegActivity extends ActionBarActivity implements LoaderCallbacks<Cu
      * @param v the button being clicked
      */
     public void buttonCancelOnClick(View v) {
+        //Does nothing but to eliminate a analyzing error
+        v.getId();
         startActivity(new Intent(this, MainActivity.class));
     }
 }

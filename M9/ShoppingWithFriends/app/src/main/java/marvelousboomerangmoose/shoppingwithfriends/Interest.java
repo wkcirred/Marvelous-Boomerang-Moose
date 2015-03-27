@@ -5,7 +5,7 @@ import java.util.ArrayList;
 /**
  * Holds a list of the items the user is interested in.
  */
-public class Interest {
+class Interest {
     private ArrayList interestList;
 
     // Constructor

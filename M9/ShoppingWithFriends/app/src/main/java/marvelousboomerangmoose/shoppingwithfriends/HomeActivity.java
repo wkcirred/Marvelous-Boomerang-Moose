@@ -33,8 +33,8 @@ public class HomeActivity extends ActionBarActivity {
         setContentView(R.layout.activity_home);
         /*if (!ProductActivity.salesList.isEmpty()) {
             interestAlert = new HashMap<>();
-            arrayList = new ArrayList<>(ProductActivity.salesList.keySet());
-            interestList = new ArrayList<>(UserActivity.loggedInUser.getItemList().keySet());
+            ArrayList<String> arrayList = new ArrayList<>(ProductActivity.salesList.keySet());
+            ArrayList<String> interestList = new ArrayList<>(UserActivity.loggedInUser.getItemList().keySet());
             //for a sale report to show up it needs to be: (interest price >= sale price)
             for (int i = 0; i < arrayList.size(); i++) {
                 if (interestList.contains(arrayList.get(i))) {

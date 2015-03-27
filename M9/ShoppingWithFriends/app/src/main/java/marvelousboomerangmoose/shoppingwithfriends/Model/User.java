@@ -97,7 +97,7 @@ public class User implements Serializable{
      * Deletes a user as a friend using their user object
      * @param friend the friend object of the user
      */
-    void deleteFriend(User friend) {
+    private void deleteFriend(User friend) {
         friendList.remove(friend.getEmail());
     }
 

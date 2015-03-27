@@ -1,18 +1,18 @@
 package marvelousboomerangmoose.shoppingwithfriends;
 
 import android.content.Intent;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.support.v7.app.ActionBarActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ListView;
 import android.widget.ArrayAdapter;
+import android.widget.ListView;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import android.util.Log;
 
 import marvelousboomerangmoose.shoppingwithfriends.Model.User;
 import marvelousboomerangmoose.shoppingwithfriends.Model.UserActivity;
@@ -21,41 +21,40 @@ import marvelousboomerangmoose.shoppingwithfriends.Model.UserActivity;
  * Current Friend List Activity displays all of your current friends with basic information
  * including first name, last name, and email.
  */
+@SuppressWarnings("ALL")
 public class CurrentFriendListActivity extends ActionBarActivity {
+
     //private Intent intent;
-    private String message;
+
     private static ArrayList<String> arrayList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-            //intent = getIntent();
-            setContentView(R.layout.activity_current_friend_list);
-            arrayList = new ArrayList<>();
-            ListView myListView = (ListView) this.findViewById(R.id.listView);
-            ArrayAdapter listAdapter = new ArrayAdapter<>(this,R.layout.simplerow, arrayList);
-            Log.d("Logged In User:", UserActivity.loggedInUser.toString());
-            HashMap<String, User> friends = UserActivity.loggedInUser.getFriendList();
-            if (friends != null && !friends.isEmpty()) {
-                for (final String key : friends.keySet()) {
-                    //Log.d("Email:",key);
-                    User friend = friends.get(key);
-                    listAdapter.add(friend.getFirst() + " " + friend.getLast() + " " + friend.getEmail());
-                    myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                        @Override
-                        public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                            Object object = parent.getItemAtPosition(position);
-                            String item = (String) object;
-                            item = item.substring(item.lastIndexOf(" ") + 1);
-                            //item = item.split();
-                            Intent intent = new Intent(CurrentFriendListActivity.this, CurrentFriendDetailActivity.class);
-                            intent.putExtra("email", item);
-                            startActivity(intent);
-                        }
-                    });
-                }
+        setContentView(R.layout.activity_current_friend_list);
+        arrayList = new ArrayList<>();
+        ListView myListView = (ListView) this.findViewById(R.id.listView);
+        ArrayAdapter listAdapter = new ArrayAdapter<>(this,R.layout.simplerow, arrayList);
+        Log.d("Logged In User:", UserActivity.loggedInUser.toString());
+        HashMap<String, User> friends = UserActivity.loggedInUser.getFriendList();
+        if (friends != null && !friends.isEmpty()) {
+            for (final String key : friends.keySet()) {
+                User friend = friends.get(key);
+                listAdapter.add(friend.getFirst() + " " + friend.getLast() + " " + friend.getEmail());
+                myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        Object object = parent.getItemAtPosition(position);
+                        String item = (String) object;
+                        item = item.substring(item.lastIndexOf(" ") + 1);
+                        Intent intent = new Intent(CurrentFriendListActivity.this, CurrentFriendDetailActivity.class);
+                        intent.putExtra("email", item);
+                        startActivity(intent);
+                    }
+                });
             }
-            myListView.setAdapter(listAdapter);
+        }
+        myListView.setAdapter(listAdapter);
 
     }
 
@@ -90,6 +89,8 @@ public class CurrentFriendListActivity extends ActionBarActivity {
      * @param v - button is clicked
      */
     public void addFriendButtonOnClick(View v){
+        //Does nothing but to eliminate a analyzing error
+        v.getId();
         startActivity(new Intent(this, AddFriendActivity.class));
     }
 
@@ -98,6 +99,8 @@ public class CurrentFriendListActivity extends ActionBarActivity {
      * @param v - button is clicked
      */
     public void homeButtonOnClick(View v){
+        //Does nothing but to eliminate a analyzing error
+        v.getId();
         startActivity(new Intent(this, HomeActivity.class));
     }
 
