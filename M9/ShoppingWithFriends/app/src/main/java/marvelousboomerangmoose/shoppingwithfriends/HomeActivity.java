@@ -31,8 +31,7 @@ public class HomeActivity extends ActionBarActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        if (!ProductActivity.salesList.isEmpty()) {
-            //HashMap<String, Product> interestAlert = new HashMap<>();
+        /*if (!ProductActivity.salesList.isEmpty()) {
             interestAlert = new HashMap<>();
             arrayList = new ArrayList<>(ProductActivity.salesList.keySet());
             interestList = new ArrayList<>(UserActivity.loggedInUser.getItemList().keySet());
@@ -53,6 +52,36 @@ public class HomeActivity extends ActionBarActivity {
             //SaleReportAdapter listAdapter = new SaleReportAdapter(ProductActivity.salesList);
             SaleReportAdapter listAdapter = new SaleReportAdapter(interestAlert);
             myListView.setAdapter(listAdapter);
+        }*/
+        arrayList = new ArrayList<>(ProductActivity.salesList.keySet());
+        interestList = new ArrayList<>(UserActivity.loggedInUser.getItemList().keySet());
+        interestedSalesList(arrayList, interestList, ProductActivity.salesList);
+        ListView myListView = (ListView) this.findViewById(R.id.listView3);
+        //SaleReportAdapter listAdapter = new SaleReportAdapter(ProductActivity.salesList);
+        SaleReportAdapter listAdapter = new SaleReportAdapter(interestAlert);
+        myListView.setAdapter(listAdapter);
+    }
+
+    /**
+     * Creates a list of the user's interested items that have been reported to be on sale.
+     */
+    public void interestedSalesList(ArrayList<String> arrayList, ArrayList<String> interestList,
+                                    HashMap<String, Product> salesMap) {
+        if (!salesMap.isEmpty()) {
+            interestAlert = new HashMap<>();
+            //for a sale report to show up it needs to be: (interest price >= sale price)
+            for (int i = 0; i < arrayList.size(); i++) {
+                if (interestList.contains(arrayList.get(i))) {
+                    Product sale = salesMap.get(arrayList.get(i));
+                    double saleCost = sale.getPrice();
+                    Product interest = UserActivity.loggedInUser.getItemList().get(arrayList.get(i));
+                    double interestCost = interest.getPrice();
+                    //add stuff to the new hashMap
+                    if (saleCost <= interestCost) {
+                        interestAlert.put(arrayList.get(i), salesMap.get(arrayList.get(i)));
+                    }
+                }
+            }
         }
     }
 
