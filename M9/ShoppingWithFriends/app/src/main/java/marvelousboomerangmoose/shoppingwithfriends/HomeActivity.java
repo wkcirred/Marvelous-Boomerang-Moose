@@ -42,7 +42,7 @@ public class HomeActivity extends ActionBarActivity {
      */
     public void interestedSalesList(HashMap<String, Product> salesMap,
                                     HashMap<String, Product> interestMap) {
-        if (salesMap != null && !salesMap.isEmpty()) {
+        if (!salesMap.isEmpty()) {
             arrayList = new ArrayList<>(salesMap.keySet());
             interestList = new ArrayList<>(interestMap.keySet());
             interestAlert = new HashMap<>();
