@@ -22,7 +22,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="First Name:"
-        android:id="@+id/activefirstNameHeader"
+        android:id="@+id/activeFirstNameHeader"
         android:layout_below="@+id/activeUserData"
         android:layout_alignParentStart="true" />
 
@@ -31,8 +31,8 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Last Name:"
-        android:id="@+id/activelastNameHeader"
-        android:layout_below="@+id/activefirstNameHeader"
+        android:id="@+id/activeLastNameHeader"
+        android:layout_below="@+id/activeFirstNameHeader"
         android:layout_alignParentStart="true" />
 
     <TextView
@@ -40,8 +40,8 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Email address:"
-        android:id="@+id/activeemailHeader"
-        android:layout_below="@+id/activelastNameHeader"
+        android:id="@+id/activeEmailHeader"
+        android:layout_below="@+id/activeLastNameHeader"
         android:layout_alignParentStart="true" />
 
     <TextView
@@ -49,8 +49,8 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="User Name:"
-        android:id="@+id/activeuserNameHeader"
-        android:layout_below="@+id/activeemailHeader"
+        android:id="@+id/activeUserNameHeader"
+        android:layout_below="@+id/activeEmailHeader"
         android:layout_alignParentStart="true" />
 
     <TextView
@@ -58,8 +58,8 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Medium Text"
-        android:id="@+id/activefirstName"
-        android:layout_above="@+id/activelastNameHeader"
+        android:id="@+id/activeFirstName"
+        android:layout_above="@+id/activeLastNameHeader"
         android:layout_alignStart="@+id/activelastName"
         android:layout_centerHorizontal="true" />
 
@@ -69,7 +69,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Medium Text"
         android:id="@+id/activelastName"
-        android:layout_alignTop="@+id/activelastNameHeader"
+        android:layout_alignTop="@+id/activeLastNameHeader"
         android:layout_centerHorizontal="true" />
 
     <TextView
@@ -77,8 +77,8 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Medium Text"
-        android:id="@+id/activeemailAddress"
-        android:layout_alignTop="@+id/activeemailHeader"
+        android:id="@+id/activeEmailAddress"
+        android:layout_alignTop="@+id/activeEmailHeader"
         android:layout_alignStart="@+id/activelastName" />
 
     <TextView
@@ -87,8 +87,8 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Medium Text"
         android:id="@+id/activeuserName"
-        android:layout_below="@+id/activeemailAddress"
-        android:layout_alignStart="@+id/activeemailAddress" />
+        android:layout_below="@+id/activeEmailAddress"
+        android:layout_alignStart="@+id/activeEmailAddress" />
 
     <TextView
         android:layout_width="wrap_content"
@@ -96,7 +96,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Rating:"
         android:id="@+id/activeratingHeader"
-        android:layout_below="@+id/activeuserNameHeader"
+        android:layout_below="@+id/activeUserNameHeader"
         android:layout_alignParentStart="true" />
 
     <TextView
@@ -104,7 +104,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Medium Text"
-        android:id="@+id/activerating"
+        android:id="@+id/activeRating"
         android:layout_below="@+id/activeuserName"
         android:layout_alignStart="@+id/activeuserName" />
 
@@ -134,7 +134,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Medium Text"
         android:id="@+id/textView3"
-        android:layout_below="@+id/activerating"
+        android:layout_below="@+id/activeRating"
         android:layout_alignStart="@+id/addFriendButton" />
 
 </RelativeLayout>
