@@ -90,7 +90,11 @@ public class User implements Serializable{
         Log.d("User Email", this.getEmail());
         Log.d("Friend Email", friend.getEmail());
         friendList.put(friend.getEmail(), friend);
-        Persistence.saveBinary();
+        try {
+            Persistence.saveBinary();
+        } catch (NullPointerException e) {
+            Log.e("Friend Adding", "Binary Files Don't Exist");
+        }
     }
 
     /**
