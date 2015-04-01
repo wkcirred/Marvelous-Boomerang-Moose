@@ -19,7 +19,6 @@
         android:inputType="textPersonName"
         android:ems="10"
         android:id="@+id/friendFirst"
-        android:editable="true"
         android:layout_marginTop="56dp"
         android:layout_alignStart="@+id/addFriendAdd"/>
 
@@ -29,7 +28,6 @@
         android:inputType="textPersonName"
         android:ems="10"
         android:id="@+id/friendLast"
-        android:editable="true"
         android:layout_below="@+id/friendFirst"
         android:layout_alignStart="@+id/friendFirst" />
 
@@ -39,7 +37,6 @@
         android:inputType="textEmailAddress"
         android:ems="10"
         android:id="@+id/friendEmail"
-        android:editable="true"
         android:layout_below="@+id/friendLast"
         android:layout_alignStart="@+id/friendLast" />
 
@@ -47,7 +44,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="Add"
+        android:text="@string/add"
         android:id="@+id/addFriendAdd"
         android:layout_below="@+id/friendEmail"
         android:layout_centerHorizontal="true"
@@ -58,7 +55,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="Cancel"
+        android:text="@string/cancel"
         android:id="@+id/addFriendCancel"
         android:onClick="addFriendCancelOnClick"
         android:layout_below="@+id/addFriendAdd"
@@ -80,7 +77,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="First Name:"
+        android:text="@string/first_name"
         android:id="@+id/textViewFirstName"
         android:layout_above="@+id/friendLast"
         android:layout_alignParentStart="true" />
@@ -89,7 +86,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Last Name:"
+        android:text="@string/last_name"
         android:id="@+id/textViewLastName"
         android:layout_above="@+id/friendEmail"
         android:layout_alignParentStart="true" />
@@ -98,9 +95,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Email:"
+        android:text="@string/email_address"
         android:id="@+id/textViewFriendEmail"
-        android:layout_alignBottom="@+id/friendEmail"
-        android:layout_alignEnd="@+id/textView5" />
+        android:layout_alignBottom="@+id/friendEmail" />
 
 </RelativeLayout>

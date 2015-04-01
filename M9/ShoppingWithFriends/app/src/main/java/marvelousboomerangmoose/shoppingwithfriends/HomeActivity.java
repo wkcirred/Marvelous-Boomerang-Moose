@@ -25,13 +25,14 @@ public class HomeActivity extends ActionBarActivity {
     ArrayList<String> arrayList;
     ArrayList<String> interestList;
     // Used to store interestAlert for User
-    public static HashMap<String, Product> interestAlert = new HashMap<String, Product>();
+    public static HashMap<String, Product> interestAlert = new HashMap<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        interestedSalesList(ProductActivity.salesList, UserActivity.loggedInUser.getItemList());
+        HashMap<String, Product> userSalesList = ProductActivity.salesList;
+        interestedSalesList(userSalesList, UserActivity.loggedInUser.getItemList());
         ListView myListView = (ListView) this.findViewById(R.id.listView3);
         SaleReportAdapter listAdapter = new SaleReportAdapter(interestAlert);
         myListView.setAdapter(listAdapter);
