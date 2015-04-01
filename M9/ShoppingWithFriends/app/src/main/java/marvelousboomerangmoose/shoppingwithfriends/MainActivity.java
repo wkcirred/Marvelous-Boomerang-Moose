@@ -14,7 +14,7 @@ import java.io.File;
 import java.util.ArrayList;
 
 import marvelousboomerangmoose.shoppingwithfriends.Model.Persistence;
-import marvelousboomerangmoose.shoppingwithfriends.Model.UserActivity;
+//import marvelousboomerangmoose.shoppingwithfriends.Model.UserActivity;
 
 /**
  * The screen that is visible upon startup.  Has the login and and registration buttons.
@@ -22,7 +22,7 @@ import marvelousboomerangmoose.shoppingwithfriends.Model.UserActivity;
  */
 @SuppressWarnings("WeakerAccess")
 public class MainActivity extends ActionBarActivity {
-    private UserActivity users;
+    //private UserActivity users;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,7 +33,7 @@ public class MainActivity extends ActionBarActivity {
                     .add(R.id.container, new PlaceholderFragment())
                     .commit();
         }
-        users = new UserActivity();//TODO: Not sure if this is the best way to do this
+        //users = new UserActivity();//TODO: Not sure if this is the best way to do this
         ArrayList<File> files = new ArrayList<>();
         files.add(new File(this.getFilesDir(), "users.bin"));
         files.add(new File(this.getFilesDir(), "products.bin"));
