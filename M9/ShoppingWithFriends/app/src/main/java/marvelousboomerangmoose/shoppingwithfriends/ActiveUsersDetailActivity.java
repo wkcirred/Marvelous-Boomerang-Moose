@@ -41,11 +41,11 @@ public class ActiveUsersDetailActivity extends ActionBarActivity {
 
         TextView tv1 = (TextView) findViewById(R.id.activeFirstName);
         tv1.setText(user.getFirst());
-        TextView tv2 = (TextView) findViewById(R.id.activelastName);
+        TextView tv2 = (TextView) findViewById(R.id.activeLastName);
         tv2.setText(user.getLast());
         TextView tv3 = (TextView) findViewById(R.id.activeEmailAddress);
         tv3.setText(user.getEmail());
-        TextView tv4 = (TextView) findViewById(R.id.activeuserName);
+        TextView tv4 = (TextView) findViewById(R.id.activeUserName);
         tv4.setText(user.getUserName());
         TextView tv5 = (TextView) findViewById(R.id.activeRating);
         tv5.setText(user.getRating());

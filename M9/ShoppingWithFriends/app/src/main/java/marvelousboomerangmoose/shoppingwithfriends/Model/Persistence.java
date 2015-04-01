@@ -55,7 +55,7 @@ public class Persistence{
             try {
                 ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(SALES_REPORT_FILE));
                 out.writeObject(ProductActivity.salesList);
-                Log.d("SALES_REPORT_FILE SAVED:", ProductActivity.salesList.toString());
+                Log.d("SALESREPORTFILE SAVED:", ProductActivity.salesList.toString());
                 out.flush();
                 out.close();
             } catch (IOException e) {
@@ -133,7 +133,7 @@ public class Persistence{
             Log.d("FILES EXIST", "Attempting to Load");
             loadBinary();
         } else {//TODO: Possibly rework this as else ifs
-            Log.d("USER_FILE DOES NOT EXIST", "Attempting to Create");
+            Log.d("USER_FILE DOESN'T EXIST", "Attempting to Create");
             boolean success;
             if (!USER_FILE.exists()) {
                 try {
@@ -163,12 +163,12 @@ public class Persistence{
                 try {
                     success = SALES_REPORT_FILE.createNewFile();
                     if (success) {
-                        Log.d("CREATING SALES_REPORT_FILE", "File Created Successfully");
+                        Log.d("CREATING SALES_REPORT", "File Created Successfully");
                     } else {
-                        Log.d("CREATING SALES_REPORT_FILE", "File Already Exists");
+                        Log.d("CREATING SALES_REPORT", "File Already Exists");
                     }
                 } catch (IOException e) {
-                    Log.e("SALES_REPORT_FILE CREATION", "Error Creation Failed");
+                    Log.e("SALES_REPORT CREATION", "Error Creation Failed");
                 }
             }
 

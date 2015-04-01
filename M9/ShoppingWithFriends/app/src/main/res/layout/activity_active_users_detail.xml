@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Active User Data:"
+        android:text="@string/active_user_data"
         android:id="@+id/activeUserData"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true" />
@@ -21,7 +21,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="First Name:"
+        android:text="@string/first_name"
         android:id="@+id/activeFirstNameHeader"
         android:layout_below="@+id/activeUserData"
         android:layout_alignParentStart="true" />
@@ -30,7 +30,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Last Name:"
+        android:text="@string/last_name"
         android:id="@+id/activeLastNameHeader"
         android:layout_below="@+id/activeFirstNameHeader"
         android:layout_alignParentStart="true" />
@@ -39,7 +39,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Email address:"
+        android:text="@string/email_address"
         android:id="@+id/activeEmailHeader"
         android:layout_below="@+id/activeLastNameHeader"
         android:layout_alignParentStart="true" />
@@ -48,7 +48,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="User Name:"
+        android:text="@string/user_name"
         android:id="@+id/activeUserNameHeader"
         android:layout_below="@+id/activeEmailHeader"
         android:layout_alignParentStart="true" />
@@ -57,18 +57,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Medium Text"
+        android:text="@string/medium_text"
         android:id="@+id/activeFirstName"
         android:layout_above="@+id/activeLastNameHeader"
-        android:layout_alignStart="@+id/activelastName"
+        android:layout_alignStart="@+id/activeLastName"
         android:layout_centerHorizontal="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Medium Text"
-        android:id="@+id/activelastName"
+        android:text="@string/medium_text"
+        android:id="@+id/activeLastName"
         android:layout_alignTop="@+id/activeLastNameHeader"
         android:layout_centerHorizontal="true" />
 
@@ -76,17 +76,17 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Medium Text"
+        android:text="@string/medium_text"
         android:id="@+id/activeEmailAddress"
         android:layout_alignTop="@+id/activeEmailHeader"
-        android:layout_alignStart="@+id/activelastName" />
+        android:layout_alignStart="@+id/activeLastName" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Medium Text"
-        android:id="@+id/activeuserName"
+        android:text="@string/medium_text"
+        android:id="@+id/activeUserName"
         android:layout_below="@+id/activeEmailAddress"
         android:layout_alignStart="@+id/activeEmailAddress" />
 
@@ -94,8 +94,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Rating:"
-        android:id="@+id/activeratingHeader"
+        android:text="@string/rating"
+        android:id="@+id/activeRatingHeader"
         android:layout_below="@+id/activeUserNameHeader"
         android:layout_alignParentStart="true" />
 
@@ -103,16 +103,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Medium Text"
+        android:text="@string/medium_text"
         android:id="@+id/activeRating"
-        android:layout_below="@+id/activeuserName"
-        android:layout_alignStart="@+id/activeuserName" />
+        android:layout_below="@+id/activeUserName"
+        android:layout_alignStart="@+id/activeUserName" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Add Friend"
+        android:text="@string/add_friend"
         android:id="@+id/addFriendButton"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
@@ -123,16 +123,16 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Sales Reports:"
+        android:text="@string/sales_reports"
         android:id="@+id/textView2"
-        android:layout_below="@+id/activeratingHeader"
+        android:layout_below="@+id/activeRatingHeader"
         android:layout_alignParentStart="true" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Medium Text"
+        android:text="@string/medium_text"
         android:id="@+id/textView3"
         android:layout_below="@+id/activeRating"
         android:layout_alignStart="@+id/addFriendButton" />

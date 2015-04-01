@@ -27,7 +27,7 @@ import marvelousboomerangmoose.shoppingwithfriends.Model.Product;
 public class SalesMapActivity extends FragmentActivity {
 
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
-    private LatLngBounds mapView;  //mapView for camera position and size
+    //private LatLngBounds mapView;  //mapView for camera position and size
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -124,7 +124,7 @@ public class SalesMapActivity extends FragmentActivity {
             }
         }
         // Set boundary for camera position
-        mapView = new LatLngBounds(new LatLng(minLatitude, minLongitude)
+        LatLngBounds mapView = new LatLngBounds(new LatLng(minLatitude, minLongitude)
             , new LatLng(maxLatitude, maxLongitude));
 
         // Obtain display metrics from emulator screen
