@@ -19,7 +19,7 @@ import marvelousboomerangmoose.shoppingwithfriends.Model.UserActivity;
 public class AddFriendActivity extends ActionBarActivity {
 
     //public final static String MESSAGE = "marvelousboomerangmoose.shoppingwithfriends.MESSAGE";
-    private final Context context = this;
+    //private final Context context = this;
 
 
     @Override

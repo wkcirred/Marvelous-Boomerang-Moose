@@ -63,6 +63,7 @@
         android:inputType="number"
         android:ems="10"
         android:id="@+id/itemSalePrice"
+        android:labelFor="@+id/itemSalePrice"
         android:layout_below="@+id/itemName"
         android:layout_toEndOf="@+id/textView12" />
 
@@ -72,6 +73,7 @@
         android:inputType="textPostalAddress"
         android:ems="10"
         android:id="@+id/locationAddress"
+        android:labelFor="@+id/locationAddress"
         android:layout_below="@+id/storeName"
         android:layout_toEndOf="@+id/textView12" />
 
@@ -81,6 +83,7 @@
         android:inputType="textPersonName"
         android:ems="10"
         android:id="@+id/itemName"
+        android:labelFor="@+id/itemName"
         android:layout_alignTop="@+id/textView8"
         android:layout_alignStart="@+id/itemSalePrice" />
 
@@ -90,6 +93,7 @@
         android:inputType="number"
         android:ems="10"
         android:id="@+id/quantityAmount"
+        android:labelFor="@+id/quantityAmount"
         android:layout_below="@+id/itemSalePrice"
         android:layout_alignStart="@+id/storeName" />
 
@@ -99,6 +103,7 @@
         android:inputType="textPostalAddress"
         android:ems="10"
         android:id="@+id/storeName"
+        android:labelFor="@+id/storeName"
         android:layout_below="@+id/quantityAmount"
         android:layout_toEndOf="@+id/textView12" />
 

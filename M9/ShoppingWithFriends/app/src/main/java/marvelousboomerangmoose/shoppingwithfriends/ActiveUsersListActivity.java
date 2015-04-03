@@ -34,6 +34,7 @@ public class ActiveUsersListActivity extends ActionBarActivity {
         HashMap<String, User> users = UserActivity.getCredentials();
         for (String key : users.keySet()) {
             User user = users.get(key);
+            //noinspection unchecked
             listAdapter.add(user.getFirst() + " " + user.getLast() + " " + user.getEmail());
             myListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override

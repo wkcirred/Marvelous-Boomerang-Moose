@@ -19,6 +19,7 @@
         android:inputType="textPersonName"
         android:ems="10"
         android:id="@+id/friendFirst"
+        android:labelFor="@+id/friendFirst"
         android:layout_marginTop="56dp"
         android:layout_alignStart="@+id/addFriendAdd"/>
 
@@ -28,6 +29,7 @@
         android:inputType="textPersonName"
         android:ems="10"
         android:id="@+id/friendLast"
+        android:labelFor="@+id/friendLast"
         android:layout_below="@+id/friendFirst"
         android:layout_alignStart="@+id/friendFirst" />
 
@@ -37,6 +39,7 @@
         android:inputType="textEmailAddress"
         android:ems="10"
         android:id="@+id/friendEmail"
+        android:labelFor="@+id/friendEmail"
         android:layout_below="@+id/friendLast"
         android:layout_alignStart="@+id/friendLast" />
 

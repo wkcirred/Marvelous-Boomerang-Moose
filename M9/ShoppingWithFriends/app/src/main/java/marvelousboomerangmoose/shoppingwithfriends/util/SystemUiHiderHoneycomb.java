@@ -11,6 +11,7 @@ import android.view.WindowManager;
  * Honeycomb and later (specifically {@link View#setSystemUiVisibility(int)}) to
  * show and hide the system UI.
  */
+@SuppressWarnings("WeakerAccess")
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
 public class SystemUiHiderHoneycomb extends SystemUiHiderBase {
     /**
