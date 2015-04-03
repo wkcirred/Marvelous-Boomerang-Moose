@@ -7,6 +7,11 @@
     <!-- Strings related to main application -->
     <string name="app_name">Shopping With Friends</string>
     <string name="action_settings">Settings</string>
+    <string name="shopping_with_friends">Shopping With Friends</string>
+    <string name="at">at</string>
+    <string name="log_in">Log In</string>
+    <string name="register">Register</string>
+    <string name="logo">logo</string>
 
     <!-- Strings related to login -->
     <string name="title_activity_login">Log in</string>
@@ -19,10 +24,16 @@
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
-    <string name="error_incorrect_password_or_userID">Incorrect Password and/or User ID.</string>
 
     <!-- Strings related to home -->
     <string name="title_activity_home">Home</string>
+    <string name="log_out">Log Out</string>
+    <string name="current_friend_list">Current Friend List</string>
+    <string name="active_users">Active Users</string>
+    <string name="item_interest">Item Interest</string>
+    <string name="report_sale">Report Sale</string>
+    <string name="interested_items_on_sale">Interested Items on Sale</string>
+    <string name="sales_map">Sales Map</string>
 
     <!-- Strings related to registration -->
     <string name="title_activity_reg">Registration</string>
@@ -33,15 +44,13 @@
     <string name="prompt_register_password">Preferred Password</string>
     <string name="action_register">Register</string>
     <string name="action_cancel_register">Cancel Registration</string>
-    <string name="error_invalid_email">This email address is invalid</string>
 
     <!-- Strings related to Active User List -->
     <string name="title_user_list">Active Users</string>
     <string name="title_activity_active_users_detail">ActiveUsersDetailActivity</string>
-    <string name="title_activity_active_users_list">ActiveUsersListActivity</string>
 
     <!-- Strings related to Friend Detail -->
-    <string name="title_friend_detail">Friend Detail</string>
+
 
     <!-- Strings related to Add Friend -->
     <string name="title_activity_add_friend">Add Friend</string>
@@ -51,24 +60,36 @@
 
     <!-- Strings related to Current Friend Detail -->
     <string name="title_activity_current_friend_detail">Current Friend Detail</string>
+    <string name="friend_data">Friend Data</string>
+    <string name="delete_friend">Delete Friend</string>
 
     <!-- Strings related to Sales -->
     <string name="title_activity_sales_report">Sales Report</string>
     <string name="title_activity_maps">SalesMap</string>
-
-    <!-- Strings related to Misc -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="cancel">Cancel</string>
+    <string name="item_name">Item Name:</string>
+    <string name="price">Price ($):</string>
+    <string name="location">Location:</string>
+    <string name="store_name">Store Name:</string>
+    <string name="quantity">Quantity:</string>
 
     <!-- Strings related to Item -->
-    <string name="title_item_list">Items</string>
-    <string name="title_item_detail">Item Detail</string>
     <string name="title_activity_item_list">Item List</string>
     <string name="title_activity_add_item">Add Item</string>
+    <string name="name">Name:</string>
+    <string name="add">Add</string>
+    <string name="add_item">Add Item</string>
 
     <!-- Strings related to User -->
-    <string name="title_user_detail">User Detail</string>
-    <string name="title_activity_user">UserActivity</string>
+    <string name="first_name">First Name:</string>
+    <string name="last_name">Last Name:</string>
+    <string name="email_address">Email Address:</string>
+    <string name="user_name">User Name:</string>
+    <string name="active_user_data">Active User Data</string>
+    <string name="medium_text">Medium Text</string>
+    <string name="rating">Rating:</string>
+    <string name="add_friend">Add Friend</string>
+    <string name="sales_reports">Sales Reports:</string>
 
 
 </resources>

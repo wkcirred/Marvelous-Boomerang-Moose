@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Shopping With Friends"
+        android:text="@string/shopping_with_friends"
         android:textColor="@color/yellow"
         android:id="@+id/textView"
         android:layout_marginTop="63dp"
@@ -22,7 +22,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="at"
+        android:text="@string/at"
         android:textColor="@color/yellow"
         android:id="@+id/textViewAt"
         android:layout_marginTop="95dp"
@@ -32,7 +32,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Login"
+        android:text="@string/log_in"
         android:id="@+id/buttonLogin"
         android:clickable="true"
         android:layout_above="@+id/buttonReg"
@@ -42,7 +42,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Register"
+        android:text="@string/register"
         android:id="@+id/buttonReg"
         android:clickable="true"
         android:layout_alignParentBottom="true"
@@ -50,6 +50,7 @@
         android:onClick="buttonRegOnClick" />
 
     <ImageView
+        android:contentDescription="@string/logo"
         android:layout_width="200dp"
         android:layout_height="200dp"
         android:id="@+id/imageView"

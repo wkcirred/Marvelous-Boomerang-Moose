@@ -158,14 +158,16 @@ public class LoginActivity extends ActionBarActivity implements LoaderCallbacks<
      * @param user the user ID being checked
      * @return true or false depending on if it is valid
      */
-    private boolean isUserIDValid(String user) {return user.length() >= minLengthUserInfo;}
+    private boolean isUserIDValid(String user) {
+        return user.length() >= minLengthUserInfo;
+    }
 
     /**
      * Checks the validity of the password.
      * @param password the password being checked
      * @return true or false depending on if it is valid
      */
-    private boolean isPasswordValid(String password) {
+    public boolean isPasswordValid(String password) {
         return password.length() >= minLengthUserInfo;
     }
 

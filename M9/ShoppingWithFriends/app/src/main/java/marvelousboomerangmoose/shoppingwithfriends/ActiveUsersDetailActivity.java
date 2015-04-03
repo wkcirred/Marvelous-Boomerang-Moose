@@ -39,15 +39,15 @@ public class ActiveUsersDetailActivity extends ActionBarActivity {
         
         User user = users.get(foundUserName);
 
-        TextView tv1 = (TextView) findViewById(R.id.activefirstName);
+        TextView tv1 = (TextView) findViewById(R.id.activeFirstName);
         tv1.setText(user.getFirst());
-        TextView tv2 = (TextView) findViewById(R.id.activelastName);
+        TextView tv2 = (TextView) findViewById(R.id.activeLastName);
         tv2.setText(user.getLast());
-        TextView tv3 = (TextView) findViewById(R.id.activeemailAddress);
+        TextView tv3 = (TextView) findViewById(R.id.activeEmailAddress);
         tv3.setText(user.getEmail());
-        TextView tv4 = (TextView) findViewById(R.id.activeuserName);
+        TextView tv4 = (TextView) findViewById(R.id.activeUserName);
         tv4.setText(user.getUserName());
-        TextView tv5 = (TextView) findViewById(R.id.activerating);
+        TextView tv5 = (TextView) findViewById(R.id.activeRating);
         tv5.setText(user.getRating());
     }
 
@@ -85,10 +85,8 @@ public class ActiveUsersDetailActivity extends ActionBarActivity {
         String key = intent.getStringExtra("email");
         HashMap<String, User> users = UserActivity.getCredentials();
         String foundUserName = "";
-        String foundEmail = "";
         for (String userName : users.keySet()) {
             if (users.get(userName).getEmail().equals(key)) {
-                foundEmail = users.get(userName).getEmail();
                 foundUserName = userName;
             }
         }

@@ -20,7 +20,7 @@ public class User implements Serializable{
     //TODO: Add friend list and shopping attributes
 
     // Constructor
-    User(String first, String last, String email, String userName, String password) {
+    public User(String first, String last, String email, String userName, String password) {
         this.first = first;
         this.last = last;
         this.email = email;
@@ -90,14 +90,18 @@ public class User implements Serializable{
         Log.d("User Email", this.getEmail());
         Log.d("Friend Email", friend.getEmail());
         friendList.put(friend.getEmail(), friend);
-        Persistence.saveBinary();
+        try {
+            Persistence.saveBinary();
+        } catch (NullPointerException e) {
+            Log.e("Friend Adding", "Binary Files Don't Exist");
+        }
     }
 
     /**
      * Deletes a user as a friend using their user object
      * @param friend the friend object of the user
      */
-    void deleteFriend(User friend) {
+    private void deleteFriend(User friend) {
         friendList.remove(friend.getEmail());
     }
 
