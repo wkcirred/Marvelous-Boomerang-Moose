@@ -20,7 +20,7 @@ public class User implements Serializable{
     //TODO: Add friend list and shopping attributes
 
     // Constructor
-    User(String first, String last, String email, String userName, String password) {
+    public User(String first, String last, String email, String userName, String password) {
         this.first = first;
         this.last = last;
         this.email = email;

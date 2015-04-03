@@ -65,6 +65,8 @@ public class RegActivity extends ActionBarActivity implements LoaderCallbacks<Cu
     }
 
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -105,11 +107,11 @@ public class RegActivity extends ActionBarActivity implements LoaderCallbacks<Cu
      * If there are form errors (invalid email, missing fields, etc.), the
      * errors are presented and no actual register attempt is made.
      */
-    private void attemptRegister() {
+
+    public void attemptRegister() {
         if (mAuthTask != null) {
             return;
         }
-
         // Reset errors.
         mUserNameView.setError(null);
         mPasswordView.setError(null);
@@ -141,10 +143,6 @@ public class RegActivity extends ActionBarActivity implements LoaderCallbacks<Cu
             mUserNameView.setError(getString(R.string.error_invalid_userID));
             focusView = mUserNameView;
             cancel = true;
-        } else if (UserActivity.getCredentials().containsKey(userName)) {
-            mUserNameView.setError("User Name Unavailable");
-            focusView = mUserNameView;
-            cancel = true;
         }
 
         if (TextUtils.isEmpty(firstName)) {
@@ -159,6 +157,10 @@ public class RegActivity extends ActionBarActivity implements LoaderCallbacks<Cu
         }
         if (TextUtils.isEmpty(email)) {
             mEmailView.setError(getString(R.string.error_field_required));
+            focusView = mEmailView;
+            cancel = true;
+        } else if (!isUserEmailValid(email)) {
+            mEmailView.setError("The email is already in use");
             focusView = mEmailView;
             cancel = true;
         }
@@ -181,16 +183,27 @@ public class RegActivity extends ActionBarActivity implements LoaderCallbacks<Cu
      * @param userName the username being checked
      * @return whether or not the username is valid
      */
-    private boolean isUserNameValid(String userName) {
-        return userName.length() > 3;
+    public static boolean isUserNameValid(String userName) {
+
+        return !UserActivity.getCredentials().containsKey(userName) && userName.length() > 3;
+
     }
 
+
+    public static boolean isUserEmailValid(String email) {
+        for (String key : UserActivity.getCredentials().keySet()) {
+            if (UserActivity.getCredentials().get(key).getEmail().equals(email)) {
+                return false;
+            }
+        }
+        return true;
+    }
     /**
      * Checks if the password being used for registration is valid.
      * @param password the password being checked
      * @return whether or not the password is valid
      */
-    private boolean isPasswordValid(String password) {
+    public static boolean isPasswordValid(String password) {
         return password.length() > 3;
     }
 
@@ -289,10 +302,13 @@ public class RegActivity extends ActionBarActivity implements LoaderCallbacks<Cu
         mUserNameView.setAdapter(adapter);
     }
 
+
+
     /**
      * Represents an asynchronous login/registration task used to authenticate
      * the user.
      */
+
     public class UserRegisterTask extends AsyncTask<Void, Void, Boolean> {
 
         private final String mUserName;

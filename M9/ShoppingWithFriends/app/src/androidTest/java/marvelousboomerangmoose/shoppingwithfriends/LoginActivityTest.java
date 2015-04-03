@@ -13,7 +13,7 @@ public class LoginActivityTest extends TestCase {
     public void testValidPassword() throws Exception {
         String pw = "AAAAAAA";
         assertTrue(la.isPasswordValid(pw));
-
+        
     }
     public void testInvalidPassword() throws Exception {
         String pw = "";
