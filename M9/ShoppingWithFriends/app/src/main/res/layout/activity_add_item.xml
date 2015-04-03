@@ -31,7 +31,9 @@
     <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:inputType="textPersonName"
         android:id="@+id/nameTextEdit"
+        android:labelFor="@+id/nameTextEdit"
         android:layout_above="@+id/button"
         android:layout_marginBottom="80dp"
         android:layout_alignEnd="@+id/button2"
@@ -62,6 +64,7 @@
         android:inputType="numberDecimal"
         android:ems="10"
         android:id="@+id/priceTextEdit"
+        android:labelFor="@+id/priceTextEdit"
         android:layout_alignBottom="@+id/textView7"
         android:layout_alignParentEnd="true"
         android:layout_toEndOf="@+id/button" />

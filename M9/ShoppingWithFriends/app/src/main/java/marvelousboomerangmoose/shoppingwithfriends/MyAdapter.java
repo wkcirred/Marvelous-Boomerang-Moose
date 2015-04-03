@@ -21,6 +21,7 @@ class MyAdapter extends BaseAdapter {
     // Constructor
     public MyAdapter(Map<String, Product> map) {
         mData = new ArrayList();
+        //noinspection unchecked
         mData.addAll(map.entrySet());
     }
 
@@ -31,6 +32,7 @@ class MyAdapter extends BaseAdapter {
 
     @Override
     public Map.Entry<String, Product> getItem(int position) {
+        //noinspection unchecked
         return (Map.Entry) mData.get(position);
     }
 

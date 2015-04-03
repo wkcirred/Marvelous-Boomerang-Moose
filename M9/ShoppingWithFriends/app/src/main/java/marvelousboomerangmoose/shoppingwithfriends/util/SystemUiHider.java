@@ -23,6 +23,7 @@ import android.view.View;
  * @see android.view.View#setSystemUiVisibility(int)
  * @see android.view.WindowManager.LayoutParams#FLAG_FULLSCREEN
  */
+@SuppressWarnings("ALL")
 public abstract class SystemUiHider {
     /**
      * When this flag is set, the
@@ -161,6 +162,7 @@ public abstract class SystemUiHider {
     /**
      * A callback interface used to listen for system UI visibility changes.
      */
+    @SuppressWarnings("EmptyMethod")
     public interface OnVisibilityChangeListener {
         /**
          * Called when the system UI visibility has changed.

@@ -22,8 +22,8 @@ import marvelousboomerangmoose.shoppingwithfriends.Model.UserActivity;
  * new friends.
  */
 public class HomeActivity extends ActionBarActivity {
-    ArrayList<String> arrayList;
-    ArrayList<String> interestList;
+    //private ArrayList<String> arrayList;
+    //private ArrayList<String> interestList;
     // Used to store interestAlert for User
     public static HashMap<String, Product> interestAlert = new HashMap<>();
 
@@ -41,8 +41,11 @@ public class HomeActivity extends ActionBarActivity {
     /**
      * Creates a list of the user's interested items that have been reported to be on sale.
      */
+    @SuppressWarnings("WeakerAccess")
     public void interestedSalesList(HashMap<String, Product> salesMap,
                                     HashMap<String, Product> interestMap) {
+        ArrayList<String> arrayList;
+        ArrayList<String> interestList;
         if (!salesMap.isEmpty()) {
             arrayList = new ArrayList<>(salesMap.keySet());
             interestList = new ArrayList<>(interestMap.keySet());
@@ -68,6 +71,7 @@ public class HomeActivity extends ActionBarActivity {
      * @param v - the button being clicked
      */
     public void buttonItemListOnClick(View v) {
+        v.getId();
         startActivity(new Intent(this, ItemListActivity.class));
     }
 
@@ -76,6 +80,7 @@ public class HomeActivity extends ActionBarActivity {
      * @param v - the button being clicked
      */
     public void reportSaleOnClick(View v) {
+        v.getId();
         startActivity(new Intent(this, SalesReportActivity.class));
     }
 
@@ -91,6 +96,7 @@ public class HomeActivity extends ActionBarActivity {
      * @param v the button being clicked
      */
     public void logoutOnClick(View v) {
+        v.getId();
         UserActivity.loggedInUser = null;
         startActivity(new Intent(this, MainActivity.class));
     }
@@ -100,6 +106,7 @@ public class HomeActivity extends ActionBarActivity {
      * @param v the button being clicked
      */
     public void activeUsersOnClick(View v) {
+        v.getId();
         startActivity(new Intent(this, ActiveUsersListActivity.class));
     }
 
@@ -108,6 +115,7 @@ public class HomeActivity extends ActionBarActivity {
      * @param v the button being clicked
      */
     public void currentFriendsOnClick(View v) {
+        v.getId();
         startActivity(new Intent(this, CurrentFriendListActivity.class));
     }
 
@@ -116,6 +124,7 @@ public class HomeActivity extends ActionBarActivity {
      * @param v the button being clicked
      */
     public void salesMapOnClick(View v) {
+        v.getId();
         if (!interestAlert.isEmpty()) {
             startActivity(new Intent(this, SalesMapActivity.class));
         } else {

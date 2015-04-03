@@ -38,11 +38,11 @@ public class ItemListActivity extends ActionBarActivity {
      * Button to click that takes the user to the HomeActivity
      * @param v - the button being clicked
      */
-    public void buttonHomeOnClick(View v){
+    /*public void buttonHomeOnClick(View v){
         //Does nothing but to eliminate a analyzing error
         v.getId();
         startActivity(new Intent(this, HomeActivity.class));
-    }
+    }*/
 
     /**
      * Button to click that takes the user to the AddItemActivity
